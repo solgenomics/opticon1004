@@ -1,0 +1,2717 @@
+   1              		.code	16
+   2              		.file	"menu.c"
+   3              		.global	_uncheck
+   4              		.section	.rodata
+   7              	_uncheck:
+   8 0000 20       		.byte	32
+   9 0001 20       		.byte	32
+  10 0002 00       		.byte	0
+  11 0003 00       		.byte	0
+  12 0004 00       		.byte	0
+  13 0005 00       		.byte	0
+  14 0006 00       		.byte	0
+  15 0007 00       		.byte	0
+  16 0008 00       		.byte	0
+  17 0009 00       		.byte	0
+  18 000a 00       		.byte	0
+  19 000b 00       		.byte	0
+  20 000c 00       		.byte	0
+  21 000d 00       		.byte	0
+  22 000e 00       		.byte	0
+  23 000f 00       		.byte	0
+  24 0010 00       		.byte	0
+  25 0011 00       		.byte	0
+  26 0012 00       		.byte	0
+  27 0013 00       		.byte	0
+  28 0014 00       		.byte	0
+  29 0015 00       		.byte	0
+  30 0016 00       		.byte	0
+  31 0017 00       		.byte	0
+  32 0018 00       		.byte	0
+  33 0019 00       		.byte	0
+  34 001a 00       		.byte	0
+  35 001b 00       		.byte	0
+  36 001c 00       		.byte	0
+  37 001d 00       		.byte	0
+  38 001e 00       		.byte	0
+  39 001f 00       		.byte	0
+  40 0020 00       		.byte	0
+  41 0021 00       		.byte	0
+  42 0022 00       		.byte	0
+  43 0023 00       		.byte	0
+  44 0024 00       		.byte	0
+  45 0025 00       		.byte	0
+  46 0026 7F       		.byte	127
+  47 0027 FF       		.byte	-1
+  48 0028 FC       		.byte	-4
+  49 0029 00       		.byte	0
+  50 002a 7F       		.byte	127
+  51 002b FF       		.byte	-1
+  52 002c FC       		.byte	-4
+  53 002d 00       		.byte	0
+  54 002e 60       		.byte	96
+  55 002f 00       		.byte	0
+  56 0030 0C       		.byte	12
+  57 0031 00       		.byte	0
+  58 0032 60       		.byte	96
+  59 0033 00       		.byte	0
+  60 0034 0C       		.byte	12
+  61 0035 00       		.byte	0
+  62 0036 60       		.byte	96
+  63 0037 00       		.byte	0
+  64 0038 0C       		.byte	12
+  65 0039 00       		.byte	0
+  66 003a 60       		.byte	96
+  67 003b 00       		.byte	0
+  68 003c 0C       		.byte	12
+  69 003d 00       		.byte	0
+  70 003e 60       		.byte	96
+  71 003f 00       		.byte	0
+  72 0040 0C       		.byte	12
+  73 0041 00       		.byte	0
+  74 0042 60       		.byte	96
+  75 0043 00       		.byte	0
+  76 0044 0C       		.byte	12
+  77 0045 00       		.byte	0
+  78 0046 60       		.byte	96
+  79 0047 00       		.byte	0
+  80 0048 0C       		.byte	12
+  81 0049 00       		.byte	0
+  82 004a 60       		.byte	96
+  83 004b 00       		.byte	0
+  84 004c 0C       		.byte	12
+  85 004d 00       		.byte	0
+  86 004e 60       		.byte	96
+  87 004f 00       		.byte	0
+  88 0050 0C       		.byte	12
+  89 0051 00       		.byte	0
+  90 0052 60       		.byte	96
+  91 0053 00       		.byte	0
+  92 0054 0C       		.byte	12
+  93 0055 00       		.byte	0
+  94 0056 60       		.byte	96
+  95 0057 00       		.byte	0
+  96 0058 0C       		.byte	12
+  97 0059 00       		.byte	0
+  98 005a 60       		.byte	96
+  99 005b 00       		.byte	0
+ 100 005c 0C       		.byte	12
+ 101 005d 00       		.byte	0
+ 102 005e 60       		.byte	96
+ 103 005f 00       		.byte	0
+ 104 0060 0C       		.byte	12
+ 105 0061 00       		.byte	0
+ 106 0062 60       		.byte	96
+ 107 0063 00       		.byte	0
+ 108 0064 0C       		.byte	12
+ 109 0065 00       		.byte	0
+ 110 0066 60       		.byte	96
+ 111 0067 00       		.byte	0
+ 112 0068 0C       		.byte	12
+ 113 0069 00       		.byte	0
+ 114 006a 60       		.byte	96
+ 115 006b 00       		.byte	0
+ 116 006c 0C       		.byte	12
+ 117 006d 00       		.byte	0
+ 118 006e 60       		.byte	96
+ 119 006f 00       		.byte	0
+ 120 0070 0C       		.byte	12
+ 121 0071 00       		.byte	0
+ 122 0072 60       		.byte	96
+ 123 0073 00       		.byte	0
+ 124 0074 0C       		.byte	12
+ 125 0075 00       		.byte	0
+ 126 0076 7F       		.byte	127
+ 127 0077 FF       		.byte	-1
+ 128 0078 FC       		.byte	-4
+ 129 0079 00       		.byte	0
+ 130 007a 7F       		.byte	127
+ 131 007b FF       		.byte	-1
+ 132 007c FC       		.byte	-4
+ 133 007d 00       		.byte	0
+ 134 007e 00       		.byte	0
+ 135 007f 00       		.byte	0
+ 136 0080 00       		.byte	0
+ 137 0081 00       		.byte	0
+ 138              		.global	_checked
+ 141              	_checked:
+ 142 0082 20       		.byte	32
+ 143 0083 20       		.byte	32
+ 144 0084 00       		.byte	0
+ 145 0085 00       		.byte	0
+ 146 0086 00       		.byte	0
+ 147 0087 00       		.byte	0
+ 148 0088 00       		.byte	0
+ 149 0089 00       		.byte	0
+ 150 008a 00       		.byte	0
+ 151 008b 80       		.byte	-128
+ 152 008c 00       		.byte	0
+ 153 008d 00       		.byte	0
+ 154 008e 01       		.byte	1
+ 155 008f E0       		.byte	-32
+ 156 0090 00       		.byte	0
+ 157 0091 00       		.byte	0
+ 158 0092 01       		.byte	1
+ 159 0093 F0       		.byte	-16
+ 160 0094 00       		.byte	0
+ 161 0095 00       		.byte	0
+ 162 0096 03       		.byte	3
+ 163 0097 F8       		.byte	-8
+ 164 0098 00       		.byte	0
+ 165 0099 00       		.byte	0
+ 166 009a 07       		.byte	7
+ 167 009b F0       		.byte	-16
+ 168 009c 00       		.byte	0
+ 169 009d 00       		.byte	0
+ 170 009e 07       		.byte	7
+ 171 009f E0       		.byte	-32
+ 172 00a0 00       		.byte	0
+ 173 00a1 00       		.byte	0
+ 174 00a2 0F       		.byte	15
+ 175 00a3 E0       		.byte	-32
+ 176 00a4 00       		.byte	0
+ 177 00a5 00       		.byte	0
+ 178 00a6 1F       		.byte	31
+ 179 00a7 C0       		.byte	-64
+ 180 00a8 7F       		.byte	127
+ 181 00a9 FF       		.byte	-1
+ 182 00aa DF       		.byte	-33
+ 183 00ab 80       		.byte	-128
+ 184 00ac 7F       		.byte	127
+ 185 00ad FF       		.byte	-1
+ 186 00ae BF       		.byte	-65
+ 187 00af 00       		.byte	0
+ 188 00b0 60       		.byte	96
+ 189 00b1 00       		.byte	0
+ 190 00b2 3E       		.byte	62
+ 191 00b3 00       		.byte	0
+ 192 00b4 66       		.byte	102
+ 193 00b5 00       		.byte	0
+ 194 00b6 7C       		.byte	124
+ 195 00b7 00       		.byte	0
+ 196 00b8 6F       		.byte	111
+ 197 00b9 00       		.byte	0
+ 198 00ba FC       		.byte	-4
+ 199 00bb 00       		.byte	0
+ 200 00bc 6F       		.byte	111
+ 201 00bd 00       		.byte	0
+ 202 00be F8       		.byte	-8
+ 203 00bf 00       		.byte	0
+ 204 00c0 7F       		.byte	127
+ 205 00c1 81       		.byte	-127
+ 206 00c2 F4       		.byte	-12
+ 207 00c3 00       		.byte	0
+ 208 00c4 7F       		.byte	127
+ 209 00c5 83       		.byte	-125
+ 210 00c6 EC       		.byte	-20
+ 211 00c7 00       		.byte	0
+ 212 00c8 6F       		.byte	111
+ 213 00c9 C3       		.byte	-61
+ 214 00ca CC       		.byte	-52
+ 215 00cb 00       		.byte	0
+ 216 00cc 67       		.byte	103
+ 217 00cd C7       		.byte	-57
+ 218 00ce CC       		.byte	-52
+ 219 00cf 00       		.byte	0
+ 220 00d0 63       		.byte	99
+ 221 00d1 EF       		.byte	-17
+ 222 00d2 8C       		.byte	-116
+ 223 00d3 00       		.byte	0
+ 224 00d4 63       		.byte	99
+ 225 00d5 EF       		.byte	-17
+ 226 00d6 0C       		.byte	12
+ 227 00d7 00       		.byte	0
+ 228 00d8 61       		.byte	97
+ 229 00d9 FE       		.byte	-2
+ 230 00da 0C       		.byte	12
+ 231 00db 00       		.byte	0
+ 232 00dc 60       		.byte	96
+ 233 00dd FC       		.byte	-4
+ 234 00de 0C       		.byte	12
+ 235 00df 00       		.byte	0
+ 236 00e0 60       		.byte	96
+ 237 00e1 F8       		.byte	-8
+ 238 00e2 0C       		.byte	12
+ 239 00e3 00       		.byte	0
+ 240 00e4 60       		.byte	96
+ 241 00e5 78       		.byte	120
+ 242 00e6 0C       		.byte	12
+ 243 00e7 00       		.byte	0
+ 244 00e8 60       		.byte	96
+ 245 00e9 70       		.byte	112
+ 246 00ea 0C       		.byte	12
+ 247 00eb 00       		.byte	0
+ 248 00ec 60       		.byte	96
+ 249 00ed 30       		.byte	48
+ 250 00ee 0C       		.byte	12
+ 251 00ef 00       		.byte	0
+ 252 00f0 60       		.byte	96
+ 253 00f1 20       		.byte	32
+ 254 00f2 0C       		.byte	12
+ 255 00f3 00       		.byte	0
+ 256 00f4 60       		.byte	96
+ 257 00f5 00       		.byte	0
+ 258 00f6 0C       		.byte	12
+ 259 00f7 00       		.byte	0
+ 260 00f8 7F       		.byte	127
+ 261 00f9 FF       		.byte	-1
+ 262 00fa FC       		.byte	-4
+ 263 00fb 00       		.byte	0
+ 264 00fc 7F       		.byte	127
+ 265 00fd FF       		.byte	-1
+ 266 00fe FC       		.byte	-4
+ 267 00ff 00       		.byte	0
+ 268 0100 00       		.byte	0
+ 269 0101 00       		.byte	0
+ 270 0102 00       		.byte	0
+ 271 0103 00       		.byte	0
+ 272              		.global	_select
+ 275              	_select:
+ 276 0104 20       		.byte	32
+ 277 0105 08       		.byte	8
+ 278 0106 7F       		.byte	127
+ 279 0107 FF       		.byte	-1
+ 280 0108 FF       		.byte	-1
+ 281 0109 FE       		.byte	-2
+ 282 010a FF       		.byte	-1
+ 283 010b FF       		.byte	-1
+ 284 010c FF       		.byte	-1
+ 285 010d FF       		.byte	-1
+ 286 010e C4       		.byte	-60
+ 287 010f 2F       		.byte	47
+ 288 0110 0C       		.byte	12
+ 289 0111 41       		.byte	65
+ 290 0112 BD       		.byte	-67
+ 291 0113 EF       		.byte	-17
+ 292 0114 7B       		.byte	123
+ 293 0115 F7       		.byte	-9
+ 294 0116 CC       		.byte	-52
+ 295 0117 6F       		.byte	111
+ 296 0118 1B       		.byte	27
+ 297 0119 F7       		.byte	-9
+ 298 011a F5       		.byte	-11
+ 299 011b EF       		.byte	-17
+ 300 011c 7B       		.byte	123
+ 301 011d F7       		.byte	-9
+ 302 011e 8C       		.byte	-116
+ 303 011f 21       		.byte	33
+ 304 0120 0C       		.byte	12
+ 305 0121 77       		.byte	119
+ 306 0122 FF       		.byte	-1
+ 307 0123 FF       		.byte	-1
+ 308 0124 FF       		.byte	-1
+ 309 0125 FF       		.byte	-1
+ 310              		.global	_down_arrow
+ 313              	_down_arrow:
+ 314 0126 08       		.byte	8
+ 315 0127 08       		.byte	8
+ 316 0128 7E       		.byte	126
+ 317 0129 E7       		.byte	-25
+ 318 012a E7       		.byte	-25
+ 319 012b E7       		.byte	-25
+ 320 012c 81       		.byte	-127
+ 321 012d C3       		.byte	-61
+ 322 012e E7       		.byte	-25
+ 323 012f FF       		.byte	-1
+ 324              		.global	_up_arrow
+ 327              	_up_arrow:
+ 328 0130 08       		.byte	8
+ 329 0131 08       		.byte	8
+ 330 0132 7E       		.byte	126
+ 331 0133 E7       		.byte	-25
+ 332 0134 C3       		.byte	-61
+ 333 0135 81       		.byte	-127
+ 334 0136 E7       		.byte	-25
+ 335 0137 E7       		.byte	-25
+ 336 0138 E7       		.byte	-25
+ 337 0139 FF       		.byte	-1
+ 338              		.global	_exitsign
+ 341              	_exitsign:
+ 342 013a 40       		.byte	64
+ 343 013b 40       		.byte	64
+ 344 013c 00       		.byte	0
+ 345 013d 00       		.byte	0
+ 346 013e 00       		.byte	0
+ 347 013f 00       		.byte	0
+ 348 0140 00       		.byte	0
+ 349 0141 00       		.byte	0
+ 350 0142 00       		.byte	0
+ 351 0143 00       		.byte	0
+ 352 0144 00       		.byte	0
+ 353 0145 00       		.byte	0
+ 354 0146 00       		.byte	0
+ 355 0147 00       		.byte	0
+ 356 0148 00       		.byte	0
+ 357 0149 00       		.byte	0
+ 358 014a 00       		.byte	0
+ 359 014b 00       		.byte	0
+ 360 014c 00       		.byte	0
+ 361 014d 00       		.byte	0
+ 362 014e 00       		.byte	0
+ 363 014f 00       		.byte	0
+ 364 0150 00       		.byte	0
+ 365 0151 00       		.byte	0
+ 366 0152 00       		.byte	0
+ 367 0153 00       		.byte	0
+ 368 0154 00       		.byte	0
+ 369 0155 00       		.byte	0
+ 370 0156 00       		.byte	0
+ 371 0157 00       		.byte	0
+ 372 0158 00       		.byte	0
+ 373 0159 00       		.byte	0
+ 374 015a 00       		.byte	0
+ 375 015b 00       		.byte	0
+ 376 015c 00       		.byte	0
+ 377 015d 00       		.byte	0
+ 378 015e 00       		.byte	0
+ 379 015f 00       		.byte	0
+ 380 0160 00       		.byte	0
+ 381 0161 00       		.byte	0
+ 382 0162 00       		.byte	0
+ 383 0163 00       		.byte	0
+ 384 0164 00       		.byte	0
+ 385 0165 00       		.byte	0
+ 386 0166 00       		.byte	0
+ 387 0167 00       		.byte	0
+ 388 0168 00       		.byte	0
+ 389 0169 00       		.byte	0
+ 390 016a 00       		.byte	0
+ 391 016b 00       		.byte	0
+ 392 016c 00       		.byte	0
+ 393 016d 00       		.byte	0
+ 394 016e 00       		.byte	0
+ 395 016f 00       		.byte	0
+ 396 0170 00       		.byte	0
+ 397 0171 00       		.byte	0
+ 398 0172 00       		.byte	0
+ 399 0173 00       		.byte	0
+ 400 0174 00       		.byte	0
+ 401 0175 00       		.byte	0
+ 402 0176 00       		.byte	0
+ 403 0177 00       		.byte	0
+ 404 0178 00       		.byte	0
+ 405 0179 00       		.byte	0
+ 406 017a 00       		.byte	0
+ 407 017b 00       		.byte	0
+ 408 017c 00       		.byte	0
+ 409 017d 00       		.byte	0
+ 410 017e 00       		.byte	0
+ 411 017f 00       		.byte	0
+ 412 0180 00       		.byte	0
+ 413 0181 00       		.byte	0
+ 414 0182 00       		.byte	0
+ 415 0183 00       		.byte	0
+ 416 0184 00       		.byte	0
+ 417 0185 00       		.byte	0
+ 418 0186 00       		.byte	0
+ 419 0187 00       		.byte	0
+ 420 0188 00       		.byte	0
+ 421 0189 00       		.byte	0
+ 422 018a 00       		.byte	0
+ 423 018b 00       		.byte	0
+ 424 018c 00       		.byte	0
+ 425 018d 00       		.byte	0
+ 426 018e 00       		.byte	0
+ 427 018f 00       		.byte	0
+ 428 0190 00       		.byte	0
+ 429 0191 00       		.byte	0
+ 430 0192 00       		.byte	0
+ 431 0193 00       		.byte	0
+ 432 0194 00       		.byte	0
+ 433 0195 00       		.byte	0
+ 434 0196 00       		.byte	0
+ 435 0197 00       		.byte	0
+ 436 0198 00       		.byte	0
+ 437 0199 00       		.byte	0
+ 438 019a 00       		.byte	0
+ 439 019b 00       		.byte	0
+ 440 019c 00       		.byte	0
+ 441 019d 00       		.byte	0
+ 442 019e 1F       		.byte	31
+ 443 019f FF       		.byte	-1
+ 444 01a0 FF       		.byte	-1
+ 445 01a1 F8       		.byte	-8
+ 446 01a2 00       		.byte	0
+ 447 01a3 00       		.byte	0
+ 448 01a4 00       		.byte	0
+ 449 01a5 00       		.byte	0
+ 450 01a6 3F       		.byte	63
+ 451 01a7 FF       		.byte	-1
+ 452 01a8 FF       		.byte	-1
+ 453 01a9 FC       		.byte	-4
+ 454 01aa 00       		.byte	0
+ 455 01ab 00       		.byte	0
+ 456 01ac 00       		.byte	0
+ 457 01ad 00       		.byte	0
+ 458 01ae 70       		.byte	112
+ 459 01af 00       		.byte	0
+ 460 01b0 00       		.byte	0
+ 461 01b1 0E       		.byte	14
+ 462 01b2 00       		.byte	0
+ 463 01b3 00       		.byte	0
+ 464 01b4 00       		.byte	0
+ 465 01b5 00       		.byte	0
+ 466 01b6 60       		.byte	96
+ 467 01b7 00       		.byte	0
+ 468 01b8 00       		.byte	0
+ 469 01b9 06       		.byte	6
+ 470 01ba 00       		.byte	0
+ 471 01bb 00       		.byte	0
+ 472 01bc 00       		.byte	0
+ 473 01bd 00       		.byte	0
+ 474 01be 67       		.byte	103
+ 475 01bf D9       		.byte	-39
+ 476 01c0 B7       		.byte	-73
+ 477 01c1 E6       		.byte	-26
+ 478 01c2 00       		.byte	0
+ 479 01c3 00       		.byte	0
+ 480 01c4 00       		.byte	0
+ 481 01c5 00       		.byte	0
+ 482 01c6 67       		.byte	103
+ 483 01c7 D9       		.byte	-39
+ 484 01c8 B7       		.byte	-73
+ 485 01c9 E6       		.byte	-26
+ 486 01ca 00       		.byte	0
+ 487 01cb 00       		.byte	0
+ 488 01cc 00       		.byte	0
+ 489 01cd 00       		.byte	0
+ 490 01ce 66       		.byte	102
+ 491 01cf 0F       		.byte	15
+ 492 01d0 31       		.byte	49
+ 493 01d1 86       		.byte	-122
+ 494 01d2 00       		.byte	0
+ 495 01d3 00       		.byte	0
+ 496 01d4 00       		.byte	0
+ 497 01d5 00       		.byte	0
+ 498 01d6 67       		.byte	103
+ 499 01d7 86       		.byte	-122
+ 500 01d8 31       		.byte	49
+ 501 01d9 86       		.byte	-122
+ 502 01da 00       		.byte	0
+ 503 01db 00       		.byte	0
+ 504 01dc 00       		.byte	0
+ 505 01dd 00       		.byte	0
+ 506 01de 67       		.byte	103
+ 507 01df 86       		.byte	-122
+ 508 01e0 31       		.byte	49
+ 509 01e1 86       		.byte	-122
+ 510 01e2 00       		.byte	0
+ 511 01e3 00       		.byte	0
+ 512 01e4 00       		.byte	0
+ 513 01e5 00       		.byte	0
+ 514 01e6 66       		.byte	102
+ 515 01e7 0F       		.byte	15
+ 516 01e8 31       		.byte	49
+ 517 01e9 86       		.byte	-122
+ 518 01ea 00       		.byte	0
+ 519 01eb 00       		.byte	0
+ 520 01ec 00       		.byte	0
+ 521 01ed 00       		.byte	0
+ 522 01ee 67       		.byte	103
+ 523 01ef D9       		.byte	-39
+ 524 01f0 B1       		.byte	-79
+ 525 01f1 86       		.byte	-122
+ 526 01f2 00       		.byte	0
+ 527 01f3 00       		.byte	0
+ 528 01f4 00       		.byte	0
+ 529 01f5 00       		.byte	0
+ 530 01f6 67       		.byte	103
+ 531 01f7 D9       		.byte	-39
+ 532 01f8 B1       		.byte	-79
+ 533 01f9 86       		.byte	-122
+ 534 01fa 00       		.byte	0
+ 535 01fb 00       		.byte	0
+ 536 01fc 00       		.byte	0
+ 537 01fd 00       		.byte	0
+ 538 01fe 60       		.byte	96
+ 539 01ff 00       		.byte	0
+ 540 0200 00       		.byte	0
+ 541 0201 06       		.byte	6
+ 542 0202 00       		.byte	0
+ 543 0203 00       		.byte	0
+ 544 0204 00       		.byte	0
+ 545 0205 00       		.byte	0
+ 546 0206 60       		.byte	96
+ 547 0207 00       		.byte	0
+ 548 0208 00       		.byte	0
+ 549 0209 06       		.byte	6
+ 550 020a 00       		.byte	0
+ 551 020b 00       		.byte	0
+ 552 020c 00       		.byte	0
+ 553 020d 00       		.byte	0
+ 554 020e 60       		.byte	96
+ 555 020f 01       		.byte	1
+ 556 0210 FC       		.byte	-4
+ 557 0211 06       		.byte	6
+ 558 0212 00       		.byte	0
+ 559 0213 00       		.byte	0
+ 560 0214 00       		.byte	0
+ 561 0215 00       		.byte	0
+ 562 0216 60       		.byte	96
+ 563 0217 00       		.byte	0
+ 564 0218 FC       		.byte	-4
+ 565 0219 06       		.byte	6
+ 566 021a 00       		.byte	0
+ 567 021b 00       		.byte	0
+ 568 021c 00       		.byte	0
+ 569 021d 00       		.byte	0
+ 570 021e 60       		.byte	96
+ 571 021f 00       		.byte	0
+ 572 0220 7C       		.byte	124
+ 573 0221 06       		.byte	6
+ 574 0222 00       		.byte	0
+ 575 0223 00       		.byte	0
+ 576 0224 00       		.byte	0
+ 577 0225 00       		.byte	0
+ 578 0226 60       		.byte	96
+ 579 0227 00       		.byte	0
+ 580 0228 FC       		.byte	-4
+ 581 0229 06       		.byte	6
+ 582 022a 00       		.byte	0
+ 583 022b 00       		.byte	0
+ 584 022c 00       		.byte	0
+ 585 022d 00       		.byte	0
+ 586 022e 60       		.byte	96
+ 587 022f 01       		.byte	1
+ 588 0230 FC       		.byte	-4
+ 589 0231 06       		.byte	6
+ 590 0232 00       		.byte	0
+ 591 0233 00       		.byte	0
+ 592 0234 00       		.byte	0
+ 593 0235 00       		.byte	0
+ 594 0236 60       		.byte	96
+ 595 0237 03       		.byte	3
+ 596 0238 EC       		.byte	-20
+ 597 0239 06       		.byte	6
+ 598 023a 00       		.byte	0
+ 599 023b 00       		.byte	0
+ 600 023c 00       		.byte	0
+ 601 023d 00       		.byte	0
+ 602 023e 60       		.byte	96
+ 603 023f 07       		.byte	7
+ 604 0240 C4       		.byte	-60
+ 605 0241 06       		.byte	6
+ 606 0242 00       		.byte	0
+ 607 0243 00       		.byte	0
+ 608 0244 00       		.byte	0
+ 609 0245 00       		.byte	0
+ 610 0246 60       		.byte	96
+ 611 0247 0F       		.byte	15
+ 612 0248 80       		.byte	-128
+ 613 0249 06       		.byte	6
+ 614 024a 00       		.byte	0
+ 615 024b 00       		.byte	0
+ 616 024c 00       		.byte	0
+ 617 024d 00       		.byte	0
+ 618 024e 60       		.byte	96
+ 619 024f 1F       		.byte	31
+ 620 0250 00       		.byte	0
+ 621 0251 06       		.byte	6
+ 622 0252 00       		.byte	0
+ 623 0253 00       		.byte	0
+ 624 0254 00       		.byte	0
+ 625 0255 00       		.byte	0
+ 626 0256 60       		.byte	96
+ 627 0257 3E       		.byte	62
+ 628 0258 00       		.byte	0
+ 629 0259 06       		.byte	6
+ 630 025a 00       		.byte	0
+ 631 025b 00       		.byte	0
+ 632 025c 00       		.byte	0
+ 633 025d 00       		.byte	0
+ 634 025e 60       		.byte	96
+ 635 025f 3C       		.byte	60
+ 636 0260 00       		.byte	0
+ 637 0261 06       		.byte	6
+ 638 0262 00       		.byte	0
+ 639 0263 00       		.byte	0
+ 640 0264 00       		.byte	0
+ 641 0265 00       		.byte	0
+ 642 0266 60       		.byte	96
+ 643 0267 18       		.byte	24
+ 644 0268 00       		.byte	0
+ 645 0269 06       		.byte	6
+ 646 026a 00       		.byte	0
+ 647 026b 00       		.byte	0
+ 648 026c 00       		.byte	0
+ 649 026d 00       		.byte	0
+ 650 026e 60       		.byte	96
+ 651 026f 00       		.byte	0
+ 652 0270 00       		.byte	0
+ 653 0271 06       		.byte	6
+ 654 0272 00       		.byte	0
+ 655 0273 00       		.byte	0
+ 656 0274 00       		.byte	0
+ 657 0275 00       		.byte	0
+ 658 0276 70       		.byte	112
+ 659 0277 00       		.byte	0
+ 660 0278 00       		.byte	0
+ 661 0279 0E       		.byte	14
+ 662 027a 00       		.byte	0
+ 663 027b 00       		.byte	0
+ 664 027c 00       		.byte	0
+ 665 027d 00       		.byte	0
+ 666 027e 3F       		.byte	63
+ 667 027f FF       		.byte	-1
+ 668 0280 FF       		.byte	-1
+ 669 0281 FC       		.byte	-4
+ 670 0282 00       		.byte	0
+ 671 0283 00       		.byte	0
+ 672 0284 00       		.byte	0
+ 673 0285 00       		.byte	0
+ 674 0286 1F       		.byte	31
+ 675 0287 FF       		.byte	-1
+ 676 0288 FF       		.byte	-1
+ 677 0289 F8       		.byte	-8
+ 678 028a 00       		.byte	0
+ 679 028b 00       		.byte	0
+ 680 028c 00       		.byte	0
+ 681 028d 00       		.byte	0
+ 682 028e 00       		.byte	0
+ 683 028f 00       		.byte	0
+ 684 0290 00       		.byte	0
+ 685 0291 00       		.byte	0
+ 686 0292 00       		.byte	0
+ 687 0293 00       		.byte	0
+ 688 0294 00       		.byte	0
+ 689 0295 00       		.byte	0
+ 690 0296 00       		.byte	0
+ 691 0297 00       		.byte	0
+ 692 0298 00       		.byte	0
+ 693 0299 00       		.byte	0
+ 694 029a 00       		.byte	0
+ 695 029b 00       		.byte	0
+ 696 029c 00       		.byte	0
+ 697 029d 00       		.byte	0
+ 698 029e 00       		.byte	0
+ 699 029f 00       		.byte	0
+ 700 02a0 00       		.byte	0
+ 701 02a1 00       		.byte	0
+ 702 02a2 00       		.byte	0
+ 703 02a3 00       		.byte	0
+ 704 02a4 00       		.byte	0
+ 705 02a5 00       		.byte	0
+ 706 02a6 00       		.byte	0
+ 707 02a7 00       		.byte	0
+ 708 02a8 00       		.byte	0
+ 709 02a9 00       		.byte	0
+ 710 02aa 00       		.byte	0
+ 711 02ab 00       		.byte	0
+ 712 02ac 00       		.byte	0
+ 713 02ad 00       		.byte	0
+ 714 02ae 00       		.byte	0
+ 715 02af 00       		.byte	0
+ 716 02b0 00       		.byte	0
+ 717 02b1 00       		.byte	0
+ 718 02b2 00       		.byte	0
+ 719 02b3 00       		.byte	0
+ 720 02b4 00       		.byte	0
+ 721 02b5 00       		.byte	0
+ 722 02b6 00       		.byte	0
+ 723 02b7 00       		.byte	0
+ 724 02b8 00       		.byte	0
+ 725 02b9 00       		.byte	0
+ 726 02ba 00       		.byte	0
+ 727 02bb 00       		.byte	0
+ 728 02bc 00       		.byte	0
+ 729 02bd 00       		.byte	0
+ 730 02be 00       		.byte	0
+ 731 02bf 00       		.byte	0
+ 732 02c0 00       		.byte	0
+ 733 02c1 00       		.byte	0
+ 734 02c2 00       		.byte	0
+ 735 02c3 00       		.byte	0
+ 736 02c4 00       		.byte	0
+ 737 02c5 00       		.byte	0
+ 738 02c6 00       		.byte	0
+ 739 02c7 00       		.byte	0
+ 740 02c8 00       		.byte	0
+ 741 02c9 00       		.byte	0
+ 742 02ca 00       		.byte	0
+ 743 02cb 00       		.byte	0
+ 744 02cc 00       		.byte	0
+ 745 02cd 00       		.byte	0
+ 746 02ce 00       		.byte	0
+ 747 02cf 00       		.byte	0
+ 748 02d0 00       		.byte	0
+ 749 02d1 00       		.byte	0
+ 750 02d2 00       		.byte	0
+ 751 02d3 00       		.byte	0
+ 752 02d4 00       		.byte	0
+ 753 02d5 00       		.byte	0
+ 754 02d6 00       		.byte	0
+ 755 02d7 00       		.byte	0
+ 756 02d8 00       		.byte	0
+ 757 02d9 00       		.byte	0
+ 758 02da 00       		.byte	0
+ 759 02db 00       		.byte	0
+ 760 02dc 00       		.byte	0
+ 761 02dd 00       		.byte	0
+ 762 02de 00       		.byte	0
+ 763 02df 00       		.byte	0
+ 764 02e0 00       		.byte	0
+ 765 02e1 00       		.byte	0
+ 766 02e2 00       		.byte	0
+ 767 02e3 00       		.byte	0
+ 768 02e4 00       		.byte	0
+ 769 02e5 00       		.byte	0
+ 770 02e6 00       		.byte	0
+ 771 02e7 00       		.byte	0
+ 772 02e8 00       		.byte	0
+ 773 02e9 00       		.byte	0
+ 774 02ea 00       		.byte	0
+ 775 02eb 00       		.byte	0
+ 776 02ec 00       		.byte	0
+ 777 02ed 00       		.byte	0
+ 778 02ee 00       		.byte	0
+ 779 02ef 00       		.byte	0
+ 780 02f0 00       		.byte	0
+ 781 02f1 00       		.byte	0
+ 782 02f2 00       		.byte	0
+ 783 02f3 00       		.byte	0
+ 784 02f4 00       		.byte	0
+ 785 02f5 00       		.byte	0
+ 786 02f6 00       		.byte	0
+ 787 02f7 00       		.byte	0
+ 788 02f8 00       		.byte	0
+ 789 02f9 00       		.byte	0
+ 790 02fa 00       		.byte	0
+ 791 02fb 00       		.byte	0
+ 792 02fc 00       		.byte	0
+ 793 02fd 00       		.byte	0
+ 794 02fe 00       		.byte	0
+ 795 02ff 00       		.byte	0
+ 796 0300 00       		.byte	0
+ 797 0301 00       		.byte	0
+ 798 0302 00       		.byte	0
+ 799 0303 00       		.byte	0
+ 800 0304 00       		.byte	0
+ 801 0305 00       		.byte	0
+ 802 0306 00       		.byte	0
+ 803 0307 00       		.byte	0
+ 804 0308 00       		.byte	0
+ 805 0309 00       		.byte	0
+ 806 030a 00       		.byte	0
+ 807 030b 00       		.byte	0
+ 808 030c 00       		.byte	0
+ 809 030d 00       		.byte	0
+ 810 030e 00       		.byte	0
+ 811 030f 00       		.byte	0
+ 812 0310 00       		.byte	0
+ 813 0311 00       		.byte	0
+ 814 0312 00       		.byte	0
+ 815 0313 00       		.byte	0
+ 816 0314 00       		.byte	0
+ 817 0315 00       		.byte	0
+ 818 0316 00       		.byte	0
+ 819 0317 00       		.byte	0
+ 820 0318 00       		.byte	0
+ 821 0319 00       		.byte	0
+ 822 031a 00       		.byte	0
+ 823 031b 00       		.byte	0
+ 824 031c 00       		.byte	0
+ 825 031d 00       		.byte	0
+ 826 031e 00       		.byte	0
+ 827 031f 00       		.byte	0
+ 828 0320 00       		.byte	0
+ 829 0321 00       		.byte	0
+ 830 0322 00       		.byte	0
+ 831 0323 00       		.byte	0
+ 832 0324 00       		.byte	0
+ 833 0325 00       		.byte	0
+ 834 0326 00       		.byte	0
+ 835 0327 00       		.byte	0
+ 836 0328 00       		.byte	0
+ 837 0329 00       		.byte	0
+ 838 032a 00       		.byte	0
+ 839 032b 00       		.byte	0
+ 840 032c 00       		.byte	0
+ 841 032d 00       		.byte	0
+ 842 032e 00       		.byte	0
+ 843 032f 00       		.byte	0
+ 844 0330 00       		.byte	0
+ 845 0331 00       		.byte	0
+ 846 0332 00       		.byte	0
+ 847 0333 00       		.byte	0
+ 848 0334 00       		.byte	0
+ 849 0335 00       		.byte	0
+ 850 0336 00       		.byte	0
+ 851 0337 00       		.byte	0
+ 852 0338 00       		.byte	0
+ 853 0339 00       		.byte	0
+ 854 033a 00       		.byte	0
+ 855 033b 00       		.byte	0
+ 856              		.global	__udivsi3
+ 857              		.text
+ 858              		.align	2
+ 859              		.code 16
+ 860              		.thumb_func
+ 862              	GetMaxCharsXPos:
+ 863 0000 00B5     		push	{lr}
+ 864 0002 82B0     		sub	sp, sp, #8
+ 865 0004 0023     		mov	r3, #0
+ 866 0006 0193     		str	r3, [sp, #4]
+ 867 0008 0093     		str	r3, [sp]
+ 868 000a 6846     		mov	r0, sp
+ 869 000c 01A9     		add	r1, sp, #4
+ 870 000e 054B     		ldr	r3, .L3
+ 871 0010 00F012FE 		bl	.L5
+ 872 0014 0199     		ldr	r1, [sp, #4]
+ 873 0016 044B     		ldr	r3, .L3+4
+ 874 0018 8020     		mov	r0, #128
+ 875 001a 00F012FE 		bl	.L5
+ 876 001e 02B0     		add	sp, sp, #8
+ 877              		@ sp needed for prologue
+ 878 0020 02BC     		pop	{r1}
+ 879 0022 0847     		bx	r1
+ 880              	.L4:
+ 881              		.align	2
+ 882              	.L3:
+ 883 0024 00000000 		.word	getfontsize
+ 884 0028 00000000 		.word	__udivsi3
+ 886              		.align	2
+ 887              		.code 16
+ 888              		.thumb_func
+ 890              	GetMaxYLines:
+ 891 002c 00B5     		push	{lr}
+ 892 002e 82B0     		sub	sp, sp, #8
+ 893 0030 0023     		mov	r3, #0
+ 894 0032 0193     		str	r3, [sp, #4]
+ 895 0034 0093     		str	r3, [sp]
+ 896 0036 6846     		mov	r0, sp
+ 897 0038 01A9     		add	r1, sp, #4
+ 898 003a 054B     		ldr	r3, .L8
+ 899 003c 00F012FE 		bl	.L5
+ 900 0040 0099     		ldr	r1, [sp]
+ 901 0042 044B     		ldr	r3, .L8+4
+ 902 0044 8020     		mov	r0, #128
+ 903 0046 00F012FE 		bl	.L5
+ 904 004a 02B0     		add	sp, sp, #8
+ 905              		@ sp needed for prologue
+ 906 004c 02BC     		pop	{r1}
+ 907 004e 0847     		bx	r1
+ 908              	.L9:
+ 909              		.align	2
+ 910              	.L8:
+ 911 0050 00000000 		.word	getfontsize
+ 912 0054 00000000 		.word	__udivsi3
+ 914              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 915              		.align	2
+ 916              	.LC5:
+ 917 0000 2563252D 		.ascii	"%c%-*.*s \000"
+ 917      2A2E2A73 
+ 917      2000
+ 918 000a 0000     		.align	2
+ 919              	.LC8:
+ 920 000c 20252D2A 		.ascii	" %-*.*s%c\000"
+ 920      2E2A7325 
+ 920      6300
+ 921 0016 0000     		.align	2
+ 922              	.LC10:
+ 923 0018 2563252D 		.ascii	"%c%-*.*s%c\000"
+ 923      2A2E2A73 
+ 923      256300
+ 924              		.text
+ 925              		.align	2
+ 926              		.code 16
+ 927              		.thumb_func
+ 929              	display_txt_header:
+ 930 0058 F0B5     		push	{r4, r5, r6, r7, lr}
+ 931 005a 83B0     		sub	sp, sp, #12
+ 932 005c 141C     		mov	r4, r2
+ 933 005e 051C     		mov	r5, r0
+ 934 0060 0F1C     		mov	r7, r1
+ 935 0062 0293     		str	r3, [sp, #8]
+ 936 0064 FFF7FEFF 		bl	GetMaxCharsXPos
+ 937 0068 0021     		mov	r1, #0
+ 938 006a 861E     		sub	r6, r0, #2
+ 939 006c 164B     		ldr	r3, .L20
+ 940 006e 0020     		mov	r0, #0
+ 941 0070 00F012FE 		bl	.L5
+ 942 0074 2D68     		ldr	r5, [r5]
+ 943 0076 013C     		sub	r4, r4, #1
+ 944 0078 A542     		cmp	r5, r4
+ 945 007a 08D1     		bne	.L11
+ 946 007c 029B     		ldr	r3, [sp, #8]
+ 947 007e DB07     		lsl	r3, r3, #31
+ 948 0080 05D4     		bmi	.L11
+ 949 0082 1248     		ldr	r0, .L20+4
+ 950 0084 1E21     		mov	r1, #30
+ 951 0086 321C     		mov	r2, r6
+ 952 0088 331C     		mov	r3, r6
+ 953 008a 0097     		str	r7, [sp]
+ 954 008c 0AE0     		b	.L19
+ 955              	.L11:
+ 956 008e 002D     		cmp	r5, #0
+ 957 0090 0CD1     		bne	.L15
+ 958 0092 029B     		ldr	r3, [sp, #8]
+ 959 0094 DB07     		lsl	r3, r3, #31
+ 960 0096 09D4     		bmi	.L15
+ 961 0098 1F23     		mov	r3, #31
+ 962 009a 0D48     		ldr	r0, .L20+8
+ 963 009c 0093     		str	r3, [sp]
+ 964 009e 311C     		mov	r1, r6
+ 965 00a0 321C     		mov	r2, r6
+ 966 00a2 3B1C     		mov	r3, r7
+ 967              	.L19:
+ 968 00a4 0B4C     		ldr	r4, .L20+12
+ 969 00a6 00F013FE 		bl	.L22
+ 970 00aa 09E0     		b	.L18
+ 971              	.L15:
+ 972 00ac 1F23     		mov	r3, #31
+ 973 00ae 0193     		str	r3, [sp, #4]
+ 974 00b0 0948     		ldr	r0, .L20+16
+ 975 00b2 0097     		str	r7, [sp]
+ 976 00b4 1E21     		mov	r1, #30
+ 977 00b6 321C     		mov	r2, r6
+ 978 00b8 331C     		mov	r3, r6
+ 979 00ba 064C     		ldr	r4, .L20+12
+ 980 00bc 00F013FE 		bl	.L22
+ 981              	.L18:
+ 982 00c0 03B0     		add	sp, sp, #12
+ 983              		@ sp needed for prologue
+ 984 00c2 F0BC     		pop	{r4, r5, r6, r7}
+ 985 00c4 01BC     		pop	{r0}
+ 986 00c6 0047     		bx	r0
+ 987              	.L21:
+ 988              		.align	2
+ 989              	.L20:
+ 990 00c8 00000000 		.word	gotoxy
+ 991 00cc 00000000 		.word	.LC5
+ 992 00d0 0C000000 		.word	.LC8
+ 993 00d4 00000000 		.word	printf
+ 994 00d8 18000000 		.word	.LC10
+ 996              		.align	2
+ 997              		.code 16
+ 998              		.thumb_func
+ 1000              	errorbeep:
+ 1001 00dc 10B5     		push	{r4, lr}
+ 1002 00de 0520     		mov	r0, #5
+ 1003 00e0 7F21     		mov	r1, #127
+ 1004 00e2 6422     		mov	r2, #100
+ 1005 00e4 0023     		mov	r3, #0
+ 1006 00e6 034C     		ldr	r4, .L25
+ 1007 00e8 00F013FE 		bl	.L22
+ 1008              		@ sp needed for prologue
+ 1009 00ec 10BC     		pop	{r4}
+ 1010 00ee 01BC     		pop	{r0}
+ 1011 00f0 0047     		bx	r0
+ 1012              	.L26:
+ 1013 00f2 0000     		.align	2
+ 1014              	.L25:
+ 1015 00f4 00000000 		.word	sound
+ 1017              		.section	.rodata.str1.4
+ 1018 0023 00       		.align	2
+ 1019              	.LC17:
+ 1020 0024 0972252A 		.ascii	"\011r%*d %-*.*s \011r\000"
+ 1020      6420252D 
+ 1020      2A2E2A73 
+ 1020      20097200 
+ 1021              		.align	2
+ 1022              	.LC20:
+ 1023 0034 252A6420 		.ascii	"%*d %-*.*s \000"
+ 1023      252D2A2E 
+ 1023      2A732000 
+ 1024              		.align	2
+ 1025              	.LC22:
+ 1026 0040 252D2A2E 		.ascii	"%-*.*s \000"
+ 1026      2A732000 
+ 1027              		.align	2
+ 1028              	.LC24:
+ 1029 0048 2000     		.ascii	" \000"
+ 1030              		.text
+ 1031              		.align	2
+ 1032              		.global	ShowTextMenu
+ 1033              		.code 16
+ 1034              		.thumb_func
+ 1036              	ShowTextMenu:
+ 1037 00f8 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1038 00fa 8AB0     		sub	sp, sp, #40
+ 1039 00fc 0691     		str	r1, [sp, #24]
+ 1040 00fe 0493     		str	r3, [sp, #16]
+ 1041 0100 051C     		mov	r5, r0
+ 1042 0102 7B4B     		ldr	r3, .L93
+ 1043 0104 0420     		mov	r0, #4
+ 1044 0106 0592     		str	r2, [sp, #20]
+ 1045 0108 00F012FE 		bl	.L5
+ 1046 010c 794C     		ldr	r4, .L93+4
+ 1047 010e 2368     		ldr	r3, [r4]
+ 1048 0110 9968     		ldr	r1, [r3, #8]
+ 1049 0112 8B68     		ldr	r3, [r1, #8]
+ 1050 0114 581E     		sub	r0, r3, #1
+ 1051 0116 8860     		str	r0, [r1, #8]
+ 1052 0118 0028     		cmp	r0, #0
+ 1053 011a 15DA     		bge	.L28
+ 1054 011c 8B69     		ldr	r3, [r1, #24]
+ 1055 011e 9842     		cmp	r0, r3
+ 1056 0120 0DDB     		blt	.L30
+ 1057 0122 0A68     		ldr	r2, [r1]
+ 1058 0124 0C23     		mov	r3, #12
+ 1059 0126 1370     		strb	r3, [r2]
+ 1060 0128 2368     		ldr	r3, [r4]
+ 1061 012a 9968     		ldr	r1, [r3, #8]
+ 1062 012c 0A68     		ldr	r2, [r1]
+ 1063 012e 1378     		ldrb	r3, [r2]
+ 1064 0130 0A2B     		cmp	r3, #10
+ 1065 0132 02D0     		beq	.L32
+ 1066 0134 531C     		add	r3, r2, #1
+ 1067 0136 0B60     		str	r3, [r1]
+ 1068 0138 0EE0     		b	.L92
+ 1069              	.L32:
+ 1070 013a 0A20     		mov	r0, #10
+ 1071 013c 00E0     		b	.L85
+ 1072              	.L30:
+ 1073 013e 0C20     		mov	r0, #12
+ 1074              	.L85:
+ 1075 0140 6D4B     		ldr	r3, .L93+8
+ 1076 0142 00F012FE 		bl	.L5
+ 1077 0146 07E0     		b	.L92
+ 1078              	.L28:
+ 1079 0148 0A68     		ldr	r2, [r1]
+ 1080 014a 0C23     		mov	r3, #12
+ 1081 014c 1370     		strb	r3, [r2]
+ 1082 014e 2368     		ldr	r3, [r4]
+ 1083 0150 9A68     		ldr	r2, [r3, #8]
+ 1084 0152 1368     		ldr	r3, [r2]
+ 1085 0154 0133     		add	r3, r3, #1
+ 1086 0156 1360     		str	r3, [r2]
+ 1087              	.L92:
+ 1088 0158 0698     		ldr	r0, [sp, #24]
+ 1089 015a 0028     		cmp	r0, #0
+ 1090 015c 05D0     		beq	.L35
+ 1091 015e 281C     		mov	r0, r5
+ 1092 0160 0699     		ldr	r1, [sp, #24]
+ 1093 0162 049A     		ldr	r2, [sp, #16]
+ 1094 0164 0F9B     		ldr	r3, [sp, #60]
+ 1095 0166 FFF7FEFF 		bl	display_txt_header
+ 1096              	.L35:
+ 1097 016a 069C     		ldr	r4, [sp, #24]
+ 1098 016c 002C     		cmp	r4, #0
+ 1099 016e 00D0     		beq	.L37
+ 1100 0170 0124     		mov	r4, #1
+ 1101              	.L37:
+ 1102 0172 0499     		ldr	r1, [sp, #16]
+ 1103 0174 0929     		cmp	r1, #9
+ 1104 0176 02DD     		ble	.L38
+ 1105 0178 0222     		mov	r2, #2
+ 1106 017a 0992     		str	r2, [sp, #36]
+ 1107 017c 01E0     		b	.L40
+ 1108              	.L38:
+ 1109 017e 0123     		mov	r3, #1
+ 1110 0180 0993     		str	r3, [sp, #36]
+ 1111              	.L40:
+ 1112 0182 FFF7FEFF 		bl	GetMaxCharsXPos
+ 1113 0186 0999     		ldr	r1, [sp, #36]
+ 1114 0188 401A     		sub	r0, r0, r1
+ 1115 018a 461E     		sub	r6, r0, #1
+ 1116 018c FFF7FEFF 		bl	GetMaxYLines
+ 1117 0190 002C     		cmp	r4, #0
+ 1118 0192 0394     		str	r4, [sp, #12]
+ 1119 0194 01D0     		beq	.L41
+ 1120 0196 0122     		mov	r2, #1
+ 1121 0198 0392     		str	r2, [sp, #12]
+ 1122              	.L41:
+ 1123 019a 039B     		ldr	r3, [sp, #12]
+ 1124 019c C71A     		sub	r7, r0, r3
+ 1125 019e 0498     		ldr	r0, [sp, #16]
+ 1126 01a0 8742     		cmp	r7, r0
+ 1127 01a2 01DD     		ble	.L42
+ 1128 01a4 0021     		mov	r1, #0
+ 1129 01a6 06E0     		b	.L88
+ 1130              	.L42:
+ 1131 01a8 2A68     		ldr	r2, [r5]
+ 1132 01aa 0498     		ldr	r0, [sp, #16]
+ 1133 01ac D319     		add	r3, r2, r7
+ 1134 01ae 0892     		str	r2, [sp, #32]
+ 1135 01b0 8342     		cmp	r3, r0
+ 1136 01b2 01DD     		ble	.L44
+ 1137 01b4 C11B     		sub	r1, r0, r7
+ 1138              	.L88:
+ 1139 01b6 0891     		str	r1, [sp, #32]
+ 1140              	.L44:
+ 1141 01b8 0898     		ldr	r0, [sp, #32]
+ 1142 01ba 0599     		ldr	r1, [sp, #20]
+ 1143 01bc C300     		lsl	r3, r0, #3
+ 1144 01be 0022     		mov	r2, #0
+ 1145 01c0 5B18     		add	r3, r3, r1
+ 1146 01c2 0792     		str	r2, [sp, #28]
+ 1147 01c4 39E0     		b	.L89
+ 1148              	.L47:
+ 1149 01c6 079A     		ldr	r2, [sp, #28]
+ 1150 01c8 089B     		ldr	r3, [sp, #32]
+ 1151 01ca 0398     		ldr	r0, [sp, #12]
+ 1152 01cc D418     		add	r4, r2, r3
+ 1153 01ce 1118     		add	r1, r2, r0
+ 1154 01d0 4A4B     		ldr	r3, .L93+12
+ 1155 01d2 0020     		mov	r0, #0
+ 1156 01d4 00F012FE 		bl	.L5
+ 1157 01d8 2A68     		ldr	r2, [r5]
+ 1158 01da A242     		cmp	r2, r4
+ 1159 01dc 0BD1     		bne	.L48
+ 1160 01de 0299     		ldr	r1, [sp, #8]
+ 1161 01e0 0096     		str	r6, [sp]
+ 1162 01e2 0B68     		ldr	r3, [r1]
+ 1163 01e4 0132     		add	r2, r2, #1
+ 1164 01e6 0193     		str	r3, [sp, #4]
+ 1165 01e8 0999     		ldr	r1, [sp, #36]
+ 1166 01ea 331C     		mov	r3, r6
+ 1167 01ec 444C     		ldr	r4, .L93+16
+ 1168 01ee 4548     		ldr	r0, .L93+20
+ 1169 01f0 00F013FE 		bl	.L22
+ 1170 01f4 1CE0     		b	.L50
+ 1171              	.L48:
+ 1172 01f6 424A     		ldr	r2, .L93+16
+ 1173 01f8 049B     		ldr	r3, [sp, #16]
+ 1174 01fa 9446     		mov	ip, r2
+ 1175 01fc 9C42     		cmp	r4, r3
+ 1176 01fe 0FDA     		bge	.L51
+ 1177 0200 0898     		ldr	r0, [sp, #32]
+ 1178 0202 0599     		ldr	r1, [sp, #20]
+ 1179 0204 C300     		lsl	r3, r0, #3
+ 1180 0206 0798     		ldr	r0, [sp, #28]
+ 1181 0208 0096     		str	r6, [sp]
+ 1182 020a CB18     		add	r3, r1, r3
+ 1183 020c C100     		lsl	r1, r0, #3
+ 1184 020e CB58     		ldr	r3, [r1, r3]
+ 1185 0210 621C     		add	r2, r4, #1
+ 1186 0212 0193     		str	r3, [sp, #4]
+ 1187 0214 0999     		ldr	r1, [sp, #36]
+ 1188 0216 331C     		mov	r3, r6
+ 1189 0218 3B48     		ldr	r0, .L93+24
+ 1190 021a 00F015FE 		bl	.L95
+ 1191 021e 07E0     		b	.L50
+ 1192              	.L51:
+ 1193 0220 0999     		ldr	r1, [sp, #36]
+ 1194 0222 7218     		add	r2, r6, r1
+ 1195 0224 0132     		add	r2, r2, #1
+ 1196 0226 3948     		ldr	r0, .L93+28
+ 1197 0228 111C     		mov	r1, r2
+ 1198 022a 394B     		ldr	r3, .L93+32
+ 1199 022c 00F015FE 		bl	.L95
+ 1200              	.L50:
+ 1201 0230 079A     		ldr	r2, [sp, #28]
+ 1202 0232 029B     		ldr	r3, [sp, #8]
+ 1203 0234 0132     		add	r2, r2, #1
+ 1204 0236 0792     		str	r2, [sp, #28]
+ 1205 0238 0833     		add	r3, r3, #8
+ 1206              	.L89:
+ 1207 023a 0798     		ldr	r0, [sp, #28]
+ 1208 023c 0293     		str	r3, [sp, #8]
+ 1209 023e B842     		cmp	r0, r7
+ 1210 0240 C1DB     		blt	.L47
+ 1211 0242 344B     		ldr	r3, .L93+36
+ 1212 0244 00F012FE 		bl	.L5
+ 1213 0248 8228     		cmp	r0, #130
+ 1214 024a 1FD0     		beq	.L58
+ 1215 024c 8228     		cmp	r0, #130
+ 1216 024e 08DC     		bgt	.L60
+ 1217 0250 8028     		cmp	r0, #128
+ 1218 0252 0FD0     		beq	.L56
+ 1219 0254 8028     		cmp	r0, #128
+ 1220 0256 0FDC     		bgt	.L57
+ 1221 0258 031C     		mov	r3, r0
+ 1222 025a 313B     		sub	r3, r3, #49
+ 1223 025c 082B     		cmp	r3, #8
+ 1224 025e 31D8     		bhi	.L54
+ 1225 0260 1EE0     		b	.L83
+ 1226              	.L60:
+ 1227 0262 8428     		cmp	r0, #132
+ 1228 0264 2AD0     		beq	.L90
+ 1229 0266 8428     		cmp	r0, #132
+ 1230 0268 04DB     		blt	.L56
+ 1231 026a 8628     		cmp	r0, #134
+ 1232 026c 04D0     		beq	.L57
+ 1233 026e 8728     		cmp	r0, #135
+ 1234 0270 28D1     		bne	.L54
+ 1235 0272 0BE0     		b	.L58
+ 1236              	.L56:
+ 1237 0274 2B68     		ldr	r3, [r5]
+ 1238 0276 1BE0     		b	.L91
+ 1239              	.L57:
+ 1240 0278 2B68     		ldr	r3, [r5]
+ 1241 027a 002B     		cmp	r3, #0
+ 1242 027c 03DC     		bgt	.L86
+ 1243 027e 0F9A     		ldr	r2, [sp, #60]
+ 1244 0280 D207     		lsl	r2, r2, #31
+ 1245 0282 1FD5     		bpl	.L54
+ 1246 0284 049B     		ldr	r3, [sp, #16]
+ 1247              	.L86:
+ 1248 0286 013B     		sub	r3, r3, #1
+ 1249              	.L87:
+ 1250 0288 2B60     		str	r3, [r5]
+ 1251 028a 65E7     		b	.L92
+ 1252              	.L58:
+ 1253 028c 2B68     		ldr	r3, [r5]
+ 1254 028e 0498     		ldr	r0, [sp, #16]
+ 1255 0290 0133     		add	r3, r3, #1
+ 1256 0292 8342     		cmp	r3, r0
+ 1257 0294 F8DB     		blt	.L87
+ 1258 0296 0F99     		ldr	r1, [sp, #60]
+ 1259 0298 C907     		lsl	r1, r1, #31
+ 1260 029a 13D5     		bpl	.L54
+ 1261 029c 0023     		mov	r3, #0
+ 1262 029e F3E7     		b	.L87
+ 1263              	.L83:
+ 1264 02a0 3122     		mov	r2, #49
+ 1265 02a2 5242     		neg	r2, r2
+ 1266 02a4 8318     		add	r3, r0, r2
+ 1267 02a6 0DD4     		bmi	.L54
+ 1268 02a8 0498     		ldr	r0, [sp, #16]
+ 1269 02aa 8342     		cmp	r3, r0
+ 1270 02ac 0ADA     		bge	.L54
+ 1271 02ae 2B60     		str	r3, [r5]
+ 1272              	.L91:
+ 1273 02b0 0599     		ldr	r1, [sp, #20]
+ 1274 02b2 DB00     		lsl	r3, r3, #3
+ 1275 02b4 5B18     		add	r3, r3, r1
+ 1276 02b6 5B68     		ldr	r3, [r3, #4]
+ 1277 02b8 002B     		cmp	r3, #0
+ 1278 02ba 06D1     		bne	.L61
+ 1279              	.L90:
+ 1280 02bc 0123     		mov	r3, #1
+ 1281 02be 5B42     		neg	r3, r3
+ 1282 02c0 2B60     		str	r3, [r5]
+ 1283 02c2 02E0     		b	.L61
+ 1284              	.L54:
+ 1285 02c4 FFF7FEFF 		bl	errorbeep
+ 1286 02c8 46E7     		b	.L92
+ 1287              	.L61:
+ 1288 02ca 2B68     		ldr	r3, [r5]
+ 1289 02cc 5A1C     		add	r2, r3, #1
+ 1290 02ce 0AD0     		beq	.L77
+ 1291 02d0 0598     		ldr	r0, [sp, #20]
+ 1292 02d2 DB00     		lsl	r3, r3, #3
+ 1293 02d4 1B18     		add	r3, r3, r0
+ 1294 02d6 5B68     		ldr	r3, [r3, #4]
+ 1295 02d8 00F012FE 		bl	.L5
+ 1296 02dc 0420     		mov	r0, #4
+ 1297 02de 044B     		ldr	r3, .L93
+ 1298 02e0 00F012FE 		bl	.L5
+ 1299 02e4 38E7     		b	.L92
+ 1300              	.L77:
+ 1301 02e6 0AB0     		add	sp, sp, #40
+ 1302              		@ sp needed for prologue
+ 1303 02e8 F0BC     		pop	{r4, r5, r6, r7}
+ 1304 02ea 01BC     		pop	{r0}
+ 1305 02ec 0047     		bx	r0
+ 1306              	.L94:
+ 1307 02ee 0000     		.align	2
+ 1308              	.L93:
+ 1309 02f0 00000000 		.word	cursor
+ 1310 02f4 00000000 		.word	_impure_ptr
+ 1311 02f8 00000000 		.word	__swbuf
+ 1312 02fc 00000000 		.word	gotoxy
+ 1313 0300 00000000 		.word	printf
+ 1314 0304 24000000 		.word	.LC17
+ 1315 0308 34000000 		.word	.LC20
+ 1316 030c 40000000 		.word	.LC22
+ 1317 0310 48000000 		.word	.LC24
+ 1318 0314 00000000 		.word	WaitForKey
+ 1320              		.align	2
+ 1321              		.code 16
+ 1322              		.thumb_func
+ 1324              	txt_menu_sel_set_value:
+ 1325 0318 10B5     		push	{r4, lr}
+ 1326 031a 041C     		mov	r4, r0
+ 1327 031c 101C     		mov	r0, r2
+ 1328 031e 1A1C     		mov	r2, r3
+ 1329 0320 2368     		ldr	r3, [r4]
+ 1330 0322 DB00     		lsl	r3, r3, #3
+ 1331 0324 5B18     		add	r3, r3, r1
+ 1332 0326 5968     		ldr	r1, [r3, #4]
+ 1333 0328 4B1C     		add	r3, r1, #1
+ 1334 032a 03D1     		bne	.L97
+ 1335 032c 0123     		mov	r3, #1
+ 1336 032e 5B42     		neg	r3, r3
+ 1337 0330 2360     		str	r3, [r4]
+ 1338 0332 06E0     		b	.L99
+ 1339              	.L97:
+ 1340 0334 8307     		lsl	r3, r0, #30
+ 1341 0336 03D5     		bpl	.L100
+ 1342 0338 1368     		ldr	r3, [r2]
+ 1343 033a 4B40     		eor	r3, r3, r1
+ 1344 033c 1360     		str	r3, [r2]
+ 1345 033e 00E0     		b	.L99
+ 1346              	.L100:
+ 1347 0340 1160     		str	r1, [r2]
+ 1348              	.L99:
+ 1349 0342 4307     		lsl	r3, r0, #29
+ 1350 0344 04D5     		bpl	.L105
+ 1351 0346 8307     		lsl	r3, r0, #30
+ 1352 0348 02D4     		bmi	.L105
+ 1353 034a 0123     		mov	r3, #1
+ 1354 034c 5B42     		neg	r3, r3
+ 1355 034e 2360     		str	r3, [r4]
+ 1356              	.L105:
+ 1357              		@ sp needed for prologue
+ 1358 0350 10BC     		pop	{r4}
+ 1359 0352 01BC     		pop	{r0}
+ 1360 0354 0047     		bx	r0
+ 1362              		.section	.rodata.str1.4
+ 1363 004a 0000     		.align	2
+ 1364              	.LC31:
+ 1365 004c 0972252A 		.ascii	"\011r%*d%c%-*.*s \011r\000"
+ 1365      64256325 
+ 1365      2D2A2E2A 
+ 1365      73200972 
+ 1365      00
+ 1366 005d 000000   		.align	2
+ 1367              	.LC34:
+ 1368 0060 252A6425 		.ascii	"%*d%c%-*.*s \000"
+ 1368      63252D2A 
+ 1368      2E2A7320 
+ 1368      00
+ 1369              		.text
+ 1370 0356 0000     		.align	2
+ 1371              		.global	ShowTextSelectionMenu
+ 1372              		.code 16
+ 1373              		.thumb_func
+ 1375              	ShowTextSelectionMenu:
+ 1376 0358 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1377 035a 8BB0     		sub	sp, sp, #44
+ 1378 035c 0691     		str	r1, [sp, #24]
+ 1379 035e 0493     		str	r3, [sp, #16]
+ 1380 0360 071C     		mov	r7, r0
+ 1381 0362 864B     		ldr	r3, .L186
+ 1382 0364 0420     		mov	r0, #4
+ 1383 0366 0592     		str	r2, [sp, #20]
+ 1384 0368 00F012FE 		bl	.L5
+ 1385 036c 844C     		ldr	r4, .L186+4
+ 1386 036e 2368     		ldr	r3, [r4]
+ 1387 0370 9968     		ldr	r1, [r3, #8]
+ 1388 0372 8B68     		ldr	r3, [r1, #8]
+ 1389 0374 581E     		sub	r0, r3, #1
+ 1390 0376 8860     		str	r0, [r1, #8]
+ 1391 0378 0028     		cmp	r0, #0
+ 1392 037a 15DA     		bge	.L107
+ 1393 037c 8B69     		ldr	r3, [r1, #24]
+ 1394 037e 9842     		cmp	r0, r3
+ 1395 0380 0DDB     		blt	.L109
+ 1396 0382 0A68     		ldr	r2, [r1]
+ 1397 0384 0C23     		mov	r3, #12
+ 1398 0386 1370     		strb	r3, [r2]
+ 1399 0388 2368     		ldr	r3, [r4]
+ 1400 038a 9968     		ldr	r1, [r3, #8]
+ 1401 038c 0A68     		ldr	r2, [r1]
+ 1402 038e 1378     		ldrb	r3, [r2]
+ 1403 0390 0A2B     		cmp	r3, #10
+ 1404 0392 02D0     		beq	.L111
+ 1405 0394 531C     		add	r3, r2, #1
+ 1406 0396 0B60     		str	r3, [r1]
+ 1407 0398 0EE0     		b	.L185
+ 1408              	.L111:
+ 1409 039a 0A20     		mov	r0, #10
+ 1410 039c 00E0     		b	.L178
+ 1411              	.L109:
+ 1412 039e 0C20     		mov	r0, #12
+ 1413              	.L178:
+ 1414 03a0 784B     		ldr	r3, .L186+8
+ 1415 03a2 00F012FE 		bl	.L5
+ 1416 03a6 07E0     		b	.L185
+ 1417              	.L107:
+ 1418 03a8 0A68     		ldr	r2, [r1]
+ 1419 03aa 0C23     		mov	r3, #12
+ 1420 03ac 1370     		strb	r3, [r2]
+ 1421 03ae 2368     		ldr	r3, [r4]
+ 1422 03b0 9A68     		ldr	r2, [r3, #8]
+ 1423 03b2 1368     		ldr	r3, [r2]
+ 1424 03b4 0133     		add	r3, r3, #1
+ 1425 03b6 1360     		str	r3, [r2]
+ 1426              	.L185:
+ 1427 03b8 0699     		ldr	r1, [sp, #24]
+ 1428 03ba 0029     		cmp	r1, #0
+ 1429 03bc 04D0     		beq	.L114
+ 1430 03be 381C     		mov	r0, r7
+ 1431 03c0 049A     		ldr	r2, [sp, #16]
+ 1432 03c2 109B     		ldr	r3, [sp, #64]
+ 1433 03c4 FFF7FEFF 		bl	display_txt_header
+ 1434              	.L114:
+ 1435 03c8 069C     		ldr	r4, [sp, #24]
+ 1436 03ca 002C     		cmp	r4, #0
+ 1437 03cc 00D0     		beq	.L116
+ 1438 03ce 0124     		mov	r4, #1
+ 1439              	.L116:
+ 1440 03d0 049A     		ldr	r2, [sp, #16]
+ 1441 03d2 092A     		cmp	r2, #9
+ 1442 03d4 02DD     		ble	.L117
+ 1443 03d6 0223     		mov	r3, #2
+ 1444 03d8 0993     		str	r3, [sp, #36]
+ 1445 03da 01E0     		b	.L119
+ 1446              	.L117:
+ 1447 03dc 0121     		mov	r1, #1
+ 1448 03de 0991     		str	r1, [sp, #36]
+ 1449              	.L119:
+ 1450 03e0 FFF7FEFF 		bl	GetMaxCharsXPos
+ 1451 03e4 099A     		ldr	r2, [sp, #36]
+ 1452 03e6 801A     		sub	r0, r0, r2
+ 1453 03e8 461E     		sub	r6, r0, #1
+ 1454 03ea FFF7FEFF 		bl	GetMaxYLines
+ 1455 03ee 002C     		cmp	r4, #0
+ 1456 03f0 0394     		str	r4, [sp, #12]
+ 1457 03f2 01D0     		beq	.L120
+ 1458 03f4 0123     		mov	r3, #1
+ 1459 03f6 0393     		str	r3, [sp, #12]
+ 1460              	.L120:
+ 1461 03f8 039C     		ldr	r4, [sp, #12]
+ 1462 03fa 0499     		ldr	r1, [sp, #16]
+ 1463 03fc 001B     		sub	r0, r0, r4
+ 1464 03fe 0890     		str	r0, [sp, #32]
+ 1465 0400 8842     		cmp	r0, r1
+ 1466 0402 01DD     		ble	.L121
+ 1467 0404 0022     		mov	r2, #0
+ 1468 0406 06E0     		b	.L123
+ 1469              	.L121:
+ 1470 0408 3A68     		ldr	r2, [r7]
+ 1471 040a 089C     		ldr	r4, [sp, #32]
+ 1472 040c 0499     		ldr	r1, [sp, #16]
+ 1473 040e 1319     		add	r3, r2, r4
+ 1474 0410 8B42     		cmp	r3, r1
+ 1475 0412 00DD     		ble	.L123
+ 1476 0414 0A1B     		sub	r2, r1, r4
+ 1477              	.L123:
+ 1478 0416 D300     		lsl	r3, r2, #3
+ 1479 0418 151C     		mov	r5, r2
+ 1480 041a 059A     		ldr	r2, [sp, #20]
+ 1481 041c D318     		add	r3, r2, r3
+ 1482 041e 0A93     		str	r3, [sp, #40]
+ 1483 0420 0023     		mov	r3, #0
+ 1484 0422 0793     		str	r3, [sp, #28]
+ 1485 0424 5BE0     		b	.L125
+ 1486              	.L126:
+ 1487 0426 079C     		ldr	r4, [sp, #28]
+ 1488 0428 039A     		ldr	r2, [sp, #12]
+ 1489 042a 574B     		ldr	r3, .L186+12
+ 1490 042c A118     		add	r1, r4, r2
+ 1491 042e 0020     		mov	r0, #0
+ 1492 0430 00F012FE 		bl	.L5
+ 1493 0434 3B68     		ldr	r3, [r7]
+ 1494 0436 AB42     		cmp	r3, r5
+ 1495 0438 27D1     		bne	.L127
+ 1496 043a 119C     		ldr	r4, [sp, #68]
+ 1497 043c 1099     		ldr	r1, [sp, #64]
+ 1498 043e 6A1C     		add	r2, r5, #1
+ 1499 0440 EB00     		lsl	r3, r5, #3
+ 1500 0442 2068     		ldr	r0, [r4]
+ 1501 0444 8907     		lsl	r1, r1, #30
+ 1502 0446 0DD5     		bpl	.L129
+ 1503 0448 059C     		ldr	r4, [sp, #20]
+ 1504 044a E318     		add	r3, r4, r3
+ 1505 044c 5968     		ldr	r1, [r3, #4]
+ 1506 044e 0142     		tst	r1, r0
+ 1507 0450 03D0     		beq	.L131
+ 1508 0452 0131     		add	r1, r1, #1
+ 1509 0454 01D0     		beq	.L131
+ 1510 0456 2A24     		mov	r4, #42
+ 1511 0458 00E0     		b	.L134
+ 1512              	.L131:
+ 1513 045a 2024     		mov	r4, #32
+ 1514              	.L134:
+ 1515 045c 0096     		str	r6, [sp]
+ 1516 045e 0196     		str	r6, [sp, #4]
+ 1517 0460 1B68     		ldr	r3, [r3]
+ 1518 0462 0AE0     		b	.L181
+ 1519              	.L129:
+ 1520 0464 059C     		ldr	r4, [sp, #20]
+ 1521 0466 E118     		add	r1, r4, r3
+ 1522 0468 4B68     		ldr	r3, [r1, #4]
+ 1523 046a 8342     		cmp	r3, r0
+ 1524 046c 01D1     		bne	.L136
+ 1525 046e 2A24     		mov	r4, #42
+ 1526 0470 00E0     		b	.L138
+ 1527              	.L136:
+ 1528 0472 2024     		mov	r4, #32
+ 1529              	.L138:
+ 1530 0474 0096     		str	r6, [sp]
+ 1531 0476 0196     		str	r6, [sp, #4]
+ 1532 0478 0B68     		ldr	r3, [r1]
+ 1533              	.L181:
+ 1534 047a 0293     		str	r3, [sp, #8]
+ 1535 047c 4348     		ldr	r0, .L186+16
+ 1536              	.L182:
+ 1537 047e 231C     		mov	r3, r4
+ 1538 0480 0999     		ldr	r1, [sp, #36]
+ 1539 0482 434C     		ldr	r4, .L186+20
+ 1540 0484 00F013FE 		bl	.L22
+ 1541 0488 22E0     		b	.L135
+ 1542              	.L127:
+ 1543 048a 0499     		ldr	r1, [sp, #16]
+ 1544 048c 8D42     		cmp	r5, r1
+ 1545 048e 16DA     		bge	.L139
+ 1546 0490 119B     		ldr	r3, [sp, #68]
+ 1547 0492 0A9C     		ldr	r4, [sp, #40]
+ 1548 0494 1099     		ldr	r1, [sp, #64]
+ 1549 0496 1868     		ldr	r0, [r3]
+ 1550 0498 6A1C     		add	r2, r5, #1
+ 1551 049a 6368     		ldr	r3, [r4, #4]
+ 1552 049c 8907     		lsl	r1, r1, #30
+ 1553 049e 02D5     		bpl	.L141
+ 1554 04a0 0342     		tst	r3, r0
+ 1555 04a2 02D1     		bne	.L184
+ 1556 04a4 03E0     		b	.L146
+ 1557              	.L141:
+ 1558 04a6 8342     		cmp	r3, r0
+ 1559 04a8 01D1     		bne	.L146
+ 1560              	.L184:
+ 1561 04aa 2A24     		mov	r4, #42
+ 1562 04ac 00E0     		b	.L148
+ 1563              	.L146:
+ 1564 04ae 2024     		mov	r4, #32
+ 1565              	.L148:
+ 1566 04b0 0096     		str	r6, [sp]
+ 1567 04b2 0196     		str	r6, [sp, #4]
+ 1568 04b4 0A99     		ldr	r1, [sp, #40]
+ 1569 04b6 3748     		ldr	r0, .L186+24
+ 1570 04b8 0B68     		ldr	r3, [r1]
+ 1571 04ba 0293     		str	r3, [sp, #8]
+ 1572 04bc DFE7     		b	.L182
+ 1573              	.L139:
+ 1574 04be 099B     		ldr	r3, [sp, #36]
+ 1575 04c0 F218     		add	r2, r6, r3
+ 1576 04c2 0132     		add	r2, r2, #1
+ 1577 04c4 3448     		ldr	r0, .L186+28
+ 1578 04c6 111C     		mov	r1, r2
+ 1579 04c8 344B     		ldr	r3, .L186+32
+ 1580 04ca 314C     		ldr	r4, .L186+20
+ 1581 04cc 00F013FE 		bl	.L22
+ 1582              	.L135:
+ 1583 04d0 079C     		ldr	r4, [sp, #28]
+ 1584 04d2 0A99     		ldr	r1, [sp, #40]
+ 1585 04d4 0134     		add	r4, r4, #1
+ 1586 04d6 0831     		add	r1, r1, #8
+ 1587 04d8 0794     		str	r4, [sp, #28]
+ 1588 04da 0A91     		str	r1, [sp, #40]
+ 1589 04dc 0135     		add	r5, r5, #1
+ 1590              	.L125:
+ 1591 04de 079A     		ldr	r2, [sp, #28]
+ 1592 04e0 089B     		ldr	r3, [sp, #32]
+ 1593 04e2 9A42     		cmp	r2, r3
+ 1594 04e4 9FDB     		blt	.L126
+ 1595 04e6 2E4B     		ldr	r3, .L186+36
+ 1596 04e8 00F012FE 		bl	.L5
+ 1597 04ec 8228     		cmp	r0, #130
+ 1598 04ee 1DD0     		beq	.L154
+ 1599 04f0 8228     		cmp	r0, #130
+ 1600 04f2 08DC     		bgt	.L156
+ 1601 04f4 8028     		cmp	r0, #128
+ 1602 04f6 2FD0     		beq	.L183
+ 1603 04f8 8028     		cmp	r0, #128
+ 1604 04fa 0DDC     		bgt	.L153
+ 1605 04fc 031C     		mov	r3, r0
+ 1606 04fe 313B     		sub	r3, r3, #49
+ 1607 0500 082B     		cmp	r3, #8
+ 1608 0502 30D8     		bhi	.L150
+ 1609 0504 20E0     		b	.L176
+ 1610              	.L156:
+ 1611 0506 8428     		cmp	r0, #132
+ 1612 0508 1AD0     		beq	.L155
+ 1613 050a 8428     		cmp	r0, #132
+ 1614 050c 24DB     		blt	.L183
+ 1615 050e 8628     		cmp	r0, #134
+ 1616 0510 02D0     		beq	.L153
+ 1617 0512 8728     		cmp	r0, #135
+ 1618 0514 27D1     		bne	.L150
+ 1619 0516 09E0     		b	.L154
+ 1620              	.L153:
+ 1621 0518 3B68     		ldr	r3, [r7]
+ 1622 051a 002B     		cmp	r3, #0
+ 1623 051c 03DC     		bgt	.L179
+ 1624 051e 109C     		ldr	r4, [sp, #64]
+ 1625 0520 E407     		lsl	r4, r4, #31
+ 1626 0522 20D5     		bpl	.L150
+ 1627 0524 049B     		ldr	r3, [sp, #16]
+ 1628              	.L179:
+ 1629 0526 013B     		sub	r3, r3, #1
+ 1630              	.L180:
+ 1631 0528 3B60     		str	r3, [r7]
+ 1632 052a 45E7     		b	.L185
+ 1633              	.L154:
+ 1634 052c 3B68     		ldr	r3, [r7]
+ 1635 052e 0499     		ldr	r1, [sp, #16]
+ 1636 0530 0133     		add	r3, r3, #1
+ 1637 0532 8B42     		cmp	r3, r1
+ 1638 0534 F8DB     		blt	.L180
+ 1639 0536 109A     		ldr	r2, [sp, #64]
+ 1640 0538 D207     		lsl	r2, r2, #31
+ 1641 053a 14D5     		bpl	.L150
+ 1642 053c 0023     		mov	r3, #0
+ 1643 053e F3E7     		b	.L180
+ 1644              	.L155:
+ 1645 0540 0123     		mov	r3, #1
+ 1646 0542 5B42     		neg	r3, r3
+ 1647 0544 3B60     		str	r3, [r7]
+ 1648 0546 11E0     		b	.L157
+ 1649              	.L176:
+ 1650 0548 3124     		mov	r4, #49
+ 1651 054a 6442     		neg	r4, r4
+ 1652 054c 0319     		add	r3, r0, r4
+ 1653 054e 0AD4     		bmi	.L150
+ 1654 0550 0499     		ldr	r1, [sp, #16]
+ 1655 0552 8B42     		cmp	r3, r1
+ 1656 0554 07DA     		bge	.L150
+ 1657 0556 3B60     		str	r3, [r7]
+ 1658              	.L183:
+ 1659 0558 381C     		mov	r0, r7
+ 1660 055a 0599     		ldr	r1, [sp, #20]
+ 1661 055c 109A     		ldr	r2, [sp, #64]
+ 1662 055e 119B     		ldr	r3, [sp, #68]
+ 1663 0560 FFF7FEFF 		bl	txt_menu_sel_set_value
+ 1664 0564 02E0     		b	.L157
+ 1665              	.L150:
+ 1666 0566 FFF7FEFF 		bl	errorbeep
+ 1667 056a 25E7     		b	.L185
+ 1668              	.L157:
+ 1669 056c 3B68     		ldr	r3, [r7]
+ 1670 056e 0133     		add	r3, r3, #1
+ 1671 0570 00D0     		beq	.LCB942
+ 1672 0572 21E7     		b	.L185	@long jump
+ 1673              	.LCB942:
+ 1674 0574 0BB0     		add	sp, sp, #44
+ 1675              		@ sp needed for prologue
+ 1676 0576 F0BC     		pop	{r4, r5, r6, r7}
+ 1677 0578 01BC     		pop	{r0}
+ 1678 057a 0047     		bx	r0
+ 1679              	.L187:
+ 1680              		.align	2
+ 1681              	.L186:
+ 1682 057c 00000000 		.word	cursor
+ 1683 0580 00000000 		.word	_impure_ptr
+ 1684 0584 00000000 		.word	__swbuf
+ 1685 0588 00000000 		.word	gotoxy
+ 1686 058c 4C000000 		.word	.LC31
+ 1687 0590 00000000 		.word	printf
+ 1688 0594 60000000 		.word	.LC34
+ 1689 0598 40000000 		.word	.LC22
+ 1690 059c 48000000 		.word	.LC24
+ 1691 05a0 00000000 		.word	WaitForKey
+ 1693              		.align	2
+ 1694              		.global	InitGraphMenu
+ 1695              		.code 16
+ 1696              		.thumb_func
+ 1698              	InitGraphMenu:
+ 1699 05a4 00B5     		push	{lr}
+ 1700 05a6 0448     		ldr	r0, .L190
+ 1701 05a8 0021     		mov	r1, #0
+ 1702 05aa 0A22     		mov	r2, #10
+ 1703 05ac 034B     		ldr	r3, .L190+4
+ 1704 05ae 00F012FE 		bl	.L5
+ 1705              		@ sp needed for prologue
+ 1706 05b2 01BC     		pop	{r0}
+ 1707 05b4 0047     		bx	r0
+ 1708              	.L191:
+ 1709 05b6 0000     		.align	2
+ 1710              	.L190:
+ 1711 05b8 40000000 		.word	menu_layers
+ 1712 05bc 00000000 		.word	memset
+ 1714              		.align	2
+ 1715              		.global	GraphIncLayer
+ 1716              		.code 16
+ 1717              		.thumb_func
+ 1719              	GraphIncLayer:
+ 1720 05c0 074A     		ldr	r2, .L201
+ 1721              		@ lr needed for prologue
+ 1722 05c2 0021     		mov	r1, #0
+ 1723              	.L193:
+ 1724 05c4 1368     		ldr	r3, [r2]
+ 1725 05c6 002B     		cmp	r3, #0
+ 1726 05c8 04D1     		bne	.L194
+ 1727 05ca 054A     		ldr	r2, .L201
+ 1728 05cc 8B00     		lsl	r3, r1, #2
+ 1729 05ce 9850     		str	r0, [r3, r2]
+ 1730 05d0 0120     		mov	r0, #1
+ 1731 05d2 04E0     		b	.L196
+ 1732              	.L194:
+ 1733 05d4 0131     		add	r1, r1, #1
+ 1734 05d6 0432     		add	r2, r2, #4
+ 1735 05d8 0A29     		cmp	r1, #10
+ 1736 05da F3D1     		bne	.L193
+ 1737 05dc 0020     		mov	r0, #0
+ 1738              	.L196:
+ 1739              		@ sp needed for prologue
+ 1740 05de 7047     		bx	lr
+ 1741              	.L202:
+ 1742              		.align	2
+ 1743              	.L201:
+ 1744 05e0 40000000 		.word	menu_layers
+ 1746              		.bss
+ 1747              	tmp.3255:
+ 1748 0000 000000   		.space	3
+ 1749              		.section	.rodata.str1.4
+ 1750 006d 000000   		.align	2
+ 1751              	.LC44:
+ 1752 0070 2D00     		.ascii	"-\000"
+ 1753 0072 0000     		.align	2
+ 1754              	.LC48:
+ 1755 0074 256400   		.ascii	"%d\000"
+ 1756              		.text
+ 1757              		.align	2
+ 1758              		.code 16
+ 1759              		.thumb_func
+ 1761              	build_layer_string:
+ 1762 05e4 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1763 05e6 0023     		mov	r3, #0
+ 1764 05e8 0370     		strb	r3, [r0]
+ 1765 05ea 174E     		ldr	r6, .L216
+ 1766 05ec 051C     		mov	r5, r0
+ 1767 05ee 0027     		mov	r7, #0
+ 1768              	.L204:
+ 1769 05f0 3368     		ldr	r3, [r6]
+ 1770 05f2 002B     		cmp	r3, #0
+ 1771 05f4 20D0     		beq	.L214
+ 1772 05f6 2B78     		ldrb	r3, [r5]
+ 1773 05f8 002B     		cmp	r3, #0
+ 1774 05fa 04D0     		beq	.L208
+ 1775 05fc 281C     		mov	r0, r5
+ 1776 05fe 1349     		ldr	r1, .L216+4
+ 1777 0600 134B     		ldr	r3, .L216+8
+ 1778 0602 00F012FE 		bl	.L5
+ 1779              	.L208:
+ 1780 0606 134C     		ldr	r4, .L216+12
+ 1781 0608 04CE     		ldmia	r6!, {r2}
+ 1782 060a 1349     		ldr	r1, .L216+16
+ 1783 060c 134B     		ldr	r3, .L216+20
+ 1784 060e 201C     		mov	r0, r4
+ 1785 0610 00F012FE 		bl	.L5
+ 1786 0614 0137     		add	r7, r7, #1
+ 1787 0616 281C     		mov	r0, r5
+ 1788 0618 211C     		mov	r1, r4
+ 1789 061a 0D4B     		ldr	r3, .L216+8
+ 1790 061c 00F012FE 		bl	.L5
+ 1791 0620 0A2F     		cmp	r7, #10
+ 1792 0622 E5D1     		bne	.L204
+ 1793              	.L207:
+ 1794 0624 0E4B     		ldr	r3, .L216+24
+ 1795 0626 281C     		mov	r0, r5
+ 1796 0628 2D21     		mov	r1, #45
+ 1797 062a 00F012FE 		bl	.L5
+ 1798 062e 0028     		cmp	r0, #0
+ 1799 0630 04D0     		beq	.L210
+ 1800 0632 0023     		mov	r3, #0
+ 1801 0634 0370     		strb	r3, [r0]
+ 1802 0636 02E0     		b	.L212
+ 1803              	.L214:
+ 1804 0638 013F     		sub	r7, r7, #1
+ 1805 063a F3E7     		b	.L207
+ 1806              	.L210:
+ 1807 063c 2870     		strb	r0, [r5]
+ 1808              	.L212:
+ 1809 063e 381C     		mov	r0, r7
+ 1810              		@ sp needed for prologue
+ 1811 0640 F0BC     		pop	{r4, r5, r6, r7}
+ 1812 0642 02BC     		pop	{r1}
+ 1813 0644 0847     		bx	r1
+ 1814              	.L217:
+ 1815 0646 0000     		.align	2
+ 1816              	.L216:
+ 1817 0648 40000000 		.word	menu_layers
+ 1818 064c 70000000 		.word	.LC44
+ 1819 0650 00000000 		.word	strcat
+ 1820 0654 00000000 		.word	tmp.3255
+ 1821 0658 74000000 		.word	.LC48
+ 1822 065c 00000000 		.word	sprintf
+ 1823 0660 00000000 		.word	strrchr
+ 1825              		.section	.rodata.str1.4
+ 1826 0077 00       		.align	2
+ 1827              	.LC54:
+ 1828 0078 252A2E2A 		.ascii	"%*.*s%c%-2d\000"
+ 1828      73256325 
+ 1828      2D326400 
+ 1829              		.text
+ 1830              		.align	2
+ 1831              		.code 16
+ 1832              		.thumb_func
+ 1834              	display_layer:
+ 1835 0664 30B5     		push	{r4, r5, lr}
+ 1836 0666 82B0     		sub	sp, sp, #8
+ 1837 0668 041C     		mov	r4, r0
+ 1838 066a 104B     		ldr	r3, .L223
+ 1839 066c 0020     		mov	r0, #0
+ 1840 066e 0D1C     		mov	r5, r1
+ 1841 0670 0021     		mov	r1, #0
+ 1842 0672 00F012FE 		bl	.L5
+ 1843 0676 0E4B     		ldr	r3, .L223+4
+ 1844 0678 0021     		mov	r1, #0
+ 1845 067a 0220     		mov	r0, #2
+ 1846 067c 00F012FE 		bl	.L5
+ 1847 0680 FFF7FEFF 		bl	GetMaxCharsXPos
+ 1848 0684 2378     		ldrb	r3, [r4]
+ 1849 0686 C21E     		sub	r2, r0, #3
+ 1850 0688 002B     		cmp	r3, #0
+ 1851 068a 01D0     		beq	.L219
+ 1852 068c 2D23     		mov	r3, #45
+ 1853 068e 00E0     		b	.L221
+ 1854              	.L219:
+ 1855 0690 2023     		mov	r3, #32
+ 1856              	.L221:
+ 1857 0692 0195     		str	r5, [sp, #4]
+ 1858 0694 0093     		str	r3, [sp]
+ 1859 0696 111C     		mov	r1, r2
+ 1860 0698 231C     		mov	r3, r4
+ 1861 069a 0648     		ldr	r0, .L223+8
+ 1862 069c 064C     		ldr	r4, .L223+12
+ 1863 069e 00F013FE 		bl	.L22
+ 1864 06a2 02B0     		add	sp, sp, #8
+ 1865              		@ sp needed for prologue
+ 1866 06a4 30BC     		pop	{r4, r5}
+ 1867 06a6 01BC     		pop	{r0}
+ 1868 06a8 0047     		bx	r0
+ 1869              	.L224:
+ 1870 06aa 0000     		.align	2
+ 1871              	.L223:
+ 1872 06ac 00000000 		.word	gotoxy
+ 1873 06b0 00000000 		.word	setfont
+ 1874 06b4 78000000 		.word	.LC54
+ 1875 06b8 00000000 		.word	printf
+ 1877              		.section	.rodata.str1.4
+ 1878              		.align	2
+ 1879              	.LC60:
+ 1880 0084 252D2A2E 		.ascii	"%-*.*s\000"
+ 1880      2A7300
+ 1881 008b 00       		.text
+ 1882              		.align	2
+ 1883              		.code 16
+ 1884              		.thumb_func
+ 1886              	display_menu_item_text:
+ 1887 06bc 70B5     		push	{r4, r5, r6, lr}
+ 1888 06be 061C     		mov	r6, r0
+ 1889 06c0 0021     		mov	r1, #0
+ 1890 06c2 0F4B     		ldr	r3, .L227
+ 1891 06c4 0420     		mov	r0, #4
+ 1892 06c6 00F012FE 		bl	.L5
+ 1893 06ca FFF7FEFF 		bl	GetMaxCharsXPos
+ 1894 06ce 0021     		mov	r1, #0
+ 1895 06d0 0C4B     		ldr	r3, .L227+4
+ 1896 06d2 041C     		mov	r4, r0
+ 1897 06d4 0020     		mov	r0, #0
+ 1898 06d6 00F012FE 		bl	.L5
+ 1899 06da 013C     		sub	r4, r4, #1
+ 1900 06dc 0A4D     		ldr	r5, .L227+8
+ 1901 06de 0820     		mov	r0, #8
+ 1902 06e0 00F014FE 		bl	.L229
+ 1903 06e4 211C     		mov	r1, r4
+ 1904 06e6 221C     		mov	r2, r4
+ 1905 06e8 331C     		mov	r3, r6
+ 1906 06ea 084C     		ldr	r4, .L227+12
+ 1907 06ec 0848     		ldr	r0, .L227+16
+ 1908 06ee 00F013FE 		bl	.L22
+ 1909 06f2 0020     		mov	r0, #0
+ 1910 06f4 00F014FE 		bl	.L229
+ 1911              		@ sp needed for prologue
+ 1912 06f8 70BC     		pop	{r4, r5, r6}
+ 1913 06fa 01BC     		pop	{r0}
+ 1914 06fc 0047     		bx	r0
+ 1915              	.L228:
+ 1916 06fe 0000     		.align	2
+ 1917              	.L227:
+ 1918 0700 00000000 		.word	setfont
+ 1919 0704 00000000 		.word	gotoxy
+ 1920 0708 00000000 		.word	set_offset
+ 1921 070c 00000000 		.word	printf
+ 1922 0710 84000000 		.word	.LC60
+ 1924              		.align	2
+ 1925              		.code 16
+ 1926              		.thumb_func
+ 1928              	display_image:
+ 1929 0714 00B5     		push	{lr}
+ 1930 0716 021C     		mov	r2, r0
+ 1931 0718 0028     		cmp	r0, #0
+ 1932 071a 02D1     		bne	.L231
+ 1933 071c 0C4A     		ldr	r2, .L240
+ 1934 071e 2020     		mov	r0, #32
+ 1935 0720 0FE0     		b	.L238
+ 1936              	.L231:
+ 1937 0722 0C4B     		ldr	r3, .L240+4
+ 1938 0724 9842     		cmp	r0, r3
+ 1939 0726 02D0     		beq	.L234
+ 1940 0728 0B4B     		ldr	r3, .L240+8
+ 1941 072a 9842     		cmp	r0, r3
+ 1942 072c 05D1     		bne	.L236
+ 1943              	.L234:
+ 1944 072e 5378     		ldrb	r3, [r2, #1]
+ 1945 0730 4020     		mov	r0, #64
+ 1946 0732 5B08     		lsr	r3, r3, #1
+ 1947 0734 C01A     		sub	r0, r0, r3
+ 1948 0736 3121     		mov	r1, #49
+ 1949 0738 04E0     		b	.L239
+ 1950              	.L236:
+ 1951 073a 4378     		ldrb	r3, [r0, #1]
+ 1952 073c 4020     		mov	r0, #64
+ 1953 073e 5B08     		lsr	r3, r3, #1
+ 1954 0740 C01A     		sub	r0, r0, r3
+ 1955              	.L238:
+ 1956 0742 2721     		mov	r1, #39
+ 1957              	.L239:
+ 1958 0744 054B     		ldr	r3, .L240+12
+ 1959 0746 00F012FE 		bl	.L5
+ 1960              		@ sp needed for prologue
+ 1961 074a 01BC     		pop	{r0}
+ 1962 074c 0047     		bx	r0
+ 1963              	.L241:
+ 1964 074e 0000     		.align	2
+ 1965              	.L240:
+ 1966 0750 00000000 		.word	_exitsign
+ 1967 0754 00000000 		.word	_checked
+ 1968 0758 00000000 		.word	_uncheck
+ 1969 075c 00000000 		.word	showpicture
+ 1971              		.align	2
+ 1972              		.code 16
+ 1973              		.thumb_func
+ 1975              	display_selection_bar:
+ 1976 0760 10B5     		push	{r4, lr}
+ 1977 0762 094C     		ldr	r4, .L244
+ 1978 0764 094A     		ldr	r2, .L244+4
+ 1979 0766 0020     		mov	r0, #0
+ 1980 0768 7821     		mov	r1, #120
+ 1981 076a 00F013FE 		bl	.L22
+ 1982 076e 084A     		ldr	r2, .L244+8
+ 1983 0770 3020     		mov	r0, #48
+ 1984 0772 7821     		mov	r1, #120
+ 1985 0774 00F013FE 		bl	.L22
+ 1986 0778 064A     		ldr	r2, .L244+12
+ 1987 077a 7020     		mov	r0, #112
+ 1988 077c 7821     		mov	r1, #120
+ 1989 077e 00F013FE 		bl	.L22
+ 1990              		@ sp needed for prologue
+ 1991 0782 10BC     		pop	{r4}
+ 1992 0784 01BC     		pop	{r0}
+ 1993 0786 0047     		bx	r0
+ 1994              	.L245:
+ 1995              		.align	2
+ 1996              	.L244:
+ 1997 0788 00000000 		.word	showpicture
+ 1998 078c 00000000 		.word	_up_arrow
+ 1999 0790 00000000 		.word	_select
+ 2000 0794 00000000 		.word	_down_arrow
+ 2002              		.global	__divsi3
+ 2003              		.align	2
+ 2004              		.code 16
+ 2005              		.thumb_func
+ 2007              	display_progress_bar:
+ 2008 0798 F0B5     		push	{r4, r5, r6, r7, lr}
+ 2009 079a 0C1C     		mov	r4, r1
+ 2010 079c 013C     		sub	r4, r4, #1
+ 2011 079e 451E     		sub	r5, r0, #1
+ 2012 07a0 82B0     		sub	sp, sp, #8
+ 2013 07a2 274B     		ldr	r3, .L252
+ 2014 07a4 7020     		mov	r0, #112
+ 2015 07a6 211C     		mov	r1, r4
+ 2016 07a8 00F012FE 		bl	.L5
+ 2017 07ac A542     		cmp	r5, r4
+ 2018 07ae 01D1     		bne	.L247
+ 2019 07b0 7923     		mov	r3, #121
+ 2020 07b2 02E0     		b	.L251
+ 2021              	.L247:
+ 2022 07b4 031C     		mov	r3, r0
+ 2023 07b6 6B43     		mul	r3, r3, r5
+ 2024 07b8 0A33     		add	r3, r3, #10
+ 2025              	.L251:
+ 2026 07ba 0025     		mov	r5, #0
+ 2027 07bc 214C     		ldr	r4, .L252+4
+ 2028 07be 0095     		str	r5, [sp]
+ 2029 07c0 0193     		str	r3, [sp, #4]
+ 2030 07c2 7F20     		mov	r0, #127
+ 2031 07c4 0021     		mov	r1, #0
+ 2032 07c6 7F22     		mov	r2, #127
+ 2033 07c8 8023     		mov	r3, #128
+ 2034 07ca 00F013FE 		bl	.L22
+ 2035 07ce 0095     		str	r5, [sp]
+ 2036 07d0 7E20     		mov	r0, #126
+ 2037 07d2 0021     		mov	r1, #0
+ 2038 07d4 7E22     		mov	r2, #126
+ 2039 07d6 8023     		mov	r3, #128
+ 2040 07d8 00F013FE 		bl	.L22
+ 2041 07dc 0095     		str	r5, [sp]
+ 2042 07de 7D20     		mov	r0, #125
+ 2043 07e0 0021     		mov	r1, #0
+ 2044 07e2 7D22     		mov	r2, #125
+ 2045 07e4 8023     		mov	r3, #128
+ 2046 07e6 00F013FE 		bl	.L22
+ 2047 07ea 0123     		mov	r3, #1
+ 2048 07ec 0093     		str	r3, [sp]
+ 2049 07ee 7C20     		mov	r0, #124
+ 2050 07f0 0A21     		mov	r1, #10
+ 2051 07f2 7C22     		mov	r2, #124
+ 2052 07f4 7F23     		mov	r3, #127
+ 2053 07f6 00F013FE 		bl	.L22
+ 2054 07fa 019E     		ldr	r6, [sp, #4]
+ 2055 07fc 019F     		ldr	r7, [sp, #4]
+ 2056 07fe 0136     		add	r6, r6, #1
+ 2057 0800 0537     		add	r7, r7, #5
+ 2058 0802 0095     		str	r5, [sp]
+ 2059 0804 311C     		mov	r1, r6
+ 2060 0806 3B1C     		mov	r3, r7
+ 2061 0808 7C20     		mov	r0, #124
+ 2062 080a 7C22     		mov	r2, #124
+ 2063 080c 00F013FE 		bl	.L22
+ 2064 0810 0123     		mov	r3, #1
+ 2065 0812 311C     		mov	r1, r6
+ 2066 0814 0093     		str	r3, [sp]
+ 2067 0816 7E20     		mov	r0, #126
+ 2068 0818 3B1C     		mov	r3, r7
+ 2069 081a 7E22     		mov	r2, #126
+ 2070 081c 00F013FE 		bl	.L22
+ 2071 0820 0199     		ldr	r1, [sp, #4]
+ 2072 0822 094C     		ldr	r4, .L252+8
+ 2073 0824 7D20     		mov	r0, #125
+ 2074 0826 0122     		mov	r2, #1
+ 2075 0828 00F013FE 		bl	.L22
+ 2076 082c 0199     		ldr	r1, [sp, #4]
+ 2077 082e 7D20     		mov	r0, #125
+ 2078 0830 0631     		add	r1, r1, #6
+ 2079 0832 0122     		mov	r2, #1
+ 2080 0834 00F013FE 		bl	.L22
+ 2081 0838 02B0     		add	sp, sp, #8
+ 2082              		@ sp needed for prologue
+ 2083 083a F0BC     		pop	{r4, r5, r6, r7}
+ 2084 083c 01BC     		pop	{r0}
+ 2085 083e 0047     		bx	r0
+ 2086              	.L253:
+ 2087              		.align	2
+ 2088              	.L252:
+ 2089 0840 00000000 		.word	__divsi3
+ 2090 0844 00000000 		.word	drawline
+ 2091 0848 00000000 		.word	setpixel
+ 2093              		.bss
+ 2094              	layer_string.3378:
+ 2095 0003 00000000 		.space	30
+ 2095      00000000 
+ 2095      00000000 
+ 2095      00000000 
+ 2095      00000000 
+ 2096              		.text
+ 2097              		.align	2
+ 2098              		.global	ShowGraphMenu
+ 2099              		.code 16
+ 2100              		.thumb_func
+ 2102              	ShowGraphMenu:
+ 2103 084c F0B5     		push	{r4, r5, r6, r7, lr}
+ 2104 084e 81B0     		sub	sp, sp, #4
+ 2105 0850 0091     		str	r1, [sp]
+ 2106 0852 784B     		ldr	r3, .L303
+ 2107 0854 071C     		mov	r7, r0
+ 2108 0856 0420     		mov	r0, #4
+ 2109 0858 00F012FE 		bl	.L5
+ 2110 085c 0120     		mov	r0, #1
+ 2111 085e FFF7FEFF 		bl	GraphIncLayer
+ 2112 0862 7548     		ldr	r0, .L303+4
+ 2113 0864 FFF7FEFF 		bl	build_layer_string
+ 2114 0868 744C     		ldr	r4, .L303+8
+ 2115 086a 2368     		ldr	r3, [r4]
+ 2116 086c 9968     		ldr	r1, [r3, #8]
+ 2117 086e 8B68     		ldr	r3, [r1, #8]
+ 2118 0870 061C     		mov	r6, r0
+ 2119 0872 581E     		sub	r0, r3, #1
+ 2120 0874 8860     		str	r0, [r1, #8]
+ 2121 0876 0028     		cmp	r0, #0
+ 2122 0878 1CDA     		bge	.L255
+ 2123 087a 8B69     		ldr	r3, [r1, #24]
+ 2124 087c 9842     		cmp	r0, r3
+ 2125 087e 0DDB     		blt	.L257
+ 2126 0880 0A68     		ldr	r2, [r1]
+ 2127 0882 0C23     		mov	r3, #12
+ 2128 0884 1370     		strb	r3, [r2]
+ 2129 0886 2368     		ldr	r3, [r4]
+ 2130 0888 9968     		ldr	r1, [r3, #8]
+ 2131 088a 0A68     		ldr	r2, [r1]
+ 2132 088c 1378     		ldrb	r3, [r2]
+ 2133 088e 0A2B     		cmp	r3, #10
+ 2134 0890 02D0     		beq	.L259
+ 2135 0892 531C     		add	r3, r2, #1
+ 2136 0894 0B60     		str	r3, [r1]
+ 2137 0896 15E0     		b	.L261
+ 2138              	.L259:
+ 2139 0898 0A20     		mov	r0, #10
+ 2140 089a 00E0     		b	.L299
+ 2141              	.L257:
+ 2142 089c 0C20     		mov	r0, #12
+ 2143              	.L299:
+ 2144 089e 684B     		ldr	r3, .L303+12
+ 2145 08a0 00F012FE 		bl	.L5
+ 2146 08a4 0EE0     		b	.L261
+ 2147              	.L293:
+ 2148 08a6 6448     		ldr	r0, .L303+4
+ 2149 08a8 FFF7FEFF 		bl	build_layer_string
+ 2150 08ac 01B0     		add	sp, sp, #4
+ 2151              		@ sp needed for prologue
+ 2152 08ae F0BC     		pop	{r4, r5, r6, r7}
+ 2153 08b0 01BC     		pop	{r0}
+ 2154 08b2 0047     		bx	r0
+ 2155              	.L255:
+ 2156 08b4 0A68     		ldr	r2, [r1]
+ 2157 08b6 0C23     		mov	r3, #12
+ 2158 08b8 1370     		strb	r3, [r2]
+ 2159 08ba 2368     		ldr	r3, [r4]
+ 2160 08bc 9A68     		ldr	r2, [r3, #8]
+ 2161 08be 1368     		ldr	r3, [r2]
+ 2162 08c0 0133     		add	r3, r3, #1
+ 2163 08c2 1360     		str	r3, [r2]
+ 2164              	.L261:
+ 2165 08c4 5F4B     		ldr	r3, .L303+16
+ 2166 08c6 00F012FE 		bl	.L5
+ 2167              	.L302:
+ 2168 08ca 5F4D     		ldr	r5, .L303+20
+ 2169 08cc B400     		lsl	r4, r6, #2
+ 2170 08ce 6159     		ldr	r1, [r4, r5]
+ 2171 08d0 5948     		ldr	r0, .L303+4
+ 2172 08d2 FFF7FEFF 		bl	display_layer
+ 2173 08d6 6259     		ldr	r2, [r4, r5]
+ 2174 08d8 5300     		lsl	r3, r2, #1
+ 2175 08da 9B18     		add	r3, r3, r2
+ 2176 08dc 9B00     		lsl	r3, r3, #2
+ 2177 08de DB19     		add	r3, r3, r7
+ 2178 08e0 0C3B     		sub	r3, r3, #12
+ 2179 08e2 1868     		ldr	r0, [r3]
+ 2180 08e4 FFF7FEFF 		bl	display_menu_item_text
+ 2181 08e8 6259     		ldr	r2, [r4, r5]
+ 2182 08ea 5300     		lsl	r3, r2, #1
+ 2183 08ec 9B18     		add	r3, r3, r2
+ 2184 08ee 9B00     		lsl	r3, r3, #2
+ 2185 08f0 DB19     		add	r3, r3, r7
+ 2186 08f2 0C3B     		sub	r3, r3, #12
+ 2187 08f4 5868     		ldr	r0, [r3, #4]
+ 2188 08f6 FFF7FEFF 		bl	display_image
+ 2189 08fa FFF7FEFF 		bl	display_selection_bar
+ 2190 08fe 6059     		ldr	r0, [r4, r5]
+ 2191 0900 0099     		ldr	r1, [sp]
+ 2192 0902 FFF7FEFF 		bl	display_progress_bar
+ 2193 0906 514B     		ldr	r3, .L303+24
+ 2194 0908 00F012FE 		bl	.L5
+ 2195 090c 8228     		cmp	r0, #130
+ 2196 090e 2DD0     		beq	.L267
+ 2197 0910 8228     		cmp	r0, #130
+ 2198 0912 08DC     		bgt	.L269
+ 2199 0914 8028     		cmp	r0, #128
+ 2200 0916 12D0     		beq	.L265
+ 2201 0918 8028     		cmp	r0, #128
+ 2202 091a 1DDC     		bgt	.L266
+ 2203 091c 031C     		mov	r3, r0
+ 2204 091e 313B     		sub	r3, r3, #49
+ 2205 0920 082B     		cmp	r3, #8
+ 2206 0922 47D8     		bhi	.L263
+ 2207 0924 33E0     		b	.L297
+ 2208              	.L269:
+ 2209 0926 8428     		cmp	r0, #132
+ 2210 0928 06D0     		beq	.L268
+ 2211 092a 8428     		cmp	r0, #132
+ 2212 092c 07DB     		blt	.L265
+ 2213 092e 8628     		cmp	r0, #134
+ 2214 0930 12D0     		beq	.L266
+ 2215 0932 8728     		cmp	r0, #135
+ 2216 0934 3ED1     		bne	.L263
+ 2217 0936 19E0     		b	.L267
+ 2218              	.L268:
+ 2219 0938 6119     		add	r1, r4, r5
+ 2220 093a 321C     		mov	r2, r6
+ 2221 093c 24E0     		b	.L270
+ 2222              	.L265:
+ 2223 093e 4248     		ldr	r0, .L303+20
+ 2224 0940 B100     		lsl	r1, r6, #2
+ 2225 0942 0A58     		ldr	r2, [r1, r0]
+ 2226 0944 5300     		lsl	r3, r2, #1
+ 2227 0946 9B18     		add	r3, r3, r2
+ 2228 0948 9B00     		lsl	r3, r3, #2
+ 2229 094a DB19     		add	r3, r3, r7
+ 2230 094c 0C3B     		sub	r3, r3, #12
+ 2231 094e 9B68     		ldr	r3, [r3, #8]
+ 2232 0950 002B     		cmp	r3, #0
+ 2233 0952 32D1     		bne	.L271
+ 2234 0954 0B50     		str	r3, [r1, r0]
+ 2235 0956 30E0     		b	.L271
+ 2236              	.L266:
+ 2237 0958 3B49     		ldr	r1, .L303+20
+ 2238 095a B200     		lsl	r2, r6, #2
+ 2239 095c 5358     		ldr	r3, [r2, r1]
+ 2240 095e 012B     		cmp	r3, #1
+ 2241 0960 01DD     		ble	.L273
+ 2242 0962 013B     		sub	r3, r3, #1
+ 2243 0964 09E0     		b	.L300
+ 2244              	.L273:
+ 2245 0966 0098     		ldr	r0, [sp]
+ 2246 0968 5050     		str	r0, [r2, r1]
+ 2247 096a AEE7     		b	.L302
+ 2248              	.L267:
+ 2249 096c 3649     		ldr	r1, .L303+20
+ 2250 096e B200     		lsl	r2, r6, #2
+ 2251 0970 5358     		ldr	r3, [r2, r1]
+ 2252 0972 0098     		ldr	r0, [sp]
+ 2253 0974 8342     		cmp	r3, r0
+ 2254 0976 02DA     		bge	.L275
+ 2255 0978 0133     		add	r3, r3, #1
+ 2256              	.L300:
+ 2257 097a 5350     		str	r3, [r2, r1]
+ 2258 097c A5E7     		b	.L302
+ 2259              	.L275:
+ 2260 097e 0123     		mov	r3, #1
+ 2261 0980 FBE7     		b	.L300
+ 2262              	.L277:
+ 2263 0982 0023     		mov	r3, #0
+ 2264 0984 08C1     		stmia	r1!, {r3}
+ 2265 0986 0132     		add	r2, r2, #1
+ 2266              	.L270:
+ 2267 0988 092A     		cmp	r2, #9
+ 2268 098a FADD     		ble	.L277
+ 2269 098c 15E0     		b	.L271
+ 2270              	.L297:
+ 2271 098e 3038     		sub	r0, r0, #48
+ 2272 0990 0028     		cmp	r0, #0
+ 2273 0992 0FDD     		ble	.L263
+ 2274 0994 009B     		ldr	r3, [sp]
+ 2275 0996 9842     		cmp	r0, r3
+ 2276 0998 0CDC     		bgt	.L263
+ 2277 099a 4300     		lsl	r3, r0, #1
+ 2278 099c 1B18     		add	r3, r3, r0
+ 2279 099e 9B00     		lsl	r3, r3, #2
+ 2280 09a0 2949     		ldr	r1, .L303+20
+ 2281 09a2 DB19     		add	r3, r3, r7
+ 2282 09a4 B200     		lsl	r2, r6, #2
+ 2283 09a6 0C3B     		sub	r3, r3, #12
+ 2284 09a8 5050     		str	r0, [r2, r1]
+ 2285 09aa 9868     		ldr	r0, [r3, #8]
+ 2286 09ac 0028     		cmp	r0, #0
+ 2287 09ae 04D1     		bne	.L271
+ 2288 09b0 5050     		str	r0, [r2, r1]
+ 2289 09b2 02E0     		b	.L271
+ 2290              	.L263:
+ 2291 09b4 FFF7FEFF 		bl	errorbeep
+ 2292 09b8 87E7     		b	.L302
+ 2293              	.L271:
+ 2294 09ba 234A     		ldr	r2, .L303+20
+ 2295 09bc B300     		lsl	r3, r6, #2
+ 2296 09be 9A58     		ldr	r2, [r3, r2]
+ 2297 09c0 002A     		cmp	r2, #0
+ 2298 09c2 00D1     		bne	.LCB1648
+ 2299 09c4 6FE7     		b	.L293	@long jump
+ 2300              	.LCB1648:
+ 2301 09c6 5300     		lsl	r3, r2, #1
+ 2302 09c8 9B18     		add	r3, r3, r2
+ 2303 09ca 9B00     		lsl	r3, r3, #2
+ 2304 09cc DB19     		add	r3, r3, r7
+ 2305 09ce 0C3B     		sub	r3, r3, #12
+ 2306 09d0 9B68     		ldr	r3, [r3, #8]
+ 2307 09d2 00F012FE 		bl	.L5
+ 2308 09d6 194C     		ldr	r4, .L303+8
+ 2309 09d8 2368     		ldr	r3, [r4]
+ 2310 09da 9968     		ldr	r1, [r3, #8]
+ 2311 09dc 8B68     		ldr	r3, [r1, #8]
+ 2312 09de 581E     		sub	r0, r3, #1
+ 2313 09e0 8860     		str	r0, [r1, #8]
+ 2314 09e2 0028     		cmp	r0, #0
+ 2315 09e4 15DA     		bge	.L284
+ 2316 09e6 8B69     		ldr	r3, [r1, #24]
+ 2317 09e8 9842     		cmp	r0, r3
+ 2318 09ea 0DDB     		blt	.L286
+ 2319 09ec 0A68     		ldr	r2, [r1]
+ 2320 09ee 0C23     		mov	r3, #12
+ 2321 09f0 1370     		strb	r3, [r2]
+ 2322 09f2 2368     		ldr	r3, [r4]
+ 2323 09f4 9968     		ldr	r1, [r3, #8]
+ 2324 09f6 0A68     		ldr	r2, [r1]
+ 2325 09f8 1378     		ldrb	r3, [r2]
+ 2326 09fa 0A2B     		cmp	r3, #10
+ 2327 09fc 02D0     		beq	.L288
+ 2328 09fe 531C     		add	r3, r2, #1
+ 2329 0a00 0B60     		str	r3, [r1]
+ 2330 0a02 0EE0     		b	.L290
+ 2331              	.L288:
+ 2332 0a04 0A20     		mov	r0, #10
+ 2333 0a06 00E0     		b	.L301
+ 2334              	.L286:
+ 2335 0a08 0C20     		mov	r0, #12
+ 2336              	.L301:
+ 2337 0a0a 0D4B     		ldr	r3, .L303+12
+ 2338 0a0c 00F012FE 		bl	.L5
+ 2339 0a10 07E0     		b	.L290
+ 2340              	.L284:
+ 2341 0a12 0A68     		ldr	r2, [r1]
+ 2342 0a14 0C23     		mov	r3, #12
+ 2343 0a16 1370     		strb	r3, [r2]
+ 2344 0a18 2368     		ldr	r3, [r4]
+ 2345 0a1a 9A68     		ldr	r2, [r3, #8]
+ 2346 0a1c 1368     		ldr	r3, [r2]
+ 2347 0a1e 0133     		add	r3, r3, #1
+ 2348 0a20 1360     		str	r3, [r2]
+ 2349              	.L290:
+ 2350 0a22 084B     		ldr	r3, .L303+16
+ 2351 0a24 00F012FE 		bl	.L5
+ 2352 0a28 0420     		mov	r0, #4
+ 2353 0a2a 024B     		ldr	r3, .L303
+ 2354 0a2c 00F012FE 		bl	.L5
+ 2355 0a30 4BE7     		b	.L302
+ 2356              	.L304:
+ 2357 0a32 0000     		.align	2
+ 2358              	.L303:
+ 2359 0a34 00000000 		.word	cursor
+ 2360 0a38 03000000 		.word	layer_string.3378
+ 2361 0a3c 00000000 		.word	_impure_ptr
+ 2362 0a40 00000000 		.word	__swbuf
+ 2363 0a44 00000000 		.word	resetkey
+ 2364 0a48 40000000 		.word	menu_layers
+ 2365 0a4c 00000000 		.word	WaitForKey
+ 2367              		.align	2
+ 2368              		.code 16
+ 2369              		.thumb_func
+ 2371              	graph_menu_sel_set_value:
+ 2372 0a50 70B5     		push	{r4, r5, r6, lr}
+ 2373 0a52 061C     		mov	r6, r0
+ 2374 0a54 104D     		ldr	r5, .L315
+ 2375 0a56 B400     		lsl	r4, r6, #2
+ 2376 0a58 101C     		mov	r0, r2
+ 2377 0a5a 1A1C     		mov	r2, r3
+ 2378 0a5c 6359     		ldr	r3, [r4, r5]
+ 2379 0a5e DB00     		lsl	r3, r3, #3
+ 2380 0a60 5B18     		add	r3, r3, r1
+ 2381 0a62 083B     		sub	r3, r3, #8
+ 2382 0a64 5968     		ldr	r1, [r3, #4]
+ 2383 0a66 4B1C     		add	r3, r1, #1
+ 2384 0a68 02D1     		bne	.L306
+ 2385 0a6a 0023     		mov	r3, #0
+ 2386 0a6c 6351     		str	r3, [r4, r5]
+ 2387 0a6e 06E0     		b	.L308
+ 2388              	.L306:
+ 2389 0a70 8307     		lsl	r3, r0, #30
+ 2390 0a72 03D5     		bpl	.L309
+ 2391 0a74 1368     		ldr	r3, [r2]
+ 2392 0a76 4B40     		eor	r3, r3, r1
+ 2393 0a78 1360     		str	r3, [r2]
+ 2394 0a7a 00E0     		b	.L308
+ 2395              	.L309:
+ 2396 0a7c 1160     		str	r1, [r2]
+ 2397              	.L308:
+ 2398 0a7e 4307     		lsl	r3, r0, #29
+ 2399 0a80 06D5     		bpl	.L314
+ 2400 0a82 0223     		mov	r3, #2
+ 2401 0a84 011C     		mov	r1, r0
+ 2402 0a86 1940     		and	r1, r3
+ 2403 0a88 02D1     		bne	.L314
+ 2404 0a8a 034A     		ldr	r2, .L315
+ 2405 0a8c B300     		lsl	r3, r6, #2
+ 2406 0a8e 9950     		str	r1, [r3, r2]
+ 2407              	.L314:
+ 2408              		@ sp needed for prologue
+ 2409 0a90 70BC     		pop	{r4, r5, r6}
+ 2410 0a92 01BC     		pop	{r0}
+ 2411 0a94 0047     		bx	r0
+ 2412              	.L316:
+ 2413 0a96 0000     		.align	2
+ 2414              	.L315:
+ 2415 0a98 40000000 		.word	menu_layers
+ 2417              		.bss
+ 2418              	layer_string.3504:
+ 2419 0021 00000000 		.space	30
+ 2419      00000000 
+ 2419      00000000 
+ 2419      00000000 
+ 2419      00000000 
+ 2420              		.text
+ 2421              		.align	2
+ 2422              		.global	ShowGraphSelectionMenu
+ 2423              		.code 16
+ 2424              		.thumb_func
+ 2426              	ShowGraphSelectionMenu:
+ 2427 0a9c F0B5     		push	{r4, r5, r6, r7, lr}
+ 2428 0a9e 83B0     		sub	sp, sp, #12
+ 2429 0aa0 0192     		str	r2, [sp, #4]
+ 2430 0aa2 0290     		str	r0, [sp, #8]
+ 2431 0aa4 0093     		str	r3, [sp]
+ 2432 0aa6 0420     		mov	r0, #4
+ 2433 0aa8 564B     		ldr	r3, .L361
+ 2434 0aaa 0F1C     		mov	r7, r1
+ 2435 0aac 00F012FE 		bl	.L5
+ 2436 0ab0 0120     		mov	r0, #1
+ 2437 0ab2 FFF7FEFF 		bl	GraphIncLayer
+ 2438 0ab6 5448     		ldr	r0, .L361+4
+ 2439 0ab8 FFF7FEFF 		bl	build_layer_string
+ 2440 0abc 534C     		ldr	r4, .L361+8
+ 2441 0abe 2368     		ldr	r3, [r4]
+ 2442 0ac0 9968     		ldr	r1, [r3, #8]
+ 2443 0ac2 8B68     		ldr	r3, [r1, #8]
+ 2444 0ac4 061C     		mov	r6, r0
+ 2445 0ac6 581E     		sub	r0, r3, #1
+ 2446 0ac8 8860     		str	r0, [r1, #8]
+ 2447 0aca 0028     		cmp	r0, #0
+ 2448 0acc 15DA     		bge	.L318
+ 2449 0ace 8B69     		ldr	r3, [r1, #24]
+ 2450 0ad0 9842     		cmp	r0, r3
+ 2451 0ad2 0DDB     		blt	.L320
+ 2452 0ad4 0A68     		ldr	r2, [r1]
+ 2453 0ad6 0C23     		mov	r3, #12
+ 2454 0ad8 1370     		strb	r3, [r2]
+ 2455 0ada 2368     		ldr	r3, [r4]
+ 2456 0adc 9968     		ldr	r1, [r3, #8]
+ 2457 0ade 0A68     		ldr	r2, [r1]
+ 2458 0ae0 1378     		ldrb	r3, [r2]
+ 2459 0ae2 0A2B     		cmp	r3, #10
+ 2460 0ae4 02D0     		beq	.L322
+ 2461 0ae6 531C     		add	r3, r2, #1
+ 2462 0ae8 0B60     		str	r3, [r1]
+ 2463 0aea 0EE0     		b	.L324
+ 2464              	.L322:
+ 2465 0aec 0A20     		mov	r0, #10
+ 2466 0aee 00E0     		b	.L357
+ 2467              	.L320:
+ 2468 0af0 0C20     		mov	r0, #12
+ 2469              	.L357:
+ 2470 0af2 474B     		ldr	r3, .L361+12
+ 2471 0af4 00F012FE 		bl	.L5
+ 2472 0af8 07E0     		b	.L324
+ 2473              	.L318:
+ 2474 0afa 0A68     		ldr	r2, [r1]
+ 2475 0afc 0C23     		mov	r3, #12
+ 2476 0afe 1370     		strb	r3, [r2]
+ 2477 0b00 2368     		ldr	r3, [r4]
+ 2478 0b02 9A68     		ldr	r2, [r3, #8]
+ 2479 0b04 1368     		ldr	r3, [r2]
+ 2480 0b06 0133     		add	r3, r3, #1
+ 2481 0b08 1360     		str	r3, [r2]
+ 2482              	.L324:
+ 2483 0b0a 424B     		ldr	r3, .L361+16
+ 2484 0b0c 00F012FE 		bl	.L5
+ 2485              	.L360:
+ 2486 0b10 414D     		ldr	r5, .L361+20
+ 2487 0b12 B400     		lsl	r4, r6, #2
+ 2488 0b14 6159     		ldr	r1, [r4, r5]
+ 2489 0b16 3C48     		ldr	r0, .L361+4
+ 2490 0b18 FFF7FEFF 		bl	display_layer
+ 2491 0b1c 6359     		ldr	r3, [r4, r5]
+ 2492 0b1e 0299     		ldr	r1, [sp, #8]
+ 2493 0b20 DB00     		lsl	r3, r3, #3
+ 2494 0b22 5B18     		add	r3, r3, r1
+ 2495 0b24 083B     		sub	r3, r3, #8
+ 2496 0b26 1868     		ldr	r0, [r3]
+ 2497 0b28 FFF7FEFF 		bl	display_menu_item_text
+ 2498 0b2c 6359     		ldr	r3, [r4, r5]
+ 2499 0b2e 029A     		ldr	r2, [sp, #8]
+ 2500 0b30 DB00     		lsl	r3, r3, #3
+ 2501 0b32 9B18     		add	r3, r3, r2
+ 2502 0b34 083B     		sub	r3, r3, #8
+ 2503 0b36 5B68     		ldr	r3, [r3, #4]
+ 2504 0b38 591C     		add	r1, r3, #1
+ 2505 0b3a 01D1     		bne	.L326
+ 2506 0b3c 0020     		mov	r0, #0
+ 2507 0b3e 0CE0     		b	.L333
+ 2508              	.L326:
+ 2509 0b40 0099     		ldr	r1, [sp]
+ 2510 0b42 0A68     		ldr	r2, [r1]
+ 2511 0b44 0199     		ldr	r1, [sp, #4]
+ 2512 0b46 8907     		lsl	r1, r1, #30
+ 2513 0b48 02D5     		bpl	.L329
+ 2514 0b4a 1342     		tst	r3, r2
+ 2515 0b4c 04D0     		beq	.L331
+ 2516 0b4e 01E0     		b	.L332
+ 2517              	.L329:
+ 2518 0b50 9342     		cmp	r3, r2
+ 2519 0b52 01D1     		bne	.L331
+ 2520              	.L332:
+ 2521 0b54 3148     		ldr	r0, .L361+24
+ 2522 0b56 00E0     		b	.L333
+ 2523              	.L331:
+ 2524 0b58 3148     		ldr	r0, .L361+28
+ 2525              	.L333:
+ 2526 0b5a FFF7FEFF 		bl	display_image
+ 2527 0b5e FFF7FEFF 		bl	display_selection_bar
+ 2528 0b62 2D4D     		ldr	r5, .L361+20
+ 2529 0b64 B400     		lsl	r4, r6, #2
+ 2530 0b66 6059     		ldr	r0, [r4, r5]
+ 2531 0b68 391C     		mov	r1, r7
+ 2532 0b6a FFF7FEFF 		bl	display_progress_bar
+ 2533 0b6e 2D4B     		ldr	r3, .L361+32
+ 2534 0b70 00F012FE 		bl	.L5
+ 2535 0b74 8228     		cmp	r0, #130
+ 2536 0b76 1CD0     		beq	.L338
+ 2537 0b78 8228     		cmp	r0, #130
+ 2538 0b7a 08DC     		bgt	.L340
+ 2539 0b7c 8028     		cmp	r0, #128
+ 2540 0b7e 2DD0     		beq	.L359
+ 2541 0b80 8028     		cmp	r0, #128
+ 2542 0b82 0DDC     		bgt	.L337
+ 2543 0b84 031C     		mov	r3, r0
+ 2544 0b86 313B     		sub	r3, r3, #49
+ 2545 0b88 082B     		cmp	r3, #8
+ 2546 0b8a 2ED8     		bhi	.L334
+ 2547 0b8c 1EE0     		b	.L355
+ 2548              	.L340:
+ 2549 0b8e 8428     		cmp	r0, #132
+ 2550 0b90 19D0     		beq	.L339
+ 2551 0b92 8428     		cmp	r0, #132
+ 2552 0b94 22DB     		blt	.L359
+ 2553 0b96 8628     		cmp	r0, #134
+ 2554 0b98 02D0     		beq	.L337
+ 2555 0b9a 8728     		cmp	r0, #135
+ 2556 0b9c 25D1     		bne	.L334
+ 2557 0b9e 08E0     		b	.L338
+ 2558              	.L337:
+ 2559 0ba0 1D49     		ldr	r1, .L361+20
+ 2560 0ba2 B200     		lsl	r2, r6, #2
+ 2561 0ba4 5358     		ldr	r3, [r2, r1]
+ 2562 0ba6 012B     		cmp	r3, #1
+ 2563 0ba8 01DD     		ble	.L342
+ 2564 0baa 013B     		sub	r3, r3, #1
+ 2565 0bac 07E0     		b	.L358
+ 2566              	.L342:
+ 2567 0bae 5750     		str	r7, [r2, r1]
+ 2568 0bb0 AEE7     		b	.L360
+ 2569              	.L338:
+ 2570 0bb2 1949     		ldr	r1, .L361+20
+ 2571 0bb4 B200     		lsl	r2, r6, #2
+ 2572 0bb6 5358     		ldr	r3, [r2, r1]
+ 2573 0bb8 BB42     		cmp	r3, r7
+ 2574 0bba 02DA     		bge	.L344
+ 2575 0bbc 0133     		add	r3, r3, #1
+ 2576              	.L358:
+ 2577 0bbe 5350     		str	r3, [r2, r1]
+ 2578 0bc0 A6E7     		b	.L360
+ 2579              	.L344:
+ 2580 0bc2 0123     		mov	r3, #1
+ 2581 0bc4 FBE7     		b	.L358
+ 2582              	.L339:
+ 2583 0bc6 0023     		mov	r3, #0
+ 2584 0bc8 6351     		str	r3, [r4, r5]
+ 2585 0bca 11E0     		b	.L341
+ 2586              	.L355:
+ 2587 0bcc 3038     		sub	r0, r0, #48
+ 2588 0bce 0028     		cmp	r0, #0
+ 2589 0bd0 0BDD     		ble	.L334
+ 2590 0bd2 B842     		cmp	r0, r7
+ 2591 0bd4 09DC     		bgt	.L334
+ 2592 0bd6 104A     		ldr	r2, .L361+20
+ 2593 0bd8 B300     		lsl	r3, r6, #2
+ 2594 0bda 9850     		str	r0, [r3, r2]
+ 2595              	.L359:
+ 2596 0bdc 301C     		mov	r0, r6
+ 2597 0bde 0299     		ldr	r1, [sp, #8]
+ 2598 0be0 019A     		ldr	r2, [sp, #4]
+ 2599 0be2 009B     		ldr	r3, [sp]
+ 2600 0be4 FFF7FEFF 		bl	graph_menu_sel_set_value
+ 2601 0be8 02E0     		b	.L341
+ 2602              	.L334:
+ 2603 0bea FFF7FEFF 		bl	errorbeep
+ 2604 0bee 8FE7     		b	.L360
+ 2605              	.L341:
+ 2606 0bf0 094B     		ldr	r3, .L361+20
+ 2607 0bf2 B200     		lsl	r2, r6, #2
+ 2608 0bf4 D358     		ldr	r3, [r2, r3]
+ 2609 0bf6 002B     		cmp	r3, #0
+ 2610 0bf8 8AD1     		bne	.L360
+ 2611 0bfa 03B0     		add	sp, sp, #12
+ 2612              		@ sp needed for prologue
+ 2613 0bfc F0BC     		pop	{r4, r5, r6, r7}
+ 2614 0bfe 01BC     		pop	{r0}
+ 2615 0c00 0047     		bx	r0
+ 2616              	.L362:
+ 2617 0c02 0000     		.align	2
+ 2618              	.L361:
+ 2619 0c04 00000000 		.word	cursor
+ 2620 0c08 21000000 		.word	layer_string.3504
+ 2621 0c0c 00000000 		.word	_impure_ptr
+ 2622 0c10 00000000 		.word	__swbuf
+ 2623 0c14 00000000 		.word	resetkey
+ 2624 0c18 40000000 		.word	menu_layers
+ 2625 0c1c 00000000 		.word	_checked
+ 2626 0c20 00000000 		.word	_uncheck
+ 2627 0c24 00000000 		.word	WaitForKey
+ 2629              		.bss
+ 2630 003f 00       		.align	2
+ 2631              	menu_layers:
+ 2632 0040 00000000 		.space	40
+ 2632      00000000 
+ 2632      00000000 
+ 2632      00000000 
+ 2632      00000000 
+ 2633              		.ident	"GCC: (GNU) 4.0.1 (WinARM)"
+ 2634              		.text
+ 2635              		.code 16
+ 2636              		.align	1
+ 2637              	.L5:
+ 2638 0c28 1847     		bx	r3
+ 2639              	.L22:
+ 2640 0c2a 2047     		bx	r4
+ 2641              	.L229:
+ 2642 0c2c 2847     		bx	r5
+ 2643              	.L95:
+ 2644 0c2e 6047     		bx	ip
+DEFINED SYMBOLS
+                            *ABS*:00000000 menu.c
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1      .text:00000000 $t
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:7      .rodata:00000000 _uncheck
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:141    .rodata:00000082 _checked
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:275    .rodata:00000104 _select
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:313    .rodata:00000126 _down_arrow
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:327    .rodata:00000130 _up_arrow
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:341    .rodata:0000013a _exitsign
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:862    .text:00000000 GetMaxCharsXPos
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:883    .text:00000024 $d
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:887    .text:0000002c $t
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:890    .text:0000002c GetMaxYLines
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:911    .text:00000050 $d
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:926    .text:00000058 $t
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:929    .text:00000058 display_txt_header
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:990    .text:000000c8 $d
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:997    .text:000000dc $t
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1000   .text:000000dc errorbeep
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1015   .text:000000f4 $d
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1036   .text:000000f8 ShowTextMenu
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1033   .text:000000f8 $t
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1309   .text:000002f0 $d
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1321   .text:00000318 $t
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1324   .text:00000318 txt_menu_sel_set_value
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1375   .text:00000358 ShowTextSelectionMenu
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1682   .text:0000057c $d
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1698   .text:000005a4 InitGraphMenu
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1695   .text:000005a4 $t
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1711   .text:000005b8 $d
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:2631   .bss:00000040 menu_layers
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1719   .text:000005c0 GraphIncLayer
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1716   .text:000005c0 $t
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1744   .text:000005e0 $d
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1747   .bss:00000000 tmp.3255
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1758   .text:000005e4 $t
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1761   .text:000005e4 build_layer_string
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1817   .text:00000648 $d
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1831   .text:00000664 $t
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1834   .text:00000664 display_layer
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1872   .text:000006ac $d
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1883   .text:000006bc $t
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1886   .text:000006bc display_menu_item_text
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1918   .text:00000700 $d
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1925   .text:00000714 $t
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1928   .text:00000714 display_image
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1966   .text:00000750 $d
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1972   .text:00000760 $t
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1975   .text:00000760 display_selection_bar
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:1997   .text:00000788 $d
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:2004   .text:00000798 $t
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:2007   .text:00000798 display_progress_bar
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:2089   .text:00000840 $d
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:2094   .bss:00000003 layer_string.3378
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:2102   .text:0000084c ShowGraphMenu
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:2099   .text:0000084c $t
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:2359   .text:00000a34 $d
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:2368   .text:00000a50 $t
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:2371   .text:00000a50 graph_menu_sel_set_value
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:2415   .text:00000a98 $d
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:2418   .bss:00000021 layer_string.3504
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:2426   .text:00000a9c ShowGraphSelectionMenu
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:2423   .text:00000a9c $t
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:2619   .text:00000c04 $d
+C:\Users\sgn\AppData\Local\Temp/ccAFaaaa.s:2635   .text:00000c28 $t
+
+UNDEFINED SYMBOLS
+__udivsi3
+getfontsize
+gotoxy
+printf
+sound
+cursor
+_impure_ptr
+__swbuf
+WaitForKey
+memset
+strcat
+sprintf
+strrchr
+setfont
+set_offset
+showpicture
+__divsi3
+drawline
+setpixel
+resetkey

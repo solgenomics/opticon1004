@@ -1,0 +1,968 @@
+   1              		.code	16
+   2              		.file	"input.c"
+   3              		.text
+   4              		.align	2
+   5              		.global	WaitForKey
+   6              		.code 16
+   7              		.thumb_func
+   9              	WaitForKey:
+  10 0000 30B5     		push	{r4, r5, lr}
+  11 0002 02E0     		b	.L2
+  12              	.L3:
+  13 0004 104B     		ldr	r3, .L9
+  14 0006 00F02DFB 		bl	.L11
+  15              	.L2:
+  16 000a 104B     		ldr	r3, .L9+4
+  17 000c 1B68     		ldr	r3, [r3]
+  18 000e 5868     		ldr	r0, [r3, #4]
+  19 0010 4368     		ldr	r3, [r0, #4]
+  20 0012 013B     		sub	r3, r3, #1
+  21 0014 4360     		str	r3, [r0, #4]
+  22 0016 002B     		cmp	r3, #0
+  23 0018 04DA     		bge	.L4
+  24 001a 0D4B     		ldr	r3, .L9+8
+  25 001c 00F02DFB 		bl	.L11
+  26 0020 051C     		mov	r5, r0
+  27 0022 03E0     		b	.L6
+  28              	.L4:
+  29 0024 0368     		ldr	r3, [r0]
+  30 0026 1D78     		ldrb	r5, [r3]
+  31 0028 0133     		add	r3, r3, #1
+  32 002a 0360     		str	r3, [r0]
+  33              	.L6:
+  34 002c 6B1C     		add	r3, r5, #1
+  35 002e E9D0     		beq	.L3
+  36 0030 0320     		mov	r0, #3
+  37 0032 2021     		mov	r1, #32
+  38 0034 074A     		ldr	r2, .L9+12
+  39 0036 0023     		mov	r3, #0
+  40 0038 074C     		ldr	r4, .L9+16
+  41 003a 00F02EFB 		bl	.L12
+  42 003e 281C     		mov	r0, r5
+  43              		@ sp needed for prologue
+  44 0040 30BC     		pop	{r4, r5}
+  45 0042 02BC     		pop	{r1}
+  46 0044 0847     		bx	r1
+  47              	.L10:
+  48 0046 0000     		.align	2
+  49              	.L9:
+  50 0048 00000000 		.word	idle
+  51 004c 00000000 		.word	_impure_ptr
+  52 0050 00000000 		.word	__srget
+  53 0054 AC0D0000 		.word	3500
+  54 0058 00000000 		.word	sound
+  56              		.align	2
+  57              		.code 16
+  58              		.thumb_func
+  60              	check_key_input:
+  61 005c 10B5     		push	{r4, lr}
+  62 005e 81B0     		sub	sp, sp, #4
+  63 0060 041C     		mov	r4, r0
+  64 0062 131C     		mov	r3, r2
+  65 0064 081C     		mov	r0, r1
+  66 0066 0021     		mov	r1, #0
+  67 0068 0092     		str	r2, [sp]
+  68 006a 08E0     		b	.L14
+  69              	.L15:
+  70 006c 1A1D     		add	r2, r3, #4
+  71 006e 1B68     		ldr	r3, [r3]
+  72 0070 A342     		cmp	r3, r4
+  73 0072 02D1     		bne	.L16
+  74 0074 0020     		mov	r0, #0
+  75 0076 0092     		str	r2, [sp]
+  76 0078 06E0     		b	.L18
+  77              	.L16:
+  78 007a 0131     		add	r1, r1, #1
+  79 007c 131C     		mov	r3, r2
+  80              	.L14:
+  81 007e 8142     		cmp	r1, r0
+  82 0080 F4DB     		blt	.L15
+  83 0082 0120     		mov	r0, #1
+  84 0084 0093     		str	r3, [sp]
+  85 0086 4042     		neg	r0, r0
+  86              	.L18:
+  87 0088 01B0     		add	sp, sp, #4
+  88              		@ sp needed for prologue
+  89 008a 10BC     		pop	{r4}
+  90 008c 02BC     		pop	{r1}
+  91 008e 0847     		bx	r1
+  93              		.align	2
+  94              		.global	WaitForKeys
+  95              		.code 16
+  96              		.thumb_func
+  98              	WaitForKeys:
+  99 0090 0FB4     		push	{r0, r1, r2, r3}
+ 100 0092 30B5     		push	{r4, r5, lr}
+ 101 0094 81B0     		sub	sp, sp, #4
+ 102 0096 049D     		ldr	r5, [sp, #16]
+ 103 0098 002D     		cmp	r5, #0
+ 104 009a 02DC     		bgt	.L22
+ 105 009c 0124     		mov	r4, #1
+ 106 009e 6442     		neg	r4, r4
+ 107 00a0 0DE0     		b	.L24
+ 108              	.L22:
+ 109 00a2 05AB     		add	r3, sp, #20
+ 110 00a4 0093     		str	r3, [sp]
+ 111 00a6 094B     		ldr	r3, .L29
+ 112 00a8 00F02DFB 		bl	.L11
+ 113              	.L25:
+ 114 00ac FFF7FEFF 		bl	WaitForKey
+ 115 00b0 009A     		ldr	r2, [sp]
+ 116 00b2 291C     		mov	r1, r5
+ 117 00b4 041C     		mov	r4, r0
+ 118 00b6 FFF7FEFF 		bl	check_key_input
+ 119 00ba 0028     		cmp	r0, #0
+ 120 00bc F6D1     		bne	.L25
+ 121              	.L24:
+ 122 00be 201C     		mov	r0, r4
+ 123 00c0 01B0     		add	sp, sp, #4
+ 124              		@ sp needed for prologue
+ 125 00c2 30BC     		pop	{r4, r5}
+ 126 00c4 08BC     		pop	{r3}
+ 127 00c6 04B0     		add	sp, sp, #16
+ 128 00c8 1847     		bx	r3
+ 129              	.L30:
+ 130 00ca 0000     		.align	2
+ 131              	.L29:
+ 132 00cc 00000000 		.word	resetkey
+ 134              		.section	.rodata
+ 135              		.align	2
+ 138              	C.5.3019:
+ 139 0000 00000000 		.space	20
+ 139      00000000 
+ 139      00000000 
+ 139      00000000 
+ 139      00000000 
+ 140              		.text
+ 141              		.align	2
+ 142              		.global	ScanBarcodeSymbol
+ 143              		.code 16
+ 144              		.thumb_func
+ 146              	ScanBarcodeSymbol:
+ 147 00d0 F0B5     		push	{r4, r5, r6, r7, lr}
+ 148 00d2 88B0     		sub	sp, sp, #32
+ 149 00d4 0291     		str	r1, [sp, #8]
+ 150 00d6 1F1C     		mov	r7, r3
+ 151 00d8 344B     		ldr	r3, .L44
+ 152 00da 151C     		mov	r5, r2
+ 153 00dc 03AA     		add	r2, sp, #12
+ 154 00de 061C     		mov	r6, r0
+ 155 00e0 13CB     		ldmia	r3!, {r0, r1, r4}
+ 156 00e2 13C2     		stmia	r2!, {r0, r1, r4}
+ 157 00e4 03CB     		ldmia	r3!, {r0, r1}
+ 158 00e6 03C2     		stmia	r2!, {r0, r1}
+ 159 00e8 0023     		mov	r3, #0
+ 160 00ea 3B60     		str	r3, [r7]
+ 161 00ec 304B     		ldr	r3, .L44+4
+ 162 00ee 00F02DFB 		bl	.L11
+ 163 00f2 029B     		ldr	r3, [sp, #8]
+ 164 00f4 9621     		mov	r1, #150
+ 165 00f6 0693     		str	r3, [sp, #24]
+ 166 00f8 0795     		str	r5, [sp, #28]
+ 167 00fa 0396     		str	r6, [sp, #12]
+ 168 00fc 0320     		mov	r0, #3
+ 169 00fe 4900     		lsl	r1, r1, #1
+ 170 0100 2C4B     		ldr	r3, .L44+8
+ 171 0102 00F02DFB 		bl	.L11
+ 172 0106 2FE0     		b	.L32
+ 173              	.L33:
+ 174 0108 2B4B     		ldr	r3, .L44+12
+ 175 010a 00F02DFB 		bl	.L11
+ 176 010e 0028     		cmp	r0, #0
+ 177 0110 27D0     		beq	.L34
+ 178 0112 2A4B     		ldr	r3, .L44+16
+ 179 0114 1B68     		ldr	r3, [r3]
+ 180 0116 5868     		ldr	r0, [r3, #4]
+ 181 0118 4368     		ldr	r3, [r0, #4]
+ 182 011a 013B     		sub	r3, r3, #1
+ 183 011c 4360     		str	r3, [r0, #4]
+ 184 011e 002B     		cmp	r3, #0
+ 185 0120 04DA     		bge	.L36
+ 186 0122 274B     		ldr	r3, .L44+20
+ 187 0124 00F02DFB 		bl	.L11
+ 188 0128 021C     		mov	r2, r0
+ 189 012a 03E0     		b	.L38
+ 190              	.L36:
+ 191 012c 0368     		ldr	r3, [r0]
+ 192 012e 1A78     		ldrb	r2, [r3]
+ 193 0130 0133     		add	r3, r3, #1
+ 194 0132 0360     		str	r3, [r0]
+ 195              	.L38:
+ 196 0134 802A     		cmp	r2, #128
+ 197 0136 0ED0     		beq	.L39
+ 198 0138 204B     		ldr	r3, .L44+16
+ 199 013a 1B68     		ldr	r3, [r3]
+ 200 013c 101C     		mov	r0, r2
+ 201 013e 5968     		ldr	r1, [r3, #4]
+ 202 0140 204B     		ldr	r3, .L44+24
+ 203 0142 00F02DFB 		bl	.L11
+ 204 0146 0020     		mov	r0, #0
+ 205 0148 0021     		mov	r1, #0
+ 206 014a 1A4B     		ldr	r3, .L44+8
+ 207 014c 00F02DFB 		bl	.L11
+ 208 0150 0120     		mov	r0, #1
+ 209 0152 4042     		neg	r0, r0
+ 210 0154 25E0     		b	.L41
+ 211              	.L39:
+ 212 0156 9621     		mov	r1, #150
+ 213 0158 0320     		mov	r0, #3
+ 214 015a 4900     		lsl	r1, r1, #1
+ 215 015c 154B     		ldr	r3, .L44+8
+ 216 015e 00F02DFB 		bl	.L11
+ 217              	.L34:
+ 218 0162 194B     		ldr	r3, .L44+28
+ 219 0164 00F02DFB 		bl	.L11
+ 220              	.L32:
+ 221 0168 03A8     		add	r0, sp, #12
+ 222 016a 184B     		ldr	r3, .L44+32
+ 223 016c 00F02DFB 		bl	.L11
+ 224 0170 041C     		mov	r4, r0
+ 225 0172 0028     		cmp	r0, #0
+ 226 0174 C8D1     		bne	.L33
+ 227 0176 059B     		ldr	r3, [sp, #20]
+ 228 0178 0220     		mov	r0, #2
+ 229 017a 3B60     		str	r3, [r7]
+ 230 017c 0A21     		mov	r1, #10
+ 231 017e 144B     		ldr	r3, .L44+36
+ 232 0180 00F02DFB 		bl	.L11
+ 233 0184 0020     		mov	r0, #0
+ 234 0186 0021     		mov	r1, #0
+ 235 0188 0A4B     		ldr	r3, .L44+8
+ 236 018a 00F02DFB 		bl	.L11
+ 237 018e 114A     		ldr	r2, .L44+40
+ 238 0190 0194     		str	r4, [sp, #4]
+ 239 0192 0520     		mov	r0, #5
+ 240 0194 0092     		str	r2, [sp]
+ 241 0196 2021     		mov	r1, #32
+ 242 0198 0F4B     		ldr	r3, .L44+44
+ 243 019a 104C     		ldr	r4, .L44+48
+ 244 019c 00F02EFB 		bl	.L12
+ 245 01a0 0020     		mov	r0, #0
+ 246              	.L41:
+ 247 01a2 08B0     		add	sp, sp, #32
+ 248              		@ sp needed for prologue
+ 249 01a4 F0BC     		pop	{r4, r5, r6, r7}
+ 250 01a6 02BC     		pop	{r1}
+ 251 01a8 0847     		bx	r1
+ 252              	.L45:
+ 253 01aa 0000     		.align	2
+ 254              	.L44:
+ 255 01ac 00000000 		.word	C.5.3019
+ 256 01b0 00000000 		.word	resetkey
+ 257 01b4 00000000 		.word	scannerpower
+ 258 01b8 00000000 		.word	kbhit
+ 259 01bc 00000000 		.word	_impure_ptr
+ 260 01c0 00000000 		.word	__srget
+ 261 01c4 00000000 		.word	ungetc
+ 262 01c8 00000000 		.word	idle
+ 263 01cc 00000000 		.word	readbarcode
+ 264 01d0 00000000 		.word	goodreadled
+ 265 01d4 AC0D0000 		.word	3500
+ 266 01d8 C4090000 		.word	2500
+ 267 01dc 00000000 		.word	sound
+ 269              		.align	2
+ 270              		.global	ScanBarcode
+ 271              		.code 16
+ 272              		.thumb_func
+ 274              	ScanBarcode:
+ 275 01e0 00B5     		push	{lr}
+ 276 01e2 81B0     		sub	sp, sp, #4
+ 277 01e4 0023     		mov	r3, #0
+ 278 01e6 0093     		str	r3, [sp]
+ 279 01e8 6B46     		mov	r3, sp
+ 280 01ea FFF7FEFF 		bl	ScanBarcodeSymbol
+ 281 01ee 01B0     		add	sp, sp, #4
+ 282              		@ sp needed for prologue
+ 283 01f0 02BC     		pop	{r1}
+ 284 01f2 0847     		bx	r1
+ 286              		.align	2
+ 287              		.code 16
+ 288              		.thumb_func
+ 290              	remove_key_from_buffer:
+ 291 01f4 10B5     		push	{r4, lr}
+ 292 01f6 0378     		ldrb	r3, [r0]
+ 293 01f8 041C     		mov	r4, r0
+ 294 01fa 002B     		cmp	r3, #0
+ 295 01fc 06D0     		beq	.L51
+ 296 01fe 054B     		ldr	r3, .L52
+ 297 0200 00F02DFB 		bl	.L11
+ 298 0204 2018     		add	r0, r4, r0
+ 299 0206 0138     		sub	r0, r0, #1
+ 300 0208 0023     		mov	r3, #0
+ 301 020a 0370     		strb	r3, [r0]
+ 302              	.L51:
+ 303              		@ sp needed for prologue
+ 304 020c 10BC     		pop	{r4}
+ 305 020e 01BC     		pop	{r0}
+ 306 0210 0047     		bx	r0
+ 307              	.L53:
+ 308 0212 0000     		.align	2
+ 309              	.L52:
+ 310 0214 00000000 		.word	strlen
+ 312              		.section	.rodata.str1.4,"aMS",%progbits,1
+ 313              		.align	2
+ 314              	.LC19:
+ 315 0000 252D2A2E 		.ascii	"%-*.*s \000"
+ 315      2A732000 
+ 316              		.align	2
+ 317              	.LC22:
+ 318 0008 252D2A2E 		.ascii	"%-*.*s\000"
+ 318      2A7300
+ 319              		.text
+ 320              		.align	2
+ 321              		.code 16
+ 322              		.thumb_func
+ 324              	display_input:
+ 325 0218 F0B5     		push	{r4, r5, r6, r7, lr}
+ 326 021a 81B0     		sub	sp, sp, #4
+ 327 021c 041C     		mov	r4, r0
+ 328 021e 0F1C     		mov	r7, r1
+ 329 0220 0092     		str	r2, [sp]
+ 330 0222 1D1C     		mov	r5, r3
+ 331 0224 0029     		cmp	r1, #0
+ 332 0226 2BDB     		blt	.L67
+ 333 0228 002A     		cmp	r2, #0
+ 334 022a 29DB     		blt	.L67
+ 335 022c 164B     		ldr	r3, .L69
+ 336 022e 00F02DFB 		bl	.L11
+ 337 0232 164B     		ldr	r3, .L69+4
+ 338 0234 061C     		mov	r6, r0
+ 339 0236 0099     		ldr	r1, [sp]
+ 340 0238 381C     		mov	r0, r7
+ 341 023a 00F02DFB 		bl	.L11
+ 342 023e 069B     		ldr	r3, [sp, #24]
+ 343 0240 9E42     		cmp	r6, r3
+ 344 0242 0ADA     		bge	.L58
+ 345 0244 6A1E     		sub	r2, r5, #1
+ 346 0246 AE42     		cmp	r6, r5
+ 347 0248 01DA     		bge	.L60
+ 348 024a 0023     		mov	r3, #0
+ 349 024c 01E0     		b	.L62
+ 350              	.L60:
+ 351 024e 731B     		sub	r3, r6, r5
+ 352 0250 0133     		add	r3, r3, #1
+ 353              	.L62:
+ 354 0252 0F48     		ldr	r0, .L69+8
+ 355 0254 E318     		add	r3, r4, r3
+ 356 0256 111C     		mov	r1, r2
+ 357 0258 04E0     		b	.L68
+ 358              	.L58:
+ 359 025a 731B     		sub	r3, r6, r5
+ 360 025c 0D48     		ldr	r0, .L69+12
+ 361 025e E318     		add	r3, r4, r3
+ 362 0260 291C     		mov	r1, r5
+ 363 0262 2A1C     		mov	r2, r5
+ 364              	.L68:
+ 365 0264 0C4C     		ldr	r4, .L69+16
+ 366 0266 00F02EFB 		bl	.L12
+ 367 026a AE42     		cmp	r6, r5
+ 368 026c 01DB     		blt	.L64
+ 369 026e 291C     		mov	r1, r5
+ 370 0270 00E0     		b	.L66
+ 371              	.L64:
+ 372 0272 711C     		add	r1, r6, #1
+ 373              	.L66:
+ 374 0274 7818     		add	r0, r7, r1
+ 375 0276 0138     		sub	r0, r0, #1
+ 376 0278 0099     		ldr	r1, [sp]
+ 377 027a 044B     		ldr	r3, .L69+4
+ 378 027c 00F02DFB 		bl	.L11
+ 379              	.L67:
+ 380 0280 01B0     		add	sp, sp, #4
+ 381              		@ sp needed for prologue
+ 382 0282 F0BC     		pop	{r4, r5, r6, r7}
+ 383 0284 01BC     		pop	{r0}
+ 384 0286 0047     		bx	r0
+ 385              	.L70:
+ 386              		.align	2
+ 387              	.L69:
+ 388 0288 00000000 		.word	strlen
+ 389 028c 00000000 		.word	gotoxy
+ 390 0290 00000000 		.word	.LC19
+ 391 0294 08000000 		.word	.LC22
+ 392 0298 00000000 		.word	printf
+ 394              		.align	2
+ 395              		.global	KeyboardInput
+ 396              		.code 16
+ 397              		.thumb_func
+ 399              	KeyboardInput:
+ 400 029c F0B5     		push	{r4, r5, r6, r7, lr}
+ 401 029e 84B0     		sub	sp, sp, #16
+ 402 02a0 171C     		mov	r7, r2
+ 403 02a2 0C9A     		ldr	r2, [sp, #48]
+ 404 02a4 051C     		mov	r5, r0
+ 405 02a6 0291     		str	r1, [sp, #8]
+ 406 02a8 0193     		str	r3, [sp, #4]
+ 407 02aa 002A     		cmp	r2, #0
+ 408 02ac 70DD     		ble	.L72
+ 409 02ae 0B9B     		ldr	r3, [sp, #44]
+ 410 02b0 BB42     		cmp	r3, r7
+ 411 02b2 00DD     		ble	.L74
+ 412 02b4 0B97     		str	r7, [sp, #44]
+ 413              	.L74:
+ 414 02b6 281C     		mov	r0, r5
+ 415 02b8 0B9B     		ldr	r3, [sp, #44]
+ 416 02ba 0999     		ldr	r1, [sp, #36]
+ 417 02bc 0A9A     		ldr	r2, [sp, #40]
+ 418 02be 0097     		str	r7, [sp]
+ 419 02c0 FFF7FEFF 		bl	display_input
+ 420 02c4 0120     		mov	r0, #1
+ 421 02c6 364B     		ldr	r3, .L107
+ 422 02c8 00F02DFB 		bl	.L11
+ 423              	.L106:
+ 424 02cc 0DAB     		add	r3, sp, #52
+ 425 02ce 0393     		str	r3, [sp, #12]
+ 426 02d0 FFF7FEFF 		bl	WaitForKey
+ 427 02d4 041C     		mov	r4, r0
+ 428 02d6 8328     		cmp	r0, #131
+ 429 02d8 06D1     		bne	.L77
+ 430 02da 324B     		ldr	r3, .L107+4
+ 431 02dc 281C     		mov	r0, r5
+ 432 02de 00F02DFB 		bl	.L11
+ 433 02e2 029A     		ldr	r2, [sp, #8]
+ 434 02e4 9042     		cmp	r0, r2
+ 435 02e6 F1D3     		bcc	.L106
+ 436              	.L77:
+ 437 02e8 039A     		ldr	r2, [sp, #12]
+ 438 02ea 201C     		mov	r0, r4
+ 439 02ec 0C99     		ldr	r1, [sp, #48]
+ 440 02ee FFF7FEFF 		bl	check_key_input
+ 441 02f2 0028     		cmp	r0, #0
+ 442 02f4 03D1     		bne	.L79
+ 443 02f6 2A4B     		ldr	r3, .L107
+ 444 02f8 00F02DFB 		bl	.L11
+ 445 02fc 4AE0     		b	.L81
+ 446              	.L79:
+ 447 02fe 852C     		cmp	r4, #133
+ 448 0300 03D1     		bne	.L82
+ 449 0302 281C     		mov	r0, r5
+ 450 0304 FFF7FEFF 		bl	remove_key_from_buffer
+ 451 0308 3AE0     		b	.L84
+ 452              	.L82:
+ 453 030a 264B     		ldr	r3, .L107+4
+ 454 030c 281C     		mov	r0, r5
+ 455 030e 00F02DFB 		bl	.L11
+ 456 0312 061C     		mov	r6, r0
+ 457 0314 B842     		cmp	r0, r7
+ 458 0316 33DA     		bge	.L84
+ 459 0318 019B     		ldr	r3, [sp, #4]
+ 460 031a DB07     		lsl	r3, r3, #31
+ 461 031c 0CD5     		bpl	.L86
+ 462 031e 224B     		ldr	r3, .L107+8
+ 463 0320 E35C     		ldrb	r3, [r4, r3]
+ 464 0322 5A07     		lsl	r2, r3, #29
+ 465 0324 28D4     		bmi	.L88
+ 466 0326 214B     		ldr	r3, .L107+12
+ 467 0328 281C     		mov	r0, r5
+ 468 032a 2E21     		mov	r1, #46
+ 469 032c 00F02DFB 		bl	.L11
+ 470 0330 0028     		cmp	r0, #0
+ 471 0332 01D1     		bne	.L86
+ 472 0334 2E2C     		cmp	r4, #46
+ 473 0336 1FD0     		beq	.L88
+ 474              	.L86:
+ 475 0338 019B     		ldr	r3, [sp, #4]
+ 476 033a 9B07     		lsl	r3, r3, #30
+ 477 033c 03D5     		bpl	.L91
+ 478 033e 1A4B     		ldr	r3, .L107+8
+ 479 0340 E35C     		ldrb	r3, [r4, r3]
+ 480 0342 5A07     		lsl	r2, r3, #29
+ 481 0344 18D4     		bmi	.L88
+ 482              	.L91:
+ 483 0346 019B     		ldr	r3, [sp, #4]
+ 484 0348 5B07     		lsl	r3, r3, #29
+ 485 034a 06D5     		bpl	.L93
+ 486 034c 164B     		ldr	r3, .L107+8
+ 487 034e E25C     		ldrb	r2, [r4, r3]
+ 488 0350 0323     		mov	r3, #3
+ 489 0352 1A42     		tst	r2, r3
+ 490 0354 10D1     		bne	.L88
+ 491 0356 202C     		cmp	r4, #32
+ 492 0358 0ED0     		beq	.L88
+ 493              	.L93:
+ 494 035a 019A     		ldr	r2, [sp, #4]
+ 495 035c 1207     		lsl	r2, r2, #28
+ 496 035e 03D5     		bpl	.L96
+ 497 0360 002E     		cmp	r6, #0
+ 498 0362 01D1     		bne	.L96
+ 499 0364 2D2C     		cmp	r4, #45
+ 500 0366 07D0     		beq	.L88
+ 501              	.L96:
+ 502 0368 019B     		ldr	r3, [sp, #4]
+ 503 036a DB06     		lsl	r3, r3, #27
+ 504 036c 08D5     		bpl	.L84
+ 505 036e 0E4B     		ldr	r3, .L107+8
+ 506 0370 E25C     		ldrb	r2, [r4, r3]
+ 507 0372 9723     		mov	r3, #151
+ 508 0374 1A42     		tst	r2, r3
+ 509 0376 03D0     		beq	.L84
+ 510              	.L88:
+ 511 0378 AA19     		add	r2, r5, r6
+ 512 037a 0023     		mov	r3, #0
+ 513 037c 7455     		strb	r4, [r6, r5]
+ 514 037e 5370     		strb	r3, [r2, #1]
+ 515              	.L84:
+ 516 0380 281C     		mov	r0, r5
+ 517 0382 0999     		ldr	r1, [sp, #36]
+ 518 0384 0A9A     		ldr	r2, [sp, #40]
+ 519 0386 0B9B     		ldr	r3, [sp, #44]
+ 520 0388 0097     		str	r7, [sp]
+ 521 038a FFF7FEFF 		bl	display_input
+ 522 038e 9DE7     		b	.L106
+ 523              	.L72:
+ 524 0390 0124     		mov	r4, #1
+ 525 0392 6442     		neg	r4, r4
+ 526              	.L81:
+ 527 0394 201C     		mov	r0, r4
+ 528 0396 04B0     		add	sp, sp, #16
+ 529              		@ sp needed for prologue
+ 530 0398 F0BC     		pop	{r4, r5, r6, r7}
+ 531 039a 02BC     		pop	{r1}
+ 532 039c 0847     		bx	r1
+ 533              	.L108:
+ 534 039e 0000     		.align	2
+ 535              	.L107:
+ 536 03a0 00000000 		.word	cursor
+ 537 03a4 00000000 		.word	strlen
+ 538 03a8 01000000 		.word	_ctype_+1
+ 539 03ac 00000000 		.word	strchr
+ 541              		.align	2
+ 542              		.global	ScanOrKeyboardInput
+ 543              		.code 16
+ 544              		.thumb_func
+ 546              	ScanOrKeyboardInput:
+ 547 03b0 F0B5     		push	{r4, r5, r6, r7, lr}
+ 548 03b2 89B0     		sub	sp, sp, #36
+ 549 03b4 0891     		str	r1, [sp, #32]
+ 550 03b6 0793     		str	r3, [sp, #28]
+ 551 03b8 0E9E     		ldr	r6, [sp, #56]
+ 552 03ba 0F9F     		ldr	r7, [sp, #60]
+ 553 03bc 041C     		mov	r4, r0
+ 554 03be 151C     		mov	r5, r2
+ 555              	.L111:
+ 556 03c0 0023     		mov	r3, #0
+ 557 03c2 2370     		strb	r3, [r4]
+ 558 03c4 201C     		mov	r0, r4
+ 559 03c6 311C     		mov	r1, r6
+ 560 03c8 3A1C     		mov	r2, r7
+ 561 03ca 109B     		ldr	r3, [sp, #64]
+ 562 03cc 0095     		str	r5, [sp]
+ 563 03ce FFF7FEFF 		bl	display_input
+ 564 03d2 201C     		mov	r0, r4
+ 565 03d4 0899     		ldr	r1, [sp, #32]
+ 566 03d6 2A1C     		mov	r2, r5
+ 567 03d8 FFF7FEFF 		bl	ScanBarcode
+ 568 03dc 0028     		cmp	r0, #0
+ 569 03de 09D1     		bne	.L112
+ 570 03e0 201C     		mov	r0, r4
+ 571 03e2 311C     		mov	r1, r6
+ 572 03e4 3A1C     		mov	r2, r7
+ 573 03e6 109B     		ldr	r3, [sp, #64]
+ 574 03e8 0095     		str	r5, [sp]
+ 575 03ea FFF7FEFF 		bl	display_input
+ 576 03ee 8020     		mov	r0, #128
+ 577 03f0 0001     		lsl	r0, r0, #4
+ 578 03f2 1DE0     		b	.L114
+ 579              	.L112:
+ 580 03f4 109B     		ldr	r3, [sp, #64]
+ 581 03f6 0293     		str	r3, [sp, #8]
+ 582 03f8 0323     		mov	r3, #3
+ 583 03fa 0393     		str	r3, [sp, #12]
+ 584 03fc 8023     		mov	r3, #128
+ 585 03fe 0493     		str	r3, [sp, #16]
+ 586 0400 8423     		mov	r3, #132
+ 587 0402 0593     		str	r3, [sp, #20]
+ 588 0404 8323     		mov	r3, #131
+ 589 0406 0693     		str	r3, [sp, #24]
+ 590 0408 201C     		mov	r0, r4
+ 591 040a 0899     		ldr	r1, [sp, #32]
+ 592 040c 2A1C     		mov	r2, r5
+ 593 040e 079B     		ldr	r3, [sp, #28]
+ 594 0410 0096     		str	r6, [sp]
+ 595 0412 0197     		str	r7, [sp, #4]
+ 596 0414 FFF7FEFF 		bl	KeyboardInput
+ 597 0418 8328     		cmp	r0, #131
+ 598 041a 03D0     		beq	.L115
+ 599 041c 8428     		cmp	r0, #132
+ 600 041e 04D0     		beq	.L116
+ 601 0420 8028     		cmp	r0, #128
+ 602 0422 05D1     		bne	.L114
+ 603              	.L115:
+ 604 0424 8020     		mov	r0, #128
+ 605 0426 C000     		lsl	r0, r0, #3
+ 606 0428 02E0     		b	.L114
+ 607              	.L116:
+ 608 042a 2378     		ldrb	r3, [r4]
+ 609 042c 002B     		cmp	r3, #0
+ 610 042e C7D1     		bne	.L111
+ 611              	.L114:
+ 612 0430 09B0     		add	sp, sp, #36
+ 613              		@ sp needed for prologue
+ 614 0432 F0BC     		pop	{r4, r5, r6, r7}
+ 615 0434 02BC     		pop	{r1}
+ 616 0436 0847     		bx	r1
+ 618              		.align	2
+ 619              		.global	ScanOrKeyboardInputSymbol
+ 620              		.code 16
+ 621              		.thumb_func
+ 623              	ScanOrKeyboardInputSymbol:
+ 624 0438 F0B5     		push	{r4, r5, r6, r7, lr}
+ 625 043a 89B0     		sub	sp, sp, #36
+ 626 043c 0891     		str	r1, [sp, #32]
+ 627 043e 0793     		str	r3, [sp, #28]
+ 628 0440 0E9E     		ldr	r6, [sp, #56]
+ 629 0442 0F9F     		ldr	r7, [sp, #60]
+ 630 0444 041C     		mov	r4, r0
+ 631 0446 151C     		mov	r5, r2
+ 632              	.L122:
+ 633 0448 0023     		mov	r3, #0
+ 634 044a 2370     		strb	r3, [r4]
+ 635 044c 201C     		mov	r0, r4
+ 636 044e 311C     		mov	r1, r6
+ 637 0450 3A1C     		mov	r2, r7
+ 638 0452 109B     		ldr	r3, [sp, #64]
+ 639 0454 0095     		str	r5, [sp]
+ 640 0456 FFF7FEFF 		bl	display_input
+ 641 045a 201C     		mov	r0, r4
+ 642 045c 0899     		ldr	r1, [sp, #32]
+ 643 045e 2A1C     		mov	r2, r5
+ 644 0460 119B     		ldr	r3, [sp, #68]
+ 645 0462 FFF7FEFF 		bl	ScanBarcodeSymbol
+ 646 0466 0028     		cmp	r0, #0
+ 647 0468 09D1     		bne	.L123
+ 648 046a 201C     		mov	r0, r4
+ 649 046c 311C     		mov	r1, r6
+ 650 046e 3A1C     		mov	r2, r7
+ 651 0470 109B     		ldr	r3, [sp, #64]
+ 652 0472 0095     		str	r5, [sp]
+ 653 0474 FFF7FEFF 		bl	display_input
+ 654 0478 8020     		mov	r0, #128
+ 655 047a 0001     		lsl	r0, r0, #4
+ 656 047c 1DE0     		b	.L125
+ 657              	.L123:
+ 658 047e 109B     		ldr	r3, [sp, #64]
+ 659 0480 0293     		str	r3, [sp, #8]
+ 660 0482 0323     		mov	r3, #3
+ 661 0484 0393     		str	r3, [sp, #12]
+ 662 0486 8023     		mov	r3, #128
+ 663 0488 0493     		str	r3, [sp, #16]
+ 664 048a 8423     		mov	r3, #132
+ 665 048c 0593     		str	r3, [sp, #20]
+ 666 048e 8323     		mov	r3, #131
+ 667 0490 0693     		str	r3, [sp, #24]
+ 668 0492 201C     		mov	r0, r4
+ 669 0494 0899     		ldr	r1, [sp, #32]
+ 670 0496 2A1C     		mov	r2, r5
+ 671 0498 079B     		ldr	r3, [sp, #28]
+ 672 049a 0096     		str	r6, [sp]
+ 673 049c 0197     		str	r7, [sp, #4]
+ 674 049e FFF7FEFF 		bl	KeyboardInput
+ 675 04a2 8328     		cmp	r0, #131
+ 676 04a4 03D0     		beq	.L126
+ 677 04a6 8428     		cmp	r0, #132
+ 678 04a8 04D0     		beq	.L127
+ 679 04aa 8028     		cmp	r0, #128
+ 680 04ac 05D1     		bne	.L125
+ 681              	.L126:
+ 682 04ae 8020     		mov	r0, #128
+ 683 04b0 C000     		lsl	r0, r0, #3
+ 684 04b2 02E0     		b	.L125
+ 685              	.L127:
+ 686 04b4 2378     		ldrb	r3, [r4]
+ 687 04b6 002B     		cmp	r3, #0
+ 688 04b8 C6D1     		bne	.L122
+ 689              	.L125:
+ 690 04ba 09B0     		add	sp, sp, #36
+ 691              		@ sp needed for prologue
+ 692 04bc F0BC     		pop	{r4, r5, r6, r7}
+ 693 04be 02BC     		pop	{r1}
+ 694 04c0 0847     		bx	r1
+ 696              		.bss
+ 697              	tmp.3197:
+ 698 0000 00000000 		.space	51
+ 698      00000000 
+ 698      00000000 
+ 698      00000000 
+ 698      00000000 
+ 699              		.section	.rodata.str1.4
+ 700 000f 00       		.align	2
+ 701              	.LC31:
+ 702 0010 252A2E2A 		.ascii	"%*.*s\000"
+ 702      7300
+ 703 0016 0000     		.align	2
+ 704              	.LC37:
+ 705 0018 2D00     		.ascii	"-\000"
+ 706 001a 0000     		.text
+ 707 04c2 0000     		.align	2
+ 708              		.global	KeyboardNumeric
+ 709              		.code 16
+ 710              		.thumb_func
+ 712              	KeyboardNumeric:
+ 713 04c4 F0B5     		push	{r4, r5, r6, r7, lr}
+ 714 04c6 87B0     		sub	sp, sp, #28
+ 715 04c8 0292     		str	r2, [sp, #8]
+ 716 04ca 0E9A     		ldr	r2, [sp, #56]
+ 717 04cc 051C     		mov	r5, r0
+ 718 04ce 0391     		str	r1, [sp, #12]
+ 719 04d0 0193     		str	r3, [sp, #4]
+ 720 04d2 0D9E     		ldr	r6, [sp, #52]
+ 721 04d4 002A     		cmp	r2, #0
+ 722 04d6 00DC     		bgt	.LCB818
+ 723 04d8 A4E0     		b	.L132	@long jump
+ 724              	.LCB818:
+ 725 04da 029A     		ldr	r2, [sp, #8]
+ 726 04dc 8A23     		mov	r3, #138
+ 727 04de 9A43     		bic	r2, r3
+ 728 04e0 00D0     		beq	.LCB823
+ 729 04e2 9FE0     		b	.L132	@long jump
+ 730              	.LCB823:
+ 731 04e4 029A     		ldr	r2, [sp, #8]
+ 732 04e6 8023     		mov	r3, #128
+ 733 04e8 1340     		and	r3, r2
+ 734 04ea 07D0     		beq	.L135
+ 735 04ec 0123     		mov	r3, #1
+ 736 04ee 0493     		str	r3, [sp, #16]
+ 737 04f0 07E0     		b	.L137
+ 738              	.L172:
+ 739 04f2 0020     		mov	r0, #0
+ 740 04f4 4F4B     		ldr	r3, .L174
+ 741 04f6 00F02DFB 		bl	.L11
+ 742 04fa 95E0     		b	.L148
+ 743              	.L135:
+ 744 04fc 0022     		mov	r2, #0
+ 745 04fe 0370     		strb	r3, [r0]
+ 746 0500 0492     		str	r2, [sp, #16]
+ 747              	.L137:
+ 748 0502 0120     		mov	r0, #1
+ 749 0504 4B4B     		ldr	r3, .L174
+ 750 0506 00F02DFB 		bl	.L11
+ 751 050a 01E0     		b	.L138
+ 752              	.L139:
+ 753 050c 0023     		mov	r3, #0
+ 754 050e 0493     		str	r3, [sp, #16]
+ 755              	.L138:
+ 756 0510 019A     		ldr	r2, [sp, #4]
+ 757 0512 0FAB     		add	r3, sp, #60
+ 758 0514 0693     		str	r3, [sp, #24]
+ 759 0516 002A     		cmp	r2, #0
+ 760 0518 23DB     		blt	.L140
+ 761 051a 0C9B     		ldr	r3, [sp, #48]
+ 762 051c 002B     		cmp	r3, #0
+ 763 051e 20DB     		blt	.L140
+ 764 0520 454B     		ldr	r3, .L174+4
+ 765 0522 281C     		mov	r0, r5
+ 766 0524 00F02DFB 		bl	.L11
+ 767 0528 0C99     		ldr	r1, [sp, #48]
+ 768 052a 041C     		mov	r4, r0
+ 769 052c 434B     		ldr	r3, .L174+8
+ 770 052e 0198     		ldr	r0, [sp, #4]
+ 771 0530 00F02DFB 		bl	.L11
+ 772 0534 019A     		ldr	r2, [sp, #4]
+ 773 0536 9219     		add	r2, r2, r6
+ 774 0538 4148     		ldr	r0, .L174+12
+ 775 053a 424F     		ldr	r7, .L174+16
+ 776 053c 0092     		str	r2, [sp]
+ 777 053e B442     		cmp	r4, r6
+ 778 0540 04DD     		ble	.L143
+ 779 0542 A31B     		sub	r3, r4, r6
+ 780 0544 EB18     		add	r3, r5, r3
+ 781 0546 311C     		mov	r1, r6
+ 782 0548 321C     		mov	r2, r6
+ 783 054a 02E0     		b	.L173
+ 784              	.L143:
+ 785 054c 311C     		mov	r1, r6
+ 786 054e 321C     		mov	r2, r6
+ 787 0550 2B1C     		mov	r3, r5
+ 788              	.L173:
+ 789 0552 00F02FFB 		bl	.L176
+ 790 0556 0098     		ldr	r0, [sp]
+ 791 0558 0C99     		ldr	r1, [sp, #48]
+ 792 055a 0138     		sub	r0, r0, #1
+ 793 055c 374B     		ldr	r3, .L174+8
+ 794 055e 00F02DFB 		bl	.L11
+ 795              	.L140:
+ 796 0562 FFF7FEFF 		bl	WaitForKey
+ 797 0566 069A     		ldr	r2, [sp, #24]
+ 798 0568 0E99     		ldr	r1, [sp, #56]
+ 799 056a 041C     		mov	r4, r0
+ 800 056c FFF7FEFF 		bl	check_key_input
+ 801 0570 0028     		cmp	r0, #0
+ 802 0572 BED0     		beq	.L172
+ 803 0574 852C     		cmp	r4, #133
+ 804 0576 08D1     		bne	.L149
+ 805 0578 049B     		ldr	r3, [sp, #16]
+ 806 057a 002B     		cmp	r3, #0
+ 807 057c 01D0     		beq	.L151
+ 808 057e 0023     		mov	r3, #0
+ 809 0580 2B70     		strb	r3, [r5]
+ 810              	.L151:
+ 811 0582 281C     		mov	r0, r5
+ 812 0584 FFF7FEFF 		bl	remove_key_from_buffer
+ 813 0588 C0E7     		b	.L139
+ 814              	.L149:
+ 815 058a 029A     		ldr	r2, [sp, #8]
+ 816 058c 1307     		lsl	r3, r2, #28
+ 817 058e DB0F     		lsr	r3, r3, #31
+ 818 0590 0593     		str	r3, [sp, #20]
+ 819 0592 002B     		cmp	r3, #0
+ 820 0594 04D0     		beq	.L153
+ 821 0596 2B78     		ldrb	r3, [r5]
+ 822 0598 2D2B     		cmp	r3, #45
+ 823 059a 01D1     		bne	.L153
+ 824 059c 0127     		mov	r7, #1
+ 825 059e 00E0     		b	.L156
+ 826              	.L153:
+ 827 05a0 0027     		mov	r7, #0
+ 828              	.L156:
+ 829 05a2 254B     		ldr	r3, .L174+4
+ 830 05a4 281C     		mov	r0, r5
+ 831 05a6 00F02DFB 		bl	.L11
+ 832 05aa 039A     		ldr	r2, [sp, #12]
+ 833 05ac D319     		add	r3, r2, r7
+ 834 05ae 9842     		cmp	r0, r3
+ 835 05b0 04DB     		blt	.L157
+ 836 05b2 2D2C     		cmp	r4, #45
+ 837 05b4 02D0     		beq	.L157
+ 838 05b6 049B     		ldr	r3, [sp, #16]
+ 839 05b8 002B     		cmp	r3, #0
+ 840 05ba A7D0     		beq	.L139
+ 841              	.L157:
+ 842 05bc 029A     		ldr	r2, [sp, #8]
+ 843 05be 9207     		lsl	r2, r2, #30
+ 844 05c0 03D5     		bpl	.L160
+ 845 05c2 214B     		ldr	r3, .L174+20
+ 846 05c4 E35C     		ldrb	r3, [r4, r3]
+ 847 05c6 5A07     		lsl	r2, r3, #29
+ 848 05c8 04D4     		bmi	.L162
+ 849              	.L160:
+ 850 05ca 059B     		ldr	r3, [sp, #20]
+ 851 05cc 002B     		cmp	r3, #0
+ 852 05ce 9DD0     		beq	.L139
+ 853 05d0 2D2C     		cmp	r4, #45
+ 854 05d2 9BD1     		bne	.L139
+ 855              	.L162:
+ 856 05d4 049A     		ldr	r2, [sp, #16]
+ 857 05d6 002A     		cmp	r2, #0
+ 858 05d8 03D0     		beq	.L164
+ 859 05da 0023     		mov	r3, #0
+ 860 05dc 2C70     		strb	r4, [r5]
+ 861 05de 6B70     		strb	r3, [r5, #1]
+ 862 05e0 94E7     		b	.L139
+ 863              	.L164:
+ 864 05e2 2D2C     		cmp	r4, #45
+ 865 05e4 18D1     		bne	.L166
+ 866 05e6 2B78     		ldrb	r3, [r5]
+ 867 05e8 184C     		ldr	r4, .L174+24
+ 868 05ea 194A     		ldr	r2, .L174+28
+ 869 05ec 2D2B     		cmp	r3, #45
+ 870 05ee 04D1     		bne	.L168
+ 871 05f0 201C     		mov	r0, r4
+ 872 05f2 691C     		add	r1, r5, #1
+ 873 05f4 00F02CFB 		bl	.L177
+ 874 05f8 08E0     		b	.L170
+ 875              	.L168:
+ 876 05fa 1649     		ldr	r1, .L174+32
+ 877 05fc 201C     		mov	r0, r4
+ 878 05fe 00F02CFB 		bl	.L177
+ 879 0602 201C     		mov	r0, r4
+ 880 0604 291C     		mov	r1, r5
+ 881 0606 144B     		ldr	r3, .L174+36
+ 882 0608 00F02DFB 		bl	.L11
+ 883              	.L170:
+ 884 060c 281C     		mov	r0, r5
+ 885 060e 0F49     		ldr	r1, .L174+24
+ 886 0610 0F4B     		ldr	r3, .L174+28
+ 887 0612 00F02DFB 		bl	.L11
+ 888 0616 79E7     		b	.L139
+ 889              	.L166:
+ 890 0618 4455     		strb	r4, [r0, r5]
+ 891 061a 6A46     		mov	r2, sp
+ 892 061c 127C     		ldrb	r2, [r2, #16]
+ 893 061e 2B18     		add	r3, r5, r0
+ 894 0620 5A70     		strb	r2, [r3, #1]
+ 895 0622 73E7     		b	.L139
+ 896              	.L132:
+ 897 0624 0124     		mov	r4, #1
+ 898 0626 6442     		neg	r4, r4
+ 899              	.L148:
+ 900 0628 201C     		mov	r0, r4
+ 901 062a 07B0     		add	sp, sp, #28
+ 902              		@ sp needed for prologue
+ 903 062c F0BC     		pop	{r4, r5, r6, r7}
+ 904 062e 02BC     		pop	{r1}
+ 905 0630 0847     		bx	r1
+ 906              	.L175:
+ 907 0632 0000     		.align	2
+ 908              	.L174:
+ 909 0634 00000000 		.word	cursor
+ 910 0638 00000000 		.word	strlen
+ 911 063c 00000000 		.word	gotoxy
+ 912 0640 10000000 		.word	.LC31
+ 913 0644 00000000 		.word	printf
+ 914 0648 01000000 		.word	_ctype_+1
+ 915 064c 00000000 		.word	tmp.3197
+ 916 0650 00000000 		.word	strcpy
+ 917 0654 18000000 		.word	.LC37
+ 918 0658 00000000 		.word	strcat
+ 920              		.ident	"GCC: (GNU) 4.0.1 (WinARM)"
+ 921              		.code 16
+ 922              		.align	1
+ 923              	.L177:
+ 924 065c 1047     		bx	r2
+ 925              	.L11:
+ 926 065e 1847     		bx	r3
+ 927              	.L12:
+ 928 0660 2047     		bx	r4
+ 929              	.L176:
+ 930 0662 3847     		bx	r7
+DEFINED SYMBOLS
+                            *ABS*:00000000 input.c
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:1      .text:00000000 $t
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:9      .text:00000000 WaitForKey
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:50     .text:00000048 $d
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:57     .text:0000005c $t
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:60     .text:0000005c check_key_input
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:98     .text:00000090 WaitForKeys
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:132    .text:000000cc $d
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:138    .rodata:00000000 C.5.3019
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:146    .text:000000d0 ScanBarcodeSymbol
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:143    .text:000000d0 $t
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:255    .text:000001ac $d
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:274    .text:000001e0 ScanBarcode
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:271    .text:000001e0 $t
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:290    .text:000001f4 remove_key_from_buffer
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:310    .text:00000214 $d
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:321    .text:00000218 $t
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:324    .text:00000218 display_input
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:388    .text:00000288 $d
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:399    .text:0000029c KeyboardInput
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:396    .text:0000029c $t
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:536    .text:000003a0 $d
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:546    .text:000003b0 ScanOrKeyboardInput
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:543    .text:000003b0 $t
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:623    .text:00000438 ScanOrKeyboardInputSymbol
+                             .bss:00000000 $d
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:697    .bss:00000000 tmp.3197
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:712    .text:000004c4 KeyboardNumeric
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:909    .text:00000634 $d
+C:\Users\sgn\AppData\Local\Temp/ccqEaaaa.s:921    .text:0000065c $t
+
+UNDEFINED SYMBOLS
+idle
+_impure_ptr
+__srget
+sound
+resetkey
+scannerpower
+kbhit
+ungetc
+readbarcode
+goodreadled
+strlen
+gotoxy
+printf
+cursor
+_ctype_
+strchr
+strcpy
+strcat

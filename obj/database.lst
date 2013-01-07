@@ -1,0 +1,1939 @@
+   1              		.code	16
+   2              		.file	"database.c"
+   3              		.text
+   4              		.align	2
+   5              		.global	GetDBErrorCode
+   6              		.code 16
+   7              		.thumb_func
+   9              	GetDBErrorCode:
+  10 0000 014B     		ldr	r3, .L3
+  11 0002 1868     		ldr	r0, [r3]
+  12              		@ lr needed for prologue
+  13              		@ sp needed for prologue
+  14 0004 7047     		bx	lr
+  15              	.L4:
+  16 0006 0000     		.align	2
+  17              	.L3:
+  18 0008 04000000 		.word	lErrorCode
+  20              		.align	2
+  21              		.global	CreateDatabase
+  22              		.code 16
+  23              		.thumb_func
+  25              	CreateDatabase:
+  26 000c 70B5     		push	{r4, r5, r6, lr}
+  27 000e 0F4D     		ldr	r5, .L13
+  28 0010 0023     		mov	r3, #0
+  29 0012 2B60     		str	r3, [r5]
+  30 0014 1369     		ldr	r3, [r2, #16]
+  31 0016 0904     		lsl	r1, r1, #16
+  32 0018 141C     		mov	r4, r2
+  33 001a 0E0C     		lsr	r6, r1, #16
+  34 001c 012B     		cmp	r3, #1
+  35 001e 08D0     		beq	.L12
+  36 0020 0B49     		ldr	r1, .L13+4
+  37 0022 0022     		mov	r2, #0
+  38 0024 0B4B     		ldr	r3, .L13+8
+  39 0026 00F09CFE 		bl	.L15
+  40 002a 6060     		str	r0, [r4, #4]
+  41 002c 0130     		add	r0, r0, #1
+  42 002e 03D1     		bne	.L9
+  43 0030 0223     		mov	r3, #2
+  44              	.L12:
+  45 0032 0020     		mov	r0, #0
+  46 0034 2B60     		str	r3, [r5]
+  47 0036 06E0     		b	.L8
+  48              	.L9:
+  49 0038 0123     		mov	r3, #1
+  50 003a 2361     		str	r3, [r4, #16]
+  51 003c 0023     		mov	r3, #0
+  52 003e 2680     		strh	r6, [r4]
+  53 0040 A360     		str	r3, [r4, #8]
+  54 0042 E360     		str	r3, [r4, #12]
+  55 0044 0120     		mov	r0, #1
+  56              	.L8:
+  57              		@ sp needed for prologue
+  58 0046 70BC     		pop	{r4, r5, r6}
+  59 0048 02BC     		pop	{r1}
+  60 004a 0847     		bx	r1
+  61              	.L14:
+  62              		.align	2
+  63              	.L13:
+  64 004c 04000000 		.word	lErrorCode
+  65 0050 02060000 		.word	1538
+  66 0054 00000000 		.word	open
+  68              		.align	2
+  69              		.global	CloseDatabase
+  70              		.code 16
+  71              		.thumb_func
+  73              	CloseDatabase:
+  74 0058 30B5     		push	{r4, r5, lr}
+  75 005a 094B     		ldr	r3, .L20
+  76 005c 0025     		mov	r5, #0
+  77 005e 1D60     		str	r5, [r3]
+  78 0060 0369     		ldr	r3, [r0, #16]
+  79 0062 041C     		mov	r4, r0
+  80 0064 012B     		cmp	r3, #1
+  81 0066 07D1     		bne	.L19
+  82 0068 064B     		ldr	r3, .L20+4
+  83 006a 4068     		ldr	r0, [r0, #4]
+  84 006c 00F09CFE 		bl	.L15
+  85 0070 0123     		mov	r3, #1
+  86 0072 5B42     		neg	r3, r3
+  87 0074 2561     		str	r5, [r4, #16]
+  88 0076 6360     		str	r3, [r4, #4]
+  89              	.L19:
+  90              		@ sp needed for prologue
+  91 0078 30BC     		pop	{r4, r5}
+  92 007a 01BC     		pop	{r0}
+  93 007c 0047     		bx	r0
+  94              	.L21:
+  95 007e 0000     		.align	2
+  96              	.L20:
+  97 0080 04000000 		.word	lErrorCode
+  98 0084 00000000 		.word	close
+ 100              		.global	__modsi3
+ 101              		.global	__divsi3
+ 102              		.align	2
+ 103              		.global	OpenDatabase
+ 104              		.code 16
+ 105              		.thumb_func
+ 107              	OpenDatabase:
+ 108 0088 F0B5     		push	{r4, r5, r6, r7, lr}
+ 109 008a 254C     		ldr	r4, .L38
+ 110 008c 0023     		mov	r3, #0
+ 111 008e 0904     		lsl	r1, r1, #16
+ 112 0090 2360     		str	r3, [r4]
+ 113 0092 1369     		ldr	r3, [r2, #16]
+ 114 0094 81B0     		sub	sp, sp, #4
+ 115 0096 090C     		lsr	r1, r1, #16
+ 116 0098 071C     		mov	r7, r0
+ 117 009a 151C     		mov	r5, r2
+ 118 009c 0091     		str	r1, [sp]
+ 119 009e 012B     		cmp	r3, #1
+ 120 00a0 06D0     		beq	.L36
+ 121 00a2 204B     		ldr	r3, .L38+4
+ 122 00a4 00F09CFE 		bl	.L15
+ 123 00a8 061C     		mov	r6, r0
+ 124 00aa 421C     		add	r2, r0, #1
+ 125 00ac 03D1     		bne	.L26
+ 126 00ae 0423     		mov	r3, #4
+ 127              	.L36:
+ 128 00b0 2360     		str	r3, [r4]
+ 129              	.L37:
+ 130 00b2 0020     		mov	r0, #0
+ 131 00b4 30E0     		b	.L25
+ 132              	.L26:
+ 133 00b6 381C     		mov	r0, r7
+ 134 00b8 0221     		mov	r1, #2
+ 135 00ba 1B4A     		ldr	r2, .L38+8
+ 136 00bc 1B4B     		ldr	r3, .L38+12
+ 137 00be 00F09CFE 		bl	.L15
+ 138 00c2 6860     		str	r0, [r5, #4]
+ 139 00c4 0130     		add	r0, r0, #1
+ 140 00c6 03D1     		bne	.L28
+ 141 00c8 154A     		ldr	r2, .L38
+ 142 00ca 0223     		mov	r3, #2
+ 143 00cc 1360     		str	r3, [r2]
+ 144 00ce F0E7     		b	.L37
+ 145              	.L28:
+ 146 00d0 009A     		ldr	r2, [sp]
+ 147 00d2 0123     		mov	r3, #1
+ 148 00d4 2B61     		str	r3, [r5, #16]
+ 149 00d6 1304     		lsl	r3, r2, #16
+ 150 00d8 1C14     		asr	r4, r3, #16
+ 151 00da 301C     		mov	r0, r6
+ 152 00dc 144B     		ldr	r3, .L38+16
+ 153 00de 211C     		mov	r1, r4
+ 154 00e0 00F09CFE 		bl	.L15
+ 155 00e4 0028     		cmp	r0, #0
+ 156 00e6 06D0     		beq	.L30
+ 157 00e8 0D4A     		ldr	r2, .L38
+ 158 00ea 1023     		mov	r3, #16
+ 159 00ec 1360     		str	r3, [r2]
+ 160 00ee 281C     		mov	r0, r5
+ 161 00f0 FFF7FEFF 		bl	CloseDatabase
+ 162 00f4 DDE7     		b	.L37
+ 163              	.L30:
+ 164 00f6 6B46     		mov	r3, sp
+ 165 00f8 1B88     		ldrh	r3, [r3]
+ 166 00fa 2B80     		strh	r3, [r5]
+ 167 00fc 002E     		cmp	r6, #0
+ 168 00fe 01D0     		beq	.L32
+ 169 0100 0023     		mov	r3, #0
+ 170 0102 01E0     		b	.L34
+ 171              	.L32:
+ 172 0104 0123     		mov	r3, #1
+ 173 0106 5B42     		neg	r3, r3
+ 174              	.L34:
+ 175 0108 AB60     		str	r3, [r5, #8]
+ 176 010a 301C     		mov	r0, r6
+ 177 010c 094B     		ldr	r3, .L38+20
+ 178 010e 211C     		mov	r1, r4
+ 179 0110 00F09CFE 		bl	.L15
+ 180 0114 E860     		str	r0, [r5, #12]
+ 181 0116 0120     		mov	r0, #1
+ 182              	.L25:
+ 183 0118 01B0     		add	sp, sp, #4
+ 184              		@ sp needed for prologue
+ 185 011a F0BC     		pop	{r4, r5, r6, r7}
+ 186 011c 02BC     		pop	{r1}
+ 187 011e 0847     		bx	r1
+ 188              	.L39:
+ 189              		.align	2
+ 190              	.L38:
+ 191 0120 04000000 		.word	lErrorCode
+ 192 0124 00000000 		.word	fsize
+ 193 0128 77070000 		.word	1911
+ 194 012c 00000000 		.word	open
+ 195 0130 00000000 		.word	__modsi3
+ 196 0134 00000000 		.word	__divsi3
+ 198              		.align	2
+ 199              		.global	OpenIndexFile
+ 200              		.code 16
+ 201              		.thumb_func
+ 203              	OpenIndexFile:
+ 204 0138 00B5     		push	{lr}
+ 205 013a 8023     		mov	r3, #128
+ 206 013c DB02     		lsl	r3, r3, #11
+ 207 013e 0904     		lsl	r1, r1, #16
+ 208 0140 C918     		add	r1, r1, r3
+ 209 0142 0914     		asr	r1, r1, #16
+ 210 0144 FFF7FEFF 		bl	OpenDatabase
+ 211              		@ sp needed for prologue
+ 212 0148 02BC     		pop	{r1}
+ 213 014a 0847     		bx	r1
+ 215              		.align	2
+ 216              		.global	GetCurrentRecord
+ 217              		.code 16
+ 218              		.thumb_func
+ 220              	GetCurrentRecord:
+ 221 014c 084A     		ldr	r2, .L50
+ 222 014e 0023     		mov	r3, #0
+ 223 0150 1360     		str	r3, [r2]
+ 224 0152 0369     		ldr	r3, [r0, #16]
+ 225              		@ lr needed for prologue
+ 226 0154 012B     		cmp	r3, #1
+ 227 0156 01D0     		beq	.L43
+ 228 0158 0523     		mov	r3, #5
+ 229 015a 03E0     		b	.L49
+ 230              	.L43:
+ 231 015c C368     		ldr	r3, [r0, #12]
+ 232 015e 002B     		cmp	r3, #0
+ 233 0160 04D1     		bne	.L46
+ 234 0162 0623     		mov	r3, #6
+ 235              	.L49:
+ 236 0164 0120     		mov	r0, #1
+ 237 0166 4042     		neg	r0, r0
+ 238 0168 1360     		str	r3, [r2]
+ 239 016a 00E0     		b	.L45
+ 240              	.L46:
+ 241 016c 8068     		ldr	r0, [r0, #8]
+ 242              	.L45:
+ 243              		@ sp needed for prologue
+ 244 016e 7047     		bx	lr
+ 245              	.L51:
+ 246              		.align	2
+ 247              	.L50:
+ 248 0170 04000000 		.word	lErrorCode
+ 250              		.align	2
+ 251              		.global	ReadCurrentRecord
+ 252              		.code 16
+ 253              		.thumb_func
+ 255              	ReadCurrentRecord:
+ 256 0174 30B5     		push	{r4, r5, lr}
+ 257 0176 041C     		mov	r4, r0
+ 258 0178 0D1C     		mov	r5, r1
+ 259 017a FFF7FEFF 		bl	GetCurrentRecord
+ 260 017e 021C     		mov	r2, r0
+ 261 0180 431C     		add	r3, r0, #1
+ 262 0182 23D0     		beq	.L61
+ 263 0184 2388     		ldrh	r3, [r4]
+ 264 0186 1B04     		lsl	r3, r3, #16
+ 265 0188 1B14     		asr	r3, r3, #16
+ 266 018a 191C     		mov	r1, r3
+ 267 018c 5143     		mul	r1, r1, r2
+ 268 018e 6068     		ldr	r0, [r4, #4]
+ 269 0190 0022     		mov	r2, #0
+ 270 0192 104B     		ldr	r3, .L62
+ 271 0194 00F09CFE 		bl	.L15
+ 272 0198 0130     		add	r0, r0, #1
+ 273 019a 03D1     		bne	.L56
+ 274 019c 0E4A     		ldr	r2, .L62+4
+ 275 019e 1223     		mov	r3, #18
+ 276 01a0 1360     		str	r3, [r2]
+ 277 01a2 13E0     		b	.L61
+ 278              	.L56:
+ 279 01a4 2288     		ldrh	r2, [r4]
+ 280 01a6 1204     		lsl	r2, r2, #16
+ 281 01a8 0C4B     		ldr	r3, .L62+8
+ 282 01aa 6068     		ldr	r0, [r4, #4]
+ 283 01ac 1214     		asr	r2, r2, #16
+ 284 01ae 291C     		mov	r1, r5
+ 285 01b0 00F09CFE 		bl	.L15
+ 286 01b4 2388     		ldrh	r3, [r4]
+ 287 01b6 1B04     		lsl	r3, r3, #16
+ 288 01b8 1B14     		asr	r3, r3, #16
+ 289 01ba 9842     		cmp	r0, r3
+ 290 01bc 01D1     		bne	.L58
+ 291 01be 0120     		mov	r0, #1
+ 292 01c0 05E0     		b	.L55
+ 293              	.L58:
+ 294 01c2 054B     		ldr	r3, .L62+4
+ 295 01c4 2022     		mov	r2, #32
+ 296 01c6 1A60     		str	r2, [r3]
+ 297 01c8 0023     		mov	r3, #0
+ 298 01ca 2B70     		strb	r3, [r5]
+ 299              	.L61:
+ 300 01cc 0020     		mov	r0, #0
+ 301              	.L55:
+ 302              		@ sp needed for prologue
+ 303 01ce 30BC     		pop	{r4, r5}
+ 304 01d0 02BC     		pop	{r1}
+ 305 01d2 0847     		bx	r1
+ 306              	.L63:
+ 307              		.align	2
+ 308              	.L62:
+ 309 01d4 00000000 		.word	lseek
+ 310 01d8 04000000 		.word	lErrorCode
+ 311 01dc 00000000 		.word	read
+ 313              		.align	2
+ 314              		.global	GetTotalRecords
+ 315              		.code 16
+ 316              		.thumb_func
+ 318              	GetTotalRecords:
+ 319 01e0 064A     		ldr	r2, .L69
+ 320 01e2 0023     		mov	r3, #0
+ 321 01e4 1360     		str	r3, [r2]
+ 322 01e6 0369     		ldr	r3, [r0, #16]
+ 323              		@ lr needed for prologue
+ 324 01e8 012B     		cmp	r3, #1
+ 325 01ea 04D0     		beq	.L65
+ 326 01ec 0120     		mov	r0, #1
+ 327 01ee 0523     		mov	r3, #5
+ 328 01f0 4042     		neg	r0, r0
+ 329 01f2 1360     		str	r3, [r2]
+ 330 01f4 00E0     		b	.L67
+ 331              	.L65:
+ 332 01f6 C068     		ldr	r0, [r0, #12]
+ 333              	.L67:
+ 334              		@ sp needed for prologue
+ 335 01f8 7047     		bx	lr
+ 336              	.L70:
+ 337 01fa 0000     		.align	2
+ 338              	.L69:
+ 339 01fc 04000000 		.word	lErrorCode
+ 341              		.align	2
+ 342              		.global	GotoRecord
+ 343              		.code 16
+ 344              		.thumb_func
+ 346              	GotoRecord:
+ 347 0200 30B5     		push	{r4, r5, lr}
+ 348 0202 051C     		mov	r5, r0
+ 349 0204 0C1C     		mov	r4, r1
+ 350 0206 FFF7FEFF 		bl	GetTotalRecords
+ 351 020a 431C     		add	r3, r0, #1
+ 352 020c 06D0     		beq	.L79
+ 353 020e 002C     		cmp	r4, #0
+ 354 0210 01DB     		blt	.L75
+ 355 0212 8442     		cmp	r4, r0
+ 356 0214 04DB     		blt	.L77
+ 357              	.L75:
+ 358 0216 054A     		ldr	r2, .L80
+ 359 0218 1123     		mov	r3, #17
+ 360 021a 1360     		str	r3, [r2]
+ 361              	.L79:
+ 362 021c 0020     		mov	r0, #0
+ 363 021e 01E0     		b	.L74
+ 364              	.L77:
+ 365 0220 AC60     		str	r4, [r5, #8]
+ 366 0222 0120     		mov	r0, #1
+ 367              	.L74:
+ 368              		@ sp needed for prologue
+ 369 0224 30BC     		pop	{r4, r5}
+ 370 0226 02BC     		pop	{r1}
+ 371 0228 0847     		bx	r1
+ 372              	.L81:
+ 373 022a 0000     		.align	2
+ 374              	.L80:
+ 375 022c 04000000 		.word	lErrorCode
+ 377              		.align	2
+ 378              		.global	LineairSearch
+ 379              		.code 16
+ 380              		.thumb_func
+ 382              	LineairSearch:
+ 383 0230 F0B5     		push	{r4, r5, r6, r7, lr}
+ 384 0232 82B0     		sub	sp, sp, #8
+ 385 0234 051C     		mov	r5, r0
+ 386 0236 0E1C     		mov	r6, r1
+ 387 0238 0192     		str	r2, [sp, #4]
+ 388 023a 0093     		str	r3, [sp]
+ 389 023c FFF7FEFF 		bl	GetTotalRecords
+ 390 0240 071C     		mov	r7, r0
+ 391 0242 431C     		add	r3, r0, #1
+ 392 0244 1FD0     		beq	.L83
+ 393 0246 0024     		mov	r4, #0
+ 394 0248 15E0     		b	.L85
+ 395              	.L86:
+ 396 024a 281C     		mov	r0, r5
+ 397 024c 211C     		mov	r1, r4
+ 398 024e FFF7FEFF 		bl	GotoRecord
+ 399 0252 0028     		cmp	r0, #0
+ 400 0254 17D0     		beq	.L83
+ 401 0256 281C     		mov	r0, r5
+ 402 0258 311C     		mov	r1, r6
+ 403 025a FFF7FEFF 		bl	ReadCurrentRecord
+ 404 025e 0028     		cmp	r0, #0
+ 405 0260 11D0     		beq	.L83
+ 406 0262 079B     		ldr	r3, [sp, #28]
+ 407 0264 0198     		ldr	r0, [sp, #4]
+ 408 0266 F118     		add	r1, r6, r3
+ 409 0268 009A     		ldr	r2, [sp]
+ 410 026a 0A4B     		ldr	r3, .L93
+ 411 026c 00F09CFE 		bl	.L15
+ 412 0270 0028     		cmp	r0, #0
+ 413 0272 0AD0     		beq	.L89
+ 414 0274 0134     		add	r4, r4, #1
+ 415              	.L85:
+ 416 0276 BC42     		cmp	r4, r7
+ 417 0278 E7DB     		blt	.L86
+ 418 027a 074B     		ldr	r3, .L93+4
+ 419 027c 8022     		mov	r2, #128
+ 420 027e 5201     		lsl	r2, r2, #5
+ 421 0280 1A60     		str	r2, [r3]
+ 422 0282 0023     		mov	r3, #0
+ 423 0284 3370     		strb	r3, [r6]
+ 424              	.L83:
+ 425 0286 0124     		mov	r4, #1
+ 426 0288 6442     		neg	r4, r4
+ 427              	.L89:
+ 428 028a 201C     		mov	r0, r4
+ 429 028c 02B0     		add	sp, sp, #8
+ 430              		@ sp needed for prologue
+ 431 028e F0BC     		pop	{r4, r5, r6, r7}
+ 432 0290 02BC     		pop	{r1}
+ 433 0292 0847     		bx	r1
+ 434              	.L94:
+ 435              		.align	2
+ 436              	.L93:
+ 437 0294 00000000 		.word	memcmp
+ 438 0298 04000000 		.word	lErrorCode
+ 440              		.align	2
+ 441              		.global	BinarySearch
+ 442              		.code 16
+ 443              		.thumb_func
+ 445              	BinarySearch:
+ 446 029c F0B5     		push	{r4, r5, r6, r7, lr}
+ 447 029e 83B0     		sub	sp, sp, #12
+ 448 02a0 061C     		mov	r6, r0
+ 449 02a2 0F1C     		mov	r7, r1
+ 450 02a4 0192     		str	r2, [sp, #4]
+ 451 02a6 0093     		str	r3, [sp]
+ 452 02a8 FFF7FEFF 		bl	GetTotalRecords
+ 453 02ac 051C     		mov	r5, r0
+ 454 02ae 421C     		add	r2, r0, #1
+ 455 02b0 29D0     		beq	.L96
+ 456 02b2 0023     		mov	r3, #0
+ 457 02b4 0293     		str	r3, [sp, #8]
+ 458              	.L98:
+ 459 02b6 029A     		ldr	r2, [sp, #8]
+ 460 02b8 AB1A     		sub	r3, r5, r2
+ 461 02ba 5B10     		asr	r3, r3, #1
+ 462 02bc 9C18     		add	r4, r3, r2
+ 463 02be 301C     		mov	r0, r6
+ 464 02c0 211C     		mov	r1, r4
+ 465 02c2 FFF7FEFF 		bl	GotoRecord
+ 466 02c6 0028     		cmp	r0, #0
+ 467 02c8 1DD0     		beq	.L96
+ 468 02ca 301C     		mov	r0, r6
+ 469 02cc 391C     		mov	r1, r7
+ 470 02ce FFF7FEFF 		bl	ReadCurrentRecord
+ 471 02d2 0028     		cmp	r0, #0
+ 472 02d4 17D0     		beq	.L96
+ 473 02d6 089B     		ldr	r3, [sp, #32]
+ 474 02d8 0198     		ldr	r0, [sp, #4]
+ 475 02da F918     		add	r1, r7, r3
+ 476 02dc 009A     		ldr	r2, [sp]
+ 477 02de 0D4B     		ldr	r3, .L110
+ 478 02e0 00F09CFE 		bl	.L15
+ 479 02e4 0028     		cmp	r0, #0
+ 480 02e6 10D0     		beq	.L101
+ 481 02e8 0028     		cmp	r0, #0
+ 482 02ea 01DA     		bge	.L103
+ 483 02ec 651E     		sub	r5, r4, #1
+ 484 02ee 01E0     		b	.L105
+ 485              	.L103:
+ 486 02f0 0134     		add	r4, r4, #1
+ 487 02f2 0294     		str	r4, [sp, #8]
+ 488              	.L105:
+ 489 02f4 029A     		ldr	r2, [sp, #8]
+ 490 02f6 AA42     		cmp	r2, r5
+ 491 02f8 DDDD     		ble	.L98
+ 492 02fa 074B     		ldr	r3, .L110+4
+ 493 02fc 8022     		mov	r2, #128
+ 494 02fe 5201     		lsl	r2, r2, #5
+ 495 0300 1A60     		str	r2, [r3]
+ 496 0302 0023     		mov	r3, #0
+ 497 0304 3B70     		strb	r3, [r7]
+ 498              	.L96:
+ 499 0306 0124     		mov	r4, #1
+ 500 0308 6442     		neg	r4, r4
+ 501              	.L101:
+ 502 030a 201C     		mov	r0, r4
+ 503 030c 03B0     		add	sp, sp, #12
+ 504              		@ sp needed for prologue
+ 505 030e F0BC     		pop	{r4, r5, r6, r7}
+ 506 0310 02BC     		pop	{r1}
+ 507 0312 0847     		bx	r1
+ 508              	.L111:
+ 509              		.align	2
+ 510              	.L110:
+ 511 0314 00000000 		.word	memcmp
+ 512 0318 04000000 		.word	lErrorCode
+ 514              		.align	2
+ 515              		.global	ReadNextRecord
+ 516              		.code 16
+ 517              		.thumb_func
+ 519              	ReadNextRecord:
+ 520 031c 30B5     		push	{r4, r5, lr}
+ 521 031e 041C     		mov	r4, r0
+ 522 0320 0D1C     		mov	r5, r1
+ 523 0322 FFF7FEFF 		bl	GetCurrentRecord
+ 524 0326 431C     		add	r3, r0, #1
+ 525 0328 0DD0     		beq	.L113
+ 526 032a 411C     		add	r1, r0, #1
+ 527 032c 201C     		mov	r0, r4
+ 528 032e FFF7FEFF 		bl	GotoRecord
+ 529 0332 0028     		cmp	r0, #0
+ 530 0334 07D0     		beq	.L113
+ 531 0336 201C     		mov	r0, r4
+ 532 0338 291C     		mov	r1, r5
+ 533 033a FFF7FEFF 		bl	ReadCurrentRecord
+ 534 033e 0028     		cmp	r0, #0
+ 535 0340 01D0     		beq	.L113
+ 536 0342 0120     		mov	r0, #1
+ 537 0344 00E0     		b	.L117
+ 538              	.L113:
+ 539 0346 0020     		mov	r0, #0
+ 540              	.L117:
+ 541              		@ sp needed for prologue
+ 542 0348 30BC     		pop	{r4, r5}
+ 543 034a 02BC     		pop	{r1}
+ 544 034c 0847     		bx	r1
+ 546 034e 0000     		.align	2
+ 547              		.global	ReadPreviousRecord
+ 548              		.code 16
+ 549              		.thumb_func
+ 551              	ReadPreviousRecord:
+ 552 0350 30B5     		push	{r4, r5, lr}
+ 553 0352 041C     		mov	r4, r0
+ 554 0354 0D1C     		mov	r5, r1
+ 555 0356 FFF7FEFF 		bl	GetCurrentRecord
+ 556 035a 431C     		add	r3, r0, #1
+ 557 035c 0DD0     		beq	.L120
+ 558 035e 411E     		sub	r1, r0, #1
+ 559 0360 201C     		mov	r0, r4
+ 560 0362 FFF7FEFF 		bl	GotoRecord
+ 561 0366 0028     		cmp	r0, #0
+ 562 0368 07D0     		beq	.L120
+ 563 036a 201C     		mov	r0, r4
+ 564 036c 291C     		mov	r1, r5
+ 565 036e FFF7FEFF 		bl	ReadCurrentRecord
+ 566 0372 0028     		cmp	r0, #0
+ 567 0374 01D0     		beq	.L120
+ 568 0376 0120     		mov	r0, #1
+ 569 0378 00E0     		b	.L124
+ 570              	.L120:
+ 571 037a 0020     		mov	r0, #0
+ 572              	.L124:
+ 573              		@ sp needed for prologue
+ 574 037c 30BC     		pop	{r4, r5}
+ 575 037e 02BC     		pop	{r1}
+ 576 0380 0847     		bx	r1
+ 578 0382 0000     		.align	2
+ 579              		.global	ReadLastRecord
+ 580              		.code 16
+ 581              		.thumb_func
+ 583              	ReadLastRecord:
+ 584 0384 30B5     		push	{r4, r5, lr}
+ 585 0386 041C     		mov	r4, r0
+ 586 0388 0D1C     		mov	r5, r1
+ 587 038a FFF7FEFF 		bl	GetTotalRecords
+ 588 038e 431C     		add	r3, r0, #1
+ 589 0390 0DD0     		beq	.L127
+ 590 0392 411E     		sub	r1, r0, #1
+ 591 0394 201C     		mov	r0, r4
+ 592 0396 FFF7FEFF 		bl	GotoRecord
+ 593 039a 0028     		cmp	r0, #0
+ 594 039c 07D0     		beq	.L127
+ 595 039e 201C     		mov	r0, r4
+ 596 03a0 291C     		mov	r1, r5
+ 597 03a2 FFF7FEFF 		bl	ReadCurrentRecord
+ 598 03a6 0028     		cmp	r0, #0
+ 599 03a8 01D0     		beq	.L127
+ 600 03aa 0120     		mov	r0, #1
+ 601 03ac 00E0     		b	.L131
+ 602              	.L127:
+ 603 03ae 0020     		mov	r0, #0
+ 604              	.L131:
+ 605              		@ sp needed for prologue
+ 606 03b0 30BC     		pop	{r4, r5}
+ 607 03b2 02BC     		pop	{r1}
+ 608 03b4 0847     		bx	r1
+ 610 03b6 0000     		.align	2
+ 611              		.global	ReadFirstRecord
+ 612              		.code 16
+ 613              		.thumb_func
+ 615              	ReadFirstRecord:
+ 616 03b8 30B5     		push	{r4, r5, lr}
+ 617 03ba 0D1C     		mov	r5, r1
+ 618 03bc 0021     		mov	r1, #0
+ 619 03be 041C     		mov	r4, r0
+ 620 03c0 FFF7FEFF 		bl	GotoRecord
+ 621 03c4 0028     		cmp	r0, #0
+ 622 03c6 07D0     		beq	.L134
+ 623 03c8 201C     		mov	r0, r4
+ 624 03ca 291C     		mov	r1, r5
+ 625 03cc FFF7FEFF 		bl	ReadCurrentRecord
+ 626 03d0 0028     		cmp	r0, #0
+ 627 03d2 01D0     		beq	.L134
+ 628 03d4 0120     		mov	r0, #1
+ 629 03d6 00E0     		b	.L137
+ 630              	.L134:
+ 631 03d8 0020     		mov	r0, #0
+ 632              	.L137:
+ 633              		@ sp needed for prologue
+ 634 03da 30BC     		pop	{r4, r5}
+ 635 03dc 02BC     		pop	{r1}
+ 636 03de 0847     		bx	r1
+ 638              		.align	2
+ 639              		.global	WriteRecord
+ 640              		.code 16
+ 641              		.thumb_func
+ 643              	WriteRecord:
+ 644 03e0 F0B5     		push	{r4, r5, r6, r7, lr}
+ 645 03e2 294D     		ldr	r5, .L162
+ 646 03e4 0023     		mov	r3, #0
+ 647 03e6 2B60     		str	r3, [r5]
+ 648 03e8 0369     		ldr	r3, [r0, #16]
+ 649 03ea 041C     		mov	r4, r0
+ 650 03ec 0F1C     		mov	r7, r1
+ 651 03ee 161C     		mov	r6, r2
+ 652 03f0 012B     		cmp	r3, #1
+ 653 03f2 01D0     		beq	.L140
+ 654 03f4 0523     		mov	r3, #5
+ 655 03f6 21E0     		b	.L160
+ 656              	.L140:
+ 657 03f8 012A     		cmp	r2, #1
+ 658 03fa 12D1     		bne	.L143
+ 659 03fc FFF7FEFF 		bl	GetCurrentRecord
+ 660 0400 011C     		mov	r1, r0
+ 661 0402 431C     		add	r3, r0, #1
+ 662 0404 2CD0     		beq	.L159
+ 663 0406 2388     		ldrh	r3, [r4]
+ 664 0408 1B04     		lsl	r3, r3, #16
+ 665 040a 1B14     		asr	r3, r3, #16
+ 666 040c 5943     		mul	r1, r1, r3
+ 667 040e 6068     		ldr	r0, [r4, #4]
+ 668 0410 0022     		mov	r2, #0
+ 669 0412 1E4B     		ldr	r3, .L162+4
+ 670 0414 00F09CFE 		bl	.L15
+ 671 0418 0130     		add	r0, r0, #1
+ 672 041a 11D1     		bne	.L147
+ 673 041c 1A4A     		ldr	r2, .L162
+ 674 041e 1223     		mov	r3, #18
+ 675 0420 1DE0     		b	.L161
+ 676              	.L143:
+ 677 0422 022A     		cmp	r2, #2
+ 678 0424 09D1     		bne	.L149
+ 679 0426 4068     		ldr	r0, [r0, #4]
+ 680 0428 0021     		mov	r1, #0
+ 681 042a 0222     		mov	r2, #2
+ 682 042c 174B     		ldr	r3, .L162+4
+ 683 042e 00F09CFE 		bl	.L15
+ 684 0432 0130     		add	r0, r0, #1
+ 685 0434 04D1     		bne	.L147
+ 686 0436 1223     		mov	r3, #18
+ 687 0438 00E0     		b	.L160
+ 688              	.L149:
+ 689 043a 3123     		mov	r3, #49
+ 690              	.L160:
+ 691 043c 2B60     		str	r3, [r5]
+ 692 043e 0FE0     		b	.L159
+ 693              	.L147:
+ 694 0440 2288     		ldrh	r2, [r4]
+ 695 0442 1204     		lsl	r2, r2, #16
+ 696 0444 124B     		ldr	r3, .L162+8
+ 697 0446 6068     		ldr	r0, [r4, #4]
+ 698 0448 1214     		asr	r2, r2, #16
+ 699 044a 391C     		mov	r1, r7
+ 700 044c 00F09CFE 		bl	.L15
+ 701 0450 2388     		ldrh	r3, [r4]
+ 702 0452 1B04     		lsl	r3, r3, #16
+ 703 0454 1B14     		asr	r3, r3, #16
+ 704 0456 9842     		cmp	r0, r3
+ 705 0458 04D0     		beq	.L152
+ 706 045a 0B4A     		ldr	r2, .L162
+ 707 045c 3023     		mov	r3, #48
+ 708              	.L161:
+ 709 045e 1360     		str	r3, [r2]
+ 710              	.L159:
+ 711 0460 0020     		mov	r0, #0
+ 712 0462 0DE0     		b	.L142
+ 713              	.L152:
+ 714 0464 022E     		cmp	r6, #2
+ 715 0466 0AD1     		bne	.L158
+ 716 0468 E368     		ldr	r3, [r4, #12]
+ 717 046a 0133     		add	r3, r3, #1
+ 718 046c E360     		str	r3, [r4, #12]
+ 719 046e 201C     		mov	r0, r4
+ 720 0470 FFF7FEFF 		bl	GetTotalRecords
+ 721 0474 011C     		mov	r1, r0
+ 722 0476 0139     		sub	r1, r1, #1
+ 723 0478 201C     		mov	r0, r4
+ 724 047a FFF7FEFF 		bl	GotoRecord
+ 725              	.L158:
+ 726 047e 0120     		mov	r0, #1
+ 727              	.L142:
+ 728              		@ sp needed for prologue
+ 729 0480 F0BC     		pop	{r4, r5, r6, r7}
+ 730 0482 02BC     		pop	{r1}
+ 731 0484 0847     		bx	r1
+ 732              	.L163:
+ 733 0486 0000     		.align	2
+ 734              	.L162:
+ 735 0488 04000000 		.word	lErrorCode
+ 736 048c 00000000 		.word	lseek
+ 737 0490 00000000 		.word	write
+ 739              		.align	2
+ 740              		.code 16
+ 741              		.thumb_func
+ 743              	downheap:
+ 744 0494 F0B5     		push	{r4, r5, r6, r7, lr}
+ 745 0496 84B0     		sub	sp, sp, #16
+ 746 0498 161C     		mov	r6, r2
+ 747 049a 099A     		ldr	r2, [sp, #36]
+ 748 049c 1B04     		lsl	r3, r3, #16
+ 749 049e 1204     		lsl	r2, r2, #16
+ 750 04a0 0291     		str	r1, [sp, #8]
+ 751 04a2 1B0C     		lsr	r3, r3, #16
+ 752 04a4 120C     		lsr	r2, r2, #16
+ 753 04a6 711E     		sub	r1, r6, #1
+ 754 04a8 041C     		mov	r4, r0
+ 755 04aa 0B9F     		ldr	r7, [sp, #44]
+ 756 04ac 0193     		str	r3, [sp, #4]
+ 757 04ae 0092     		str	r2, [sp]
+ 758 04b0 FFF7FEFF 		bl	GotoRecord
+ 759 04b4 0028     		cmp	r0, #0
+ 760 04b6 6AD0     		beq	.L165
+ 761 04b8 201C     		mov	r0, r4
+ 762 04ba 0A99     		ldr	r1, [sp, #40]
+ 763 04bc FFF7FEFF 		bl	ReadCurrentRecord
+ 764 04c0 0028     		cmp	r0, #0
+ 765 04c2 64D0     		beq	.L165
+ 766 04c4 0299     		ldr	r1, [sp, #8]
+ 767 04c6 4910     		asr	r1, r1, #1
+ 768 04c8 0391     		str	r1, [sp, #12]
+ 769 04ca 4EE0     		b	.L168
+ 770              	.L169:
+ 771 04cc 7500     		lsl	r5, r6, #1
+ 772 04ce 691E     		sub	r1, r5, #1
+ 773 04d0 201C     		mov	r0, r4
+ 774 04d2 FFF7FEFF 		bl	GotoRecord
+ 775 04d6 0028     		cmp	r0, #0
+ 776 04d8 59D0     		beq	.L165
+ 777 04da 201C     		mov	r0, r4
+ 778 04dc 391C     		mov	r1, r7
+ 779 04de FFF7FEFF 		bl	ReadCurrentRecord
+ 780 04e2 0028     		cmp	r0, #0
+ 781 04e4 53D0     		beq	.L165
+ 782 04e6 029B     		ldr	r3, [sp, #8]
+ 783 04e8 9D42     		cmp	r5, r3
+ 784 04ea 22DA     		bge	.L172
+ 785 04ec 201C     		mov	r0, r4
+ 786 04ee 291C     		mov	r1, r5
+ 787 04f0 FFF7FEFF 		bl	GotoRecord
+ 788 04f4 0028     		cmp	r0, #0
+ 789 04f6 4AD0     		beq	.L165
+ 790 04f8 201C     		mov	r0, r4
+ 791 04fa 0C99     		ldr	r1, [sp, #48]
+ 792 04fc FFF7FEFF 		bl	ReadCurrentRecord
+ 793 0500 0028     		cmp	r0, #0
+ 794 0502 44D0     		beq	.L165
+ 795 0504 019B     		ldr	r3, [sp, #4]
+ 796 0506 1904     		lsl	r1, r3, #16
+ 797 0508 0C9B     		ldr	r3, [sp, #48]
+ 798 050a 0914     		asr	r1, r1, #16
+ 799 050c 7818     		add	r0, r7, r1
+ 800 050e 5918     		add	r1, r3, r1
+ 801 0510 009B     		ldr	r3, [sp]
+ 802 0512 1A04     		lsl	r2, r3, #16
+ 803 0514 1214     		asr	r2, r2, #16
+ 804 0516 204B     		ldr	r3, .L184
+ 805 0518 00F09CFE 		bl	.L15
+ 806 051c 0028     		cmp	r0, #0
+ 807 051e 08DA     		bge	.L172
+ 808 0520 2288     		ldrh	r2, [r4]
+ 809 0522 1204     		lsl	r2, r2, #16
+ 810 0524 1214     		asr	r2, r2, #16
+ 811 0526 381C     		mov	r0, r7
+ 812 0528 0C99     		ldr	r1, [sp, #48]
+ 813 052a 1C4B     		ldr	r3, .L184+4
+ 814 052c 00F09CFE 		bl	.L15
+ 815 0530 0135     		add	r5, r5, #1
+ 816              	.L172:
+ 817 0532 711E     		sub	r1, r6, #1
+ 818 0534 201C     		mov	r0, r4
+ 819 0536 FFF7FEFF 		bl	GotoRecord
+ 820 053a 0028     		cmp	r0, #0
+ 821 053c 27D0     		beq	.L165
+ 822 053e 019B     		ldr	r3, [sp, #4]
+ 823 0540 1904     		lsl	r1, r3, #16
+ 824 0542 0A9B     		ldr	r3, [sp, #40]
+ 825 0544 0914     		asr	r1, r1, #16
+ 826 0546 5818     		add	r0, r3, r1
+ 827 0548 009B     		ldr	r3, [sp]
+ 828 054a 1A04     		lsl	r2, r3, #16
+ 829 054c 7918     		add	r1, r7, r1
+ 830 054e 1214     		asr	r2, r2, #16
+ 831 0550 114B     		ldr	r3, .L184
+ 832 0552 00F09CFE 		bl	.L15
+ 833 0556 0028     		cmp	r0, #0
+ 834 0558 0ADA     		bge	.L178
+ 835 055a 201C     		mov	r0, r4
+ 836 055c 391C     		mov	r1, r7
+ 837 055e 0122     		mov	r2, #1
+ 838 0560 FFF7FEFF 		bl	WriteRecord
+ 839 0564 2E1C     		mov	r6, r5
+ 840 0566 0028     		cmp	r0, #0
+ 841 0568 11D0     		beq	.L165
+ 842              	.L168:
+ 843 056a 0399     		ldr	r1, [sp, #12]
+ 844 056c 8E42     		cmp	r6, r1
+ 845 056e ADDD     		ble	.L169
+ 846              	.L178:
+ 847 0570 711E     		sub	r1, r6, #1
+ 848 0572 201C     		mov	r0, r4
+ 849 0574 FFF7FEFF 		bl	GotoRecord
+ 850 0578 0028     		cmp	r0, #0
+ 851 057a 08D0     		beq	.L165
+ 852 057c 201C     		mov	r0, r4
+ 853 057e 0A99     		ldr	r1, [sp, #40]
+ 854 0580 0122     		mov	r2, #1
+ 855 0582 FFF7FEFF 		bl	WriteRecord
+ 856 0586 0028     		cmp	r0, #0
+ 857 0588 01D0     		beq	.L165
+ 858 058a 0120     		mov	r0, #1
+ 859 058c 00E0     		b	.L182
+ 860              	.L165:
+ 861 058e 0020     		mov	r0, #0
+ 862              	.L182:
+ 863 0590 04B0     		add	sp, sp, #16
+ 864              		@ sp needed for prologue
+ 865 0592 F0BC     		pop	{r4, r5, r6, r7}
+ 866 0594 02BC     		pop	{r1}
+ 867 0596 0847     		bx	r1
+ 868              	.L185:
+ 869              		.align	2
+ 870              	.L184:
+ 871 0598 00000000 		.word	memcmp
+ 872 059c 00000000 		.word	memmove
+ 874              		.bss
+ 875              		.align	2
+ 876              	recnr.3435:
+ 877 0000 00000000 		.space	4
+ 878              		.text
+ 879              		.align	2
+ 880              		.global	SearchIndexFile
+ 881              		.code 16
+ 882              		.thumb_func
+ 884              	SearchIndexFile:
+ 885 05a0 F0B5     		push	{r4, r5, r6, r7, lr}
+ 886 05a2 214E     		ldr	r6, .L199
+ 887 05a4 0369     		ldr	r3, [r0, #16]
+ 888 05a6 82B0     		sub	sp, sp, #8
+ 889 05a8 0022     		mov	r2, #0
+ 890 05aa 041C     		mov	r4, r0
+ 891 05ac 0191     		str	r1, [sp, #4]
+ 892 05ae 3260     		str	r2, [r6]
+ 893 05b0 012B     		cmp	r3, #1
+ 894 05b2 07D1     		bne	.L197
+ 895 05b4 FFF7FEFF 		bl	GetTotalRecords
+ 896 05b8 1C4F     		ldr	r7, .L199+4
+ 897 05ba 3860     		str	r0, [r7]
+ 898 05bc 0028     		cmp	r0, #0
+ 899 05be 04D1     		bne	.L190
+ 900 05c0 0623     		mov	r3, #6
+ 901              	.L198:
+ 902 05c2 3360     		str	r3, [r6]
+ 903              	.L197:
+ 904 05c4 0120     		mov	r0, #1
+ 905 05c6 4042     		neg	r0, r0
+ 906 05c8 2AE0     		b	.L189
+ 907              	.L190:
+ 908 05ca 2088     		ldrh	r0, [r4]
+ 909 05cc 0004     		lsl	r0, r0, #16
+ 910 05ce 0014     		asr	r0, r0, #16
+ 911 05d0 174B     		ldr	r3, .L199+8
+ 912 05d2 00F09CFE 		bl	.L15
+ 913 05d6 051C     		mov	r5, r0
+ 914 05d8 0028     		cmp	r0, #0
+ 915 05da 01D1     		bne	.L192
+ 916 05dc 5023     		mov	r3, #80
+ 917 05de F0E7     		b	.L198
+ 918              	.L192:
+ 919 05e0 0123     		mov	r3, #1
+ 920 05e2 5B42     		neg	r3, r3
+ 921 05e4 3B60     		str	r3, [r7]
+ 922 05e6 2388     		ldrh	r3, [r4]
+ 923 05e8 1B04     		lsl	r3, r3, #16
+ 924 05ea 0022     		mov	r2, #0
+ 925 05ec 1B14     		asr	r3, r3, #16
+ 926 05ee 0092     		str	r2, [sp]
+ 927 05f0 043B     		sub	r3, r3, #4
+ 928 05f2 201C     		mov	r0, r4
+ 929 05f4 291C     		mov	r1, r5
+ 930 05f6 019A     		ldr	r2, [sp, #4]
+ 931 05f8 FFF7FEFF 		bl	BinarySearch
+ 932 05fc 0130     		add	r0, r0, #1
+ 933 05fe 09D0     		beq	.L194
+ 934 0600 2188     		ldrh	r1, [r4]
+ 935 0602 0904     		lsl	r1, r1, #16
+ 936 0604 0914     		asr	r1, r1, #16
+ 937 0606 6918     		add	r1, r5, r1
+ 938 0608 0439     		sub	r1, r1, #4
+ 939 060a 381C     		mov	r0, r7
+ 940 060c 0422     		mov	r2, #4
+ 941 060e 094B     		ldr	r3, .L199+12
+ 942 0610 00F09CFE 		bl	.L15
+ 943              	.L194:
+ 944 0614 281C     		mov	r0, r5
+ 945 0616 084B     		ldr	r3, .L199+16
+ 946 0618 00F09CFE 		bl	.L15
+ 947 061c 034B     		ldr	r3, .L199+4
+ 948 061e 1868     		ldr	r0, [r3]
+ 949              	.L189:
+ 950 0620 02B0     		add	sp, sp, #8
+ 951              		@ sp needed for prologue
+ 952 0622 F0BC     		pop	{r4, r5, r6, r7}
+ 953 0624 02BC     		pop	{r1}
+ 954 0626 0847     		bx	r1
+ 955              	.L200:
+ 956              		.align	2
+ 957              	.L199:
+ 958 0628 04000000 		.word	lErrorCode
+ 959 062c 00000000 		.word	recnr.3435
+ 960 0630 00000000 		.word	malloc
+ 961 0634 00000000 		.word	memcpy
+ 962 0638 00000000 		.word	free
+ 964              		.align	2
+ 965              		.global	DeleteRecord
+ 966              		.code 16
+ 967              		.thumb_func
+ 969              	DeleteRecord:
+ 970 063c F0B5     		push	{r4, r5, r6, r7, lr}
+ 971 063e 041C     		mov	r4, r0
+ 972 0640 0D1C     		mov	r5, r1
+ 973 0642 FFF7FEFF 		bl	GetTotalRecords
+ 974 0646 071C     		mov	r7, r0
+ 975 0648 431C     		add	r3, r0, #1
+ 976 064a 4AD0     		beq	.L202
+ 977 064c 201C     		mov	r0, r4
+ 978 064e 291C     		mov	r1, r5
+ 979 0650 FFF7FEFF 		bl	GotoRecord
+ 980 0654 0028     		cmp	r0, #0
+ 981 0656 44D0     		beq	.L202
+ 982 0658 2088     		ldrh	r0, [r4]
+ 983 065a 0004     		lsl	r0, r0, #16
+ 984 065c 0014     		asr	r0, r0, #16
+ 985 065e 234B     		ldr	r3, .L220
+ 986 0660 00F09CFE 		bl	.L15
+ 987 0664 061C     		mov	r6, r0
+ 988 0666 0028     		cmp	r0, #0
+ 989 0668 1CD1     		bne	.L219
+ 990 066a 214A     		ldr	r2, .L220+4
+ 991 066c 5023     		mov	r3, #80
+ 992 066e 1360     		str	r3, [r2]
+ 993 0670 37E0     		b	.L202
+ 994              	.L209:
+ 995 0672 201C     		mov	r0, r4
+ 996 0674 291C     		mov	r1, r5
+ 997 0676 FFF7FEFF 		bl	GotoRecord
+ 998 067a 0028     		cmp	r0, #0
+ 999 067c 15D0     		beq	.L210
+ 1000 067e 201C     		mov	r0, r4
+ 1001 0680 311C     		mov	r1, r6
+ 1002 0682 FFF7FEFF 		bl	ReadCurrentRecord
+ 1003 0686 0028     		cmp	r0, #0
+ 1004 0688 0FD0     		beq	.L210
+ 1005 068a 691E     		sub	r1, r5, #1
+ 1006 068c 201C     		mov	r0, r4
+ 1007 068e FFF7FEFF 		bl	GotoRecord
+ 1008 0692 0028     		cmp	r0, #0
+ 1009 0694 09D0     		beq	.L210
+ 1010 0696 201C     		mov	r0, r4
+ 1011 0698 311C     		mov	r1, r6
+ 1012 069a 0122     		mov	r2, #1
+ 1013 069c FFF7FEFF 		bl	WriteRecord
+ 1014 06a0 0028     		cmp	r0, #0
+ 1015 06a2 02D0     		beq	.L210
+ 1016              	.L219:
+ 1017 06a4 0135     		add	r5, r5, #1
+ 1018 06a6 BD42     		cmp	r5, r7
+ 1019 06a8 E3DB     		blt	.L209
+ 1020              	.L210:
+ 1021 06aa 301C     		mov	r0, r6
+ 1022 06ac 114B     		ldr	r3, .L220+8
+ 1023 06ae 00F09CFE 		bl	.L15
+ 1024 06b2 2388     		ldrh	r3, [r4]
+ 1025 06b4 1B04     		lsl	r3, r3, #16
+ 1026 06b6 1B14     		asr	r3, r3, #16
+ 1027 06b8 7A1E     		sub	r2, r7, #1
+ 1028 06ba 191C     		mov	r1, r3
+ 1029 06bc 5143     		mul	r1, r1, r2
+ 1030 06be 6068     		ldr	r0, [r4, #4]
+ 1031 06c0 0D4B     		ldr	r3, .L220+12
+ 1032 06c2 00F09CFE 		bl	.L15
+ 1033 06c6 0130     		add	r0, r0, #1
+ 1034 06c8 02D1     		bne	.L215
+ 1035 06ca 094A     		ldr	r2, .L220+4
+ 1036 06cc 1323     		mov	r3, #19
+ 1037 06ce 1360     		str	r3, [r2]
+ 1038              	.L215:
+ 1039 06d0 074B     		ldr	r3, .L220+4
+ 1040 06d2 1B68     		ldr	r3, [r3]
+ 1041 06d4 002B     		cmp	r3, #0
+ 1042 06d6 04D1     		bne	.L202
+ 1043 06d8 E368     		ldr	r3, [r4, #12]
+ 1044 06da 0120     		mov	r0, #1
+ 1045 06dc 013B     		sub	r3, r3, #1
+ 1046 06de E360     		str	r3, [r4, #12]
+ 1047 06e0 00E0     		b	.L207
+ 1048              	.L202:
+ 1049 06e2 0020     		mov	r0, #0
+ 1050              	.L207:
+ 1051              		@ sp needed for prologue
+ 1052 06e4 F0BC     		pop	{r4, r5, r6, r7}
+ 1053 06e6 02BC     		pop	{r1}
+ 1054 06e8 0847     		bx	r1
+ 1055              	.L221:
+ 1056 06ea 0000     		.align	2
+ 1057              	.L220:
+ 1058 06ec 00000000 		.word	malloc
+ 1059 06f0 04000000 		.word	lErrorCode
+ 1060 06f4 00000000 		.word	free
+ 1061 06f8 00000000 		.word	chsize
+ 1063              		.align	2
+ 1064              		.global	InsertionSort
+ 1065              		.code 16
+ 1066              		.thumb_func
+ 1068              	InsertionSort:
+ 1069 06fc F0B5     		push	{r4, r5, r6, r7, lr}
+ 1070 06fe 0904     		lsl	r1, r1, #16
+ 1071 0700 1204     		lsl	r2, r2, #16
+ 1072 0702 85B0     		sub	sp, sp, #20
+ 1073 0704 090C     		lsr	r1, r1, #16
+ 1074 0706 120C     		lsr	r2, r2, #16
+ 1075 0708 0191     		str	r1, [sp, #4]
+ 1076 070a 051C     		mov	r5, r0
+ 1077 070c 0092     		str	r2, [sp]
+ 1078 070e FFF7FEFF 		bl	GetTotalRecords
+ 1079 0712 011C     		mov	r1, r0
+ 1080 0714 0490     		str	r0, [sp, #16]
+ 1081 0716 0131     		add	r1, r1, #1
+ 1082 0718 00D1     		bne	.LCB1222
+ 1083 071a 80E0     		b	.L223	@long jump
+ 1084              	.LCB1222:
+ 1085 071c 2B88     		ldrh	r3, [r5]
+ 1086 071e 1B04     		lsl	r3, r3, #16
+ 1087 0720 1814     		asr	r0, r3, #16
+ 1088 0722 0199     		ldr	r1, [sp, #4]
+ 1089 0724 009B     		ldr	r3, [sp]
+ 1090 0726 1A04     		lsl	r2, r3, #16
+ 1091 0728 0B04     		lsl	r3, r1, #16
+ 1092 072a 1214     		asr	r2, r2, #16
+ 1093 072c 1B14     		asr	r3, r3, #16
+ 1094 072e D218     		add	r2, r2, r3
+ 1095 0730 3D4C     		ldr	r4, .L249
+ 1096 0732 9042     		cmp	r0, r2
+ 1097 0734 03DA     		bge	.L225
+ 1098 0736 8023     		mov	r3, #128
+ 1099 0738 5B00     		lsl	r3, r3, #1
+ 1100 073a 2360     		str	r3, [r4]
+ 1101 073c 6FE0     		b	.L223
+ 1102              	.L225:
+ 1103 073e 5023     		mov	r3, #80
+ 1104 0740 2360     		str	r3, [r4]
+ 1105 0742 3A4E     		ldr	r6, .L249+4
+ 1106 0744 00F09FFE 		bl	.L251
+ 1107 0748 071C     		mov	r7, r0
+ 1108 074a 0028     		cmp	r0, #0
+ 1109 074c 61D0     		beq	.L228
+ 1110 074e 2888     		ldrh	r0, [r5]
+ 1111 0750 0004     		lsl	r0, r0, #16
+ 1112 0752 0014     		asr	r0, r0, #16
+ 1113 0754 00F09FFE 		bl	.L251
+ 1114 0758 061C     		mov	r6, r0
+ 1115 075a 0028     		cmp	r0, #0
+ 1116 075c 55D0     		beq	.L230
+ 1117 075e 0023     		mov	r3, #0
+ 1118 0760 0122     		mov	r2, #1
+ 1119 0762 2360     		str	r3, [r4]
+ 1120 0764 0292     		str	r2, [sp, #8]
+ 1121 0766 48E0     		b	.L232
+ 1122              	.L233:
+ 1123 0768 281C     		mov	r0, r5
+ 1124 076a 0299     		ldr	r1, [sp, #8]
+ 1125 076c FFF7FEFF 		bl	GotoRecord
+ 1126 0770 0028     		cmp	r0, #0
+ 1127 0772 46D0     		beq	.L234
+ 1128 0774 281C     		mov	r0, r5
+ 1129 0776 391C     		mov	r1, r7
+ 1130 0778 FFF7FEFF 		bl	ReadCurrentRecord
+ 1131 077c 0028     		cmp	r0, #0
+ 1132 077e 40D0     		beq	.L234
+ 1133 0780 029C     		ldr	r4, [sp, #8]
+ 1134 0782 28E0     		b	.L237
+ 1135              	.L238:
+ 1136 0784 631E     		sub	r3, r4, #1
+ 1137 0786 281C     		mov	r0, r5
+ 1138 0788 191C     		mov	r1, r3
+ 1139 078a 0393     		str	r3, [sp, #12]
+ 1140 078c FFF7FEFF 		bl	GotoRecord
+ 1141 0790 0028     		cmp	r0, #0
+ 1142 0792 36D0     		beq	.L234
+ 1143 0794 281C     		mov	r0, r5
+ 1144 0796 311C     		mov	r1, r6
+ 1145 0798 FFF7FEFF 		bl	ReadCurrentRecord
+ 1146 079c 0028     		cmp	r0, #0
+ 1147 079e 30D0     		beq	.L234
+ 1148 07a0 019A     		ldr	r2, [sp, #4]
+ 1149 07a2 009B     		ldr	r3, [sp]
+ 1150 07a4 1104     		lsl	r1, r2, #16
+ 1151 07a6 0914     		asr	r1, r1, #16
+ 1152 07a8 1A04     		lsl	r2, r3, #16
+ 1153 07aa 7818     		add	r0, r7, r1
+ 1154 07ac 1214     		asr	r2, r2, #16
+ 1155 07ae 7118     		add	r1, r6, r1
+ 1156 07b0 1F4B     		ldr	r3, .L249+8
+ 1157 07b2 00F09CFE 		bl	.L15
+ 1158 07b6 0028     		cmp	r0, #0
+ 1159 07b8 0FDC     		bgt	.L241
+ 1160 07ba 281C     		mov	r0, r5
+ 1161 07bc 211C     		mov	r1, r4
+ 1162 07be FFF7FEFF 		bl	GotoRecord
+ 1163 07c2 0028     		cmp	r0, #0
+ 1164 07c4 1DD0     		beq	.L234
+ 1165 07c6 281C     		mov	r0, r5
+ 1166 07c8 311C     		mov	r1, r6
+ 1167 07ca 0122     		mov	r2, #1
+ 1168 07cc FFF7FEFF 		bl	WriteRecord
+ 1169 07d0 0028     		cmp	r0, #0
+ 1170 07d2 16D0     		beq	.L234
+ 1171 07d4 039C     		ldr	r4, [sp, #12]
+ 1172              	.L237:
+ 1173 07d6 002C     		cmp	r4, #0
+ 1174 07d8 D4DC     		bgt	.L238
+ 1175              	.L241:
+ 1176 07da 281C     		mov	r0, r5
+ 1177 07dc 211C     		mov	r1, r4
+ 1178 07de FFF7FEFF 		bl	GotoRecord
+ 1179 07e2 0028     		cmp	r0, #0
+ 1180 07e4 0DD0     		beq	.L234
+ 1181 07e6 281C     		mov	r0, r5
+ 1182 07e8 391C     		mov	r1, r7
+ 1183 07ea 0122     		mov	r2, #1
+ 1184 07ec FFF7FEFF 		bl	WriteRecord
+ 1185 07f0 0028     		cmp	r0, #0
+ 1186 07f2 06D0     		beq	.L234
+ 1187 07f4 0299     		ldr	r1, [sp, #8]
+ 1188 07f6 0131     		add	r1, r1, #1
+ 1189 07f8 0291     		str	r1, [sp, #8]
+ 1190              	.L232:
+ 1191 07fa 029A     		ldr	r2, [sp, #8]
+ 1192 07fc 049B     		ldr	r3, [sp, #16]
+ 1193 07fe 9A42     		cmp	r2, r3
+ 1194 0800 B2DB     		blt	.L233
+ 1195              	.L234:
+ 1196 0802 301C     		mov	r0, r6
+ 1197 0804 0B4B     		ldr	r3, .L249+12
+ 1198 0806 00F09CFE 		bl	.L15
+ 1199              	.L230:
+ 1200 080a 381C     		mov	r0, r7
+ 1201 080c 094B     		ldr	r3, .L249+12
+ 1202 080e 00F09CFE 		bl	.L15
+ 1203              	.L228:
+ 1204 0812 054B     		ldr	r3, .L249
+ 1205 0814 1B68     		ldr	r3, [r3]
+ 1206 0816 002B     		cmp	r3, #0
+ 1207 0818 01D1     		bne	.L223
+ 1208 081a 0120     		mov	r0, #1
+ 1209 081c 00E0     		b	.L227
+ 1210              	.L223:
+ 1211 081e 0020     		mov	r0, #0
+ 1212              	.L227:
+ 1213 0820 05B0     		add	sp, sp, #20
+ 1214              		@ sp needed for prologue
+ 1215 0822 F0BC     		pop	{r4, r5, r6, r7}
+ 1216 0824 02BC     		pop	{r1}
+ 1217 0826 0847     		bx	r1
+ 1218              	.L250:
+ 1219              		.align	2
+ 1220              	.L249:
+ 1221 0828 04000000 		.word	lErrorCode
+ 1222 082c 00000000 		.word	malloc
+ 1223 0830 00000000 		.word	memcmp
+ 1224 0834 00000000 		.word	free
+ 1226              		.align	2
+ 1227              		.global	AddNewSearchkeyToIndex
+ 1228              		.code 16
+ 1229              		.thumb_func
+ 1231              	AddNewSearchkeyToIndex:
+ 1232 0838 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1233 083a 224C     		ldr	r4, .L262
+ 1234 083c 0023     		mov	r3, #0
+ 1235 083e 2360     		str	r3, [r4]
+ 1236 0840 0369     		ldr	r3, [r0, #16]
+ 1237 0842 81B0     		sub	sp, sp, #4
+ 1238 0844 051C     		mov	r5, r0
+ 1239 0846 0F1C     		mov	r7, r1
+ 1240 0848 0092     		str	r2, [sp]
+ 1241 084a 012B     		cmp	r3, #1
+ 1242 084c 35D1     		bne	.L261
+ 1243 084e 0088     		ldrh	r0, [r0]
+ 1244 0850 0004     		lsl	r0, r0, #16
+ 1245 0852 0014     		asr	r0, r0, #16
+ 1246 0854 1C4B     		ldr	r3, .L262+4
+ 1247 0856 00F09CFE 		bl	.L15
+ 1248 085a 061C     		mov	r6, r0
+ 1249 085c 0028     		cmp	r0, #0
+ 1250 085e 04D1     		bne	.L256
+ 1251 0860 0120     		mov	r0, #1
+ 1252 0862 5023     		mov	r3, #80
+ 1253 0864 4042     		neg	r0, r0
+ 1254 0866 2360     		str	r3, [r4]
+ 1255 0868 28E0     		b	.L255
+ 1256              	.L256:
+ 1257 086a 2A88     		ldrh	r2, [r5]
+ 1258 086c 1204     		lsl	r2, r2, #16
+ 1259 086e 1214     		asr	r2, r2, #16
+ 1260 0870 043A     		sub	r2, r2, #4
+ 1261 0872 391C     		mov	r1, r7
+ 1262 0874 154C     		ldr	r4, .L262+8
+ 1263 0876 00F09DFE 		bl	.L264
+ 1264 087a 2888     		ldrh	r0, [r5]
+ 1265 087c 0004     		lsl	r0, r0, #16
+ 1266 087e 0014     		asr	r0, r0, #16
+ 1267 0880 3018     		add	r0, r6, r0
+ 1268 0882 6946     		mov	r1, sp
+ 1269 0884 0422     		mov	r2, #4
+ 1270 0886 0438     		sub	r0, r0, #4
+ 1271 0888 00F09DFE 		bl	.L264
+ 1272 088c 281C     		mov	r0, r5
+ 1273 088e 311C     		mov	r1, r6
+ 1274 0890 0222     		mov	r2, #2
+ 1275 0892 FFF7FEFF 		bl	WriteRecord
+ 1276 0896 0E4B     		ldr	r3, .L262+12
+ 1277 0898 0028     		cmp	r0, #0
+ 1278 089a 0BD0     		beq	.L258
+ 1279 089c 301C     		mov	r0, r6
+ 1280 089e 00F09CFE 		bl	.L15
+ 1281 08a2 2A88     		ldrh	r2, [r5]
+ 1282 08a4 043A     		sub	r2, r2, #4
+ 1283 08a6 1204     		lsl	r2, r2, #16
+ 1284 08a8 1214     		asr	r2, r2, #16
+ 1285 08aa 281C     		mov	r0, r5
+ 1286 08ac 0021     		mov	r1, #0
+ 1287 08ae FFF7FEFF 		bl	InsertionSort
+ 1288 08b2 03E0     		b	.L255
+ 1289              	.L258:
+ 1290 08b4 301C     		mov	r0, r6
+ 1291 08b6 00F09CFE 		bl	.L15
+ 1292              	.L261:
+ 1293 08ba 0020     		mov	r0, #0
+ 1294              	.L255:
+ 1295 08bc 01B0     		add	sp, sp, #4
+ 1296              		@ sp needed for prologue
+ 1297 08be F0BC     		pop	{r4, r5, r6, r7}
+ 1298 08c0 02BC     		pop	{r1}
+ 1299 08c2 0847     		bx	r1
+ 1300              	.L263:
+ 1301              		.align	2
+ 1302              	.L262:
+ 1303 08c4 04000000 		.word	lErrorCode
+ 1304 08c8 00000000 		.word	malloc
+ 1305 08cc 00000000 		.word	memcpy
+ 1306 08d0 00000000 		.word	free
+ 1308              		.align	2
+ 1309              		.global	HeapSort
+ 1310              		.code 16
+ 1311              		.thumb_func
+ 1313              	HeapSort:
+ 1314 08d4 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1315 08d6 0904     		lsl	r1, r1, #16
+ 1316 08d8 1204     		lsl	r2, r2, #16
+ 1317 08da 89B0     		sub	sp, sp, #36
+ 1318 08dc 051C     		mov	r5, r0
+ 1319 08de 0E0C     		lsr	r6, r1, #16
+ 1320 08e0 140C     		lsr	r4, r2, #16
+ 1321 08e2 FFF7FEFF 		bl	GetTotalRecords
+ 1322 08e6 071C     		mov	r7, r0
+ 1323 08e8 411C     		add	r1, r0, #1
+ 1324 08ea 00D1     		bne	.LCB1495
+ 1325 08ec 8DE0     		b	.L266	@long jump
+ 1326              	.LCB1495:
+ 1327 08ee 2A88     		ldrh	r2, [r5]
+ 1328 08f0 2304     		lsl	r3, r4, #16
+ 1329 08f2 1B14     		asr	r3, r3, #16
+ 1330 08f4 0793     		str	r3, [sp, #28]
+ 1331 08f6 1204     		lsl	r2, r2, #16
+ 1332 08f8 3304     		lsl	r3, r6, #16
+ 1333 08fa 1014     		asr	r0, r2, #16
+ 1334 08fc 079A     		ldr	r2, [sp, #28]
+ 1335 08fe 1B14     		asr	r3, r3, #16
+ 1336 0900 0893     		str	r3, [sp, #32]
+ 1337 0902 D318     		add	r3, r2, r3
+ 1338 0904 434E     		ldr	r6, .L292
+ 1339 0906 9842     		cmp	r0, r3
+ 1340 0908 03DA     		bge	.L268
+ 1341 090a 8023     		mov	r3, #128
+ 1342 090c 5B00     		lsl	r3, r3, #1
+ 1343 090e 3360     		str	r3, [r6]
+ 1344 0910 7BE0     		b	.L266
+ 1345              	.L268:
+ 1346 0912 5023     		mov	r3, #80
+ 1347 0914 3360     		str	r3, [r6]
+ 1348 0916 404C     		ldr	r4, .L292+4
+ 1349 0918 00F09DFE 		bl	.L264
+ 1350 091c 0690     		str	r0, [sp, #24]
+ 1351 091e 0028     		cmp	r0, #0
+ 1352 0920 6DD0     		beq	.L271
+ 1353 0922 2888     		ldrh	r0, [r5]
+ 1354 0924 0004     		lsl	r0, r0, #16
+ 1355 0926 0014     		asr	r0, r0, #16
+ 1356 0928 00F09DFE 		bl	.L264
+ 1357 092c 0590     		str	r0, [sp, #20]
+ 1358 092e 0028     		cmp	r0, #0
+ 1359 0930 61D0     		beq	.L273
+ 1360 0932 2888     		ldrh	r0, [r5]
+ 1361 0934 0004     		lsl	r0, r0, #16
+ 1362 0936 0014     		asr	r0, r0, #16
+ 1363 0938 00F09DFE 		bl	.L264
+ 1364 093c 0490     		str	r0, [sp, #16]
+ 1365 093e 0028     		cmp	r0, #0
+ 1366 0940 55D0     		beq	.L275
+ 1367 0942 0023     		mov	r3, #0
+ 1368 0944 7C10     		asr	r4, r7, #1
+ 1369 0946 3360     		str	r3, [r6]
+ 1370 0948 10E0     		b	.L277
+ 1371              	.L278:
+ 1372 094a 079B     		ldr	r3, [sp, #28]
+ 1373 094c 0699     		ldr	r1, [sp, #24]
+ 1374 094e 059A     		ldr	r2, [sp, #20]
+ 1375 0950 0093     		str	r3, [sp]
+ 1376 0952 049B     		ldr	r3, [sp, #16]
+ 1377 0954 0191     		str	r1, [sp, #4]
+ 1378 0956 0292     		str	r2, [sp, #8]
+ 1379 0958 0393     		str	r3, [sp, #12]
+ 1380 095a 281C     		mov	r0, r5
+ 1381 095c 391C     		mov	r1, r7
+ 1382 095e 221C     		mov	r2, r4
+ 1383 0960 089B     		ldr	r3, [sp, #32]
+ 1384 0962 FFF7FEFF 		bl	downheap
+ 1385 0966 0028     		cmp	r0, #0
+ 1386 0968 3DD0     		beq	.L279
+ 1387 096a 013C     		sub	r4, r4, #1
+ 1388              	.L277:
+ 1389 096c 002C     		cmp	r4, #0
+ 1390 096e ECDC     		bgt	.L278
+ 1391 0970 3C1C     		mov	r4, r7
+ 1392 0972 36E0     		b	.L282
+ 1393              	.L283:
+ 1394 0974 281C     		mov	r0, r5
+ 1395 0976 0699     		ldr	r1, [sp, #24]
+ 1396 0978 FFF7FEFF 		bl	ReadFirstRecord
+ 1397 097c 0028     		cmp	r0, #0
+ 1398 097e 32D0     		beq	.L279
+ 1399 0980 013C     		sub	r4, r4, #1
+ 1400 0982 281C     		mov	r0, r5
+ 1401 0984 211C     		mov	r1, r4
+ 1402 0986 FFF7FEFF 		bl	GotoRecord
+ 1403 098a 0028     		cmp	r0, #0
+ 1404 098c 2BD0     		beq	.L279
+ 1405 098e 281C     		mov	r0, r5
+ 1406 0990 0599     		ldr	r1, [sp, #20]
+ 1407 0992 FFF7FEFF 		bl	ReadCurrentRecord
+ 1408 0996 0028     		cmp	r0, #0
+ 1409 0998 25D0     		beq	.L279
+ 1410 099a 281C     		mov	r0, r5
+ 1411 099c 0699     		ldr	r1, [sp, #24]
+ 1412 099e 0122     		mov	r2, #1
+ 1413 09a0 FFF7FEFF 		bl	WriteRecord
+ 1414 09a4 0028     		cmp	r0, #0
+ 1415 09a6 1ED0     		beq	.L279
+ 1416 09a8 281C     		mov	r0, r5
+ 1417 09aa 0021     		mov	r1, #0
+ 1418 09ac FFF7FEFF 		bl	GotoRecord
+ 1419 09b0 0028     		cmp	r0, #0
+ 1420 09b2 18D0     		beq	.L279
+ 1421 09b4 281C     		mov	r0, r5
+ 1422 09b6 0599     		ldr	r1, [sp, #20]
+ 1423 09b8 0122     		mov	r2, #1
+ 1424 09ba FFF7FEFF 		bl	WriteRecord
+ 1425 09be 0028     		cmp	r0, #0
+ 1426 09c0 11D0     		beq	.L279
+ 1427 09c2 0799     		ldr	r1, [sp, #28]
+ 1428 09c4 069A     		ldr	r2, [sp, #24]
+ 1429 09c6 059B     		ldr	r3, [sp, #20]
+ 1430 09c8 0091     		str	r1, [sp]
+ 1431 09ca 0499     		ldr	r1, [sp, #16]
+ 1432 09cc 0192     		str	r2, [sp, #4]
+ 1433 09ce 0293     		str	r3, [sp, #8]
+ 1434 09d0 0391     		str	r1, [sp, #12]
+ 1435 09d2 281C     		mov	r0, r5
+ 1436 09d4 211C     		mov	r1, r4
+ 1437 09d6 0122     		mov	r2, #1
+ 1438 09d8 089B     		ldr	r3, [sp, #32]
+ 1439 09da FFF7FEFF 		bl	downheap
+ 1440 09de 0028     		cmp	r0, #0
+ 1441 09e0 01D0     		beq	.L279
+ 1442              	.L282:
+ 1443 09e2 012C     		cmp	r4, #1
+ 1444 09e4 C6DC     		bgt	.L283
+ 1445              	.L279:
+ 1446 09e6 0498     		ldr	r0, [sp, #16]
+ 1447 09e8 0C4B     		ldr	r3, .L292+8
+ 1448 09ea 00F09CFE 		bl	.L15
+ 1449              	.L275:
+ 1450 09ee 0598     		ldr	r0, [sp, #20]
+ 1451 09f0 0A4B     		ldr	r3, .L292+8
+ 1452 09f2 00F09CFE 		bl	.L15
+ 1453              	.L273:
+ 1454 09f6 0698     		ldr	r0, [sp, #24]
+ 1455 09f8 084B     		ldr	r3, .L292+8
+ 1456 09fa 00F09CFE 		bl	.L15
+ 1457              	.L271:
+ 1458 09fe 054B     		ldr	r3, .L292
+ 1459 0a00 1B68     		ldr	r3, [r3]
+ 1460 0a02 002B     		cmp	r3, #0
+ 1461 0a04 01D1     		bne	.L266
+ 1462 0a06 0120     		mov	r0, #1
+ 1463 0a08 00E0     		b	.L270
+ 1464              	.L266:
+ 1465 0a0a 0020     		mov	r0, #0
+ 1466              	.L270:
+ 1467 0a0c 09B0     		add	sp, sp, #36
+ 1468              		@ sp needed for prologue
+ 1469 0a0e F0BC     		pop	{r4, r5, r6, r7}
+ 1470 0a10 02BC     		pop	{r1}
+ 1471 0a12 0847     		bx	r1
+ 1472              	.L293:
+ 1473              		.align	2
+ 1474              	.L292:
+ 1475 0a14 04000000 		.word	lErrorCode
+ 1476 0a18 00000000 		.word	malloc
+ 1477 0a1c 00000000 		.word	free
+ 1479              		.align	2
+ 1480              		.global	QuickSort
+ 1481              		.code 16
+ 1482              		.thumb_func
+ 1484              	QuickSort:
+ 1485 0a20 F0B5     		push	{r4, r5, r6, r7, lr}
+ 1486 0a22 0904     		lsl	r1, r1, #16
+ 1487 0a24 1204     		lsl	r2, r2, #16
+ 1488 0a26 8DB0     		sub	sp, sp, #52
+ 1489 0a28 090C     		lsr	r1, r1, #16
+ 1490 0a2a 120C     		lsr	r2, r2, #16
+ 1491 0a2c 0691     		str	r1, [sp, #24]
+ 1492 0a2e 071C     		mov	r7, r0
+ 1493 0a30 0592     		str	r2, [sp, #20]
+ 1494 0a32 FFF7FEFF 		bl	GetTotalRecords
+ 1495 0a36 011C     		mov	r1, r0
+ 1496 0a38 0990     		str	r0, [sp, #36]
+ 1497 0a3a 0131     		add	r1, r1, #1
+ 1498 0a3c 00D1     		bne	.LCB1690
+ 1499 0a3e EEE0     		b	.L295	@long jump
+ 1500              	.LCB1690:
+ 1501 0a40 3B88     		ldrh	r3, [r7]
+ 1502 0a42 1B04     		lsl	r3, r3, #16
+ 1503 0a44 0699     		ldr	r1, [sp, #24]
+ 1504 0a46 1814     		asr	r0, r3, #16
+ 1505 0a48 059B     		ldr	r3, [sp, #20]
+ 1506 0a4a 1A04     		lsl	r2, r3, #16
+ 1507 0a4c 0B04     		lsl	r3, r1, #16
+ 1508 0a4e 1214     		asr	r2, r2, #16
+ 1509 0a50 1B14     		asr	r3, r3, #16
+ 1510 0a52 D218     		add	r2, r2, r3
+ 1511 0a54 7449     		ldr	r1, .L350
+ 1512 0a56 9042     		cmp	r0, r2
+ 1513 0a58 03DA     		bge	.L297
+ 1514 0a5a 8023     		mov	r3, #128
+ 1515 0a5c 5B00     		lsl	r3, r3, #1
+ 1516 0a5e 0B60     		str	r3, [r1]
+ 1517 0a60 DDE0     		b	.L295
+ 1518              	.L297:
+ 1519 0a62 5023     		mov	r3, #80
+ 1520 0a64 0B60     		str	r3, [r1]
+ 1521 0a66 714C     		ldr	r4, .L350+4
+ 1522 0a68 00F09DFE 		bl	.L264
+ 1523 0a6c 0490     		str	r0, [sp, #16]
+ 1524 0a6e 0028     		cmp	r0, #0
+ 1525 0a70 00D1     		bne	.LCB1719
+ 1526 0a72 CEE0     		b	.L300	@long jump
+ 1527              	.LCB1719:
+ 1528 0a74 3888     		ldrh	r0, [r7]
+ 1529 0a76 0004     		lsl	r0, r0, #16
+ 1530 0a78 0014     		asr	r0, r0, #16
+ 1531 0a7a 00F09DFE 		bl	.L264
+ 1532 0a7e 0390     		str	r0, [sp, #12]
+ 1533 0a80 0028     		cmp	r0, #0
+ 1534 0a82 00D1     		bne	.LCB1726
+ 1535 0a84 C1E0     		b	.L302	@long jump
+ 1536              	.LCB1726:
+ 1537 0a86 3888     		ldrh	r0, [r7]
+ 1538 0a88 0004     		lsl	r0, r0, #16
+ 1539 0a8a 0014     		asr	r0, r0, #16
+ 1540 0a8c 00F09DFE 		bl	.L264
+ 1541 0a90 0290     		str	r0, [sp, #8]
+ 1542 0a92 0028     		cmp	r0, #0
+ 1543 0a94 00D1     		bne	.LCB1733
+ 1544 0a96 B4E0     		b	.L304	@long jump
+ 1545              	.LCB1733:
+ 1546 0a98 099C     		ldr	r4, [sp, #36]
+ 1547 0a9a 654E     		ldr	r6, .L350+8
+ 1548 0a9c 0125     		mov	r5, #1
+ 1549 0a9e 00E0     		b	.L306
+ 1550              	.L307:
+ 1551 0aa0 0135     		add	r5, r5, #1
+ 1552              	.L306:
+ 1553 0aa2 201C     		mov	r0, r4
+ 1554 0aa4 0A21     		mov	r1, #10
+ 1555 0aa6 00F09FFE 		bl	.L251
+ 1556 0aaa 041C     		mov	r4, r0
+ 1557 0aac 0028     		cmp	r0, #0
+ 1558 0aae F7D1     		bne	.L307
+ 1559 0ab0 2B01     		lsl	r3, r5, #4
+ 1560 0ab2 1E1C     		mov	r6, r3
+ 1561 0ab4 2836     		add	r6, r6, #40
+ 1562 0ab6 301C     		mov	r0, r6
+ 1563 0ab8 5C4D     		ldr	r5, .L350+4
+ 1564 0aba 00F09EFE 		bl	.L352
+ 1565 0abe 0190     		str	r0, [sp, #4]
+ 1566 0ac0 0028     		cmp	r0, #0
+ 1567 0ac2 00D1     		bne	.LCB1761
+ 1568 0ac4 99E0     		b	.L309	@long jump
+ 1569              	.LCB1761:
+ 1570 0ac6 301C     		mov	r0, r6
+ 1571 0ac8 00F09EFE 		bl	.L352
+ 1572 0acc 0090     		str	r0, [sp]
+ 1573 0ace 0028     		cmp	r0, #0
+ 1574 0ad0 00D1     		bne	.LCB1766
+ 1575 0ad2 8EE0     		b	.L311	@long jump
+ 1576              	.LCB1766:
+ 1577 0ad4 544B     		ldr	r3, .L350
+ 1578 0ad6 019A     		ldr	r2, [sp, #4]
+ 1579 0ad8 1C60     		str	r4, [r3]
+ 1580 0ada 099B     		ldr	r3, [sp, #36]
+ 1581 0adc 5460     		str	r4, [r2, #4]
+ 1582 0ade 013B     		sub	r3, r3, #1
+ 1583 0ae0 0122     		mov	r2, #1
+ 1584 0ae2 4360     		str	r3, [r0, #4]
+ 1585 0ae4 0C92     		str	r2, [sp, #48]
+ 1586              	.L313:
+ 1587 0ae6 0C99     		ldr	r1, [sp, #48]
+ 1588 0ae8 019A     		ldr	r2, [sp, #4]
+ 1589 0aea 8B00     		lsl	r3, r1, #2
+ 1590 0aec 9A58     		ldr	r2, [r3, r2]
+ 1591 0aee 0099     		ldr	r1, [sp]
+ 1592 0af0 0A92     		str	r2, [sp, #40]
+ 1593 0af2 0C9A     		ldr	r2, [sp, #48]
+ 1594 0af4 5B58     		ldr	r3, [r3, r1]
+ 1595 0af6 013A     		sub	r2, r2, #1
+ 1596 0af8 0B93     		str	r3, [sp, #44]
+ 1597 0afa 0C92     		str	r2, [sp, #48]
+ 1598              	.L314:
+ 1599 0afc 0A9B     		ldr	r3, [sp, #40]
+ 1600 0afe 0B9A     		ldr	r2, [sp, #44]
+ 1601 0b00 9918     		add	r1, r3, r2
+ 1602 0b02 4910     		asr	r1, r1, #1
+ 1603 0b04 381C     		mov	r0, r7
+ 1604 0b06 FFF7FEFF 		bl	GotoRecord
+ 1605 0b0a 0028     		cmp	r0, #0
+ 1606 0b0c 6DD0     		beq	.L315
+ 1607 0b0e 381C     		mov	r0, r7
+ 1608 0b10 0499     		ldr	r1, [sp, #16]
+ 1609 0b12 FFF7FEFF 		bl	ReadCurrentRecord
+ 1610 0b16 0028     		cmp	r0, #0
+ 1611 0b18 67D0     		beq	.L315
+ 1612 0b1a 0A9C     		ldr	r4, [sp, #40]
+ 1613 0b1c 0B9D     		ldr	r5, [sp, #44]
+ 1614 0b1e 00E0     		b	.L349
+ 1615              	.L321:
+ 1616 0b20 0134     		add	r4, r4, #1
+ 1617              	.L349:
+ 1618 0b22 381C     		mov	r0, r7
+ 1619 0b24 211C     		mov	r1, r4
+ 1620 0b26 FFF7FEFF 		bl	GotoRecord
+ 1621 0b2a 0028     		cmp	r0, #0
+ 1622 0b2c 5DD0     		beq	.L315
+ 1623 0b2e 381C     		mov	r0, r7
+ 1624 0b30 0399     		ldr	r1, [sp, #12]
+ 1625 0b32 FFF7FEFF 		bl	ReadCurrentRecord
+ 1626 0b36 0028     		cmp	r0, #0
+ 1627 0b38 57D0     		beq	.L315
+ 1628 0b3a 0699     		ldr	r1, [sp, #24]
+ 1629 0b3c 049A     		ldr	r2, [sp, #16]
+ 1630 0b3e 0B04     		lsl	r3, r1, #16
+ 1631 0b40 0599     		ldr	r1, [sp, #20]
+ 1632 0b42 1E14     		asr	r6, r3, #16
+ 1633 0b44 9219     		add	r2, r2, r6
+ 1634 0b46 0B04     		lsl	r3, r1, #16
+ 1635 0b48 0792     		str	r2, [sp, #28]
+ 1636 0b4a 1B14     		asr	r3, r3, #16
+ 1637 0b4c 039A     		ldr	r2, [sp, #12]
+ 1638 0b4e 0893     		str	r3, [sp, #32]
+ 1639 0b50 9019     		add	r0, r2, r6
+ 1640 0b52 384B     		ldr	r3, .L350+12
+ 1641 0b54 0799     		ldr	r1, [sp, #28]
+ 1642 0b56 089A     		ldr	r2, [sp, #32]
+ 1643 0b58 00F09CFE 		bl	.L15
+ 1644 0b5c 0028     		cmp	r0, #0
+ 1645 0b5e DFDB     		blt	.L321
+ 1646 0b60 00E0     		b	.L348
+ 1647              	.L326:
+ 1648 0b62 013D     		sub	r5, r5, #1
+ 1649              	.L348:
+ 1650 0b64 381C     		mov	r0, r7
+ 1651 0b66 291C     		mov	r1, r5
+ 1652 0b68 FFF7FEFF 		bl	GotoRecord
+ 1653 0b6c 0028     		cmp	r0, #0
+ 1654 0b6e 3CD0     		beq	.L315
+ 1655 0b70 381C     		mov	r0, r7
+ 1656 0b72 0299     		ldr	r1, [sp, #8]
+ 1657 0b74 FFF7FEFF 		bl	ReadCurrentRecord
+ 1658 0b78 0028     		cmp	r0, #0
+ 1659 0b7a 36D0     		beq	.L315
+ 1660 0b7c 029B     		ldr	r3, [sp, #8]
+ 1661 0b7e 0799     		ldr	r1, [sp, #28]
+ 1662 0b80 9819     		add	r0, r3, r6
+ 1663 0b82 089A     		ldr	r2, [sp, #32]
+ 1664 0b84 2B4B     		ldr	r3, .L350+12
+ 1665 0b86 00F09CFE 		bl	.L15
+ 1666 0b8a 0028     		cmp	r0, #0
+ 1667 0b8c E9DC     		bgt	.L326
+ 1668 0b8e AC42     		cmp	r4, r5
+ 1669 0b90 17DC     		bgt	.L329
+ 1670 0b92 381C     		mov	r0, r7
+ 1671 0b94 0399     		ldr	r1, [sp, #12]
+ 1672 0b96 0122     		mov	r2, #1
+ 1673 0b98 FFF7FEFF 		bl	WriteRecord
+ 1674 0b9c 0028     		cmp	r0, #0
+ 1675 0b9e 24D0     		beq	.L315
+ 1676 0ba0 381C     		mov	r0, r7
+ 1677 0ba2 211C     		mov	r1, r4
+ 1678 0ba4 FFF7FEFF 		bl	GotoRecord
+ 1679 0ba8 0028     		cmp	r0, #0
+ 1680 0baa 1ED0     		beq	.L315
+ 1681 0bac 381C     		mov	r0, r7
+ 1682 0bae 0299     		ldr	r1, [sp, #8]
+ 1683 0bb0 0122     		mov	r2, #1
+ 1684 0bb2 FFF7FEFF 		bl	WriteRecord
+ 1685 0bb6 0028     		cmp	r0, #0
+ 1686 0bb8 17D0     		beq	.L315
+ 1687 0bba 0134     		add	r4, r4, #1
+ 1688 0bbc 013D     		sub	r5, r5, #1
+ 1689 0bbe AC42     		cmp	r4, r5
+ 1690 0bc0 AFDD     		ble	.L349
+ 1691              	.L329:
+ 1692 0bc2 0B99     		ldr	r1, [sp, #44]
+ 1693 0bc4 8C42     		cmp	r4, r1
+ 1694 0bc6 08DA     		bge	.L334
+ 1695 0bc8 0C9A     		ldr	r2, [sp, #48]
+ 1696 0bca 0199     		ldr	r1, [sp, #4]
+ 1697 0bcc 0132     		add	r2, r2, #1
+ 1698 0bce 9300     		lsl	r3, r2, #2
+ 1699 0bd0 5C50     		str	r4, [r3, r1]
+ 1700 0bd2 0C92     		str	r2, [sp, #48]
+ 1701 0bd4 0B99     		ldr	r1, [sp, #44]
+ 1702 0bd6 009A     		ldr	r2, [sp]
+ 1703 0bd8 9950     		str	r1, [r3, r2]
+ 1704              	.L334:
+ 1705 0bda 0A9A     		ldr	r2, [sp, #40]
+ 1706 0bdc 0B95     		str	r5, [sp, #44]
+ 1707 0bde AA42     		cmp	r2, r5
+ 1708 0be0 8CDB     		blt	.L314
+ 1709 0be2 0C9B     		ldr	r3, [sp, #48]
+ 1710 0be4 002B     		cmp	r3, #0
+ 1711 0be6 00DD     		ble	.LCB1919
+ 1712 0be8 7DE7     		b	.L313	@long jump
+ 1713              	.LCB1919:
+ 1714              	.L315:
+ 1715 0bea 0098     		ldr	r0, [sp]
+ 1716 0bec 124B     		ldr	r3, .L350+16
+ 1717 0bee 00F09CFE 		bl	.L15
+ 1718              	.L311:
+ 1719 0bf2 0198     		ldr	r0, [sp, #4]
+ 1720 0bf4 104B     		ldr	r3, .L350+16
+ 1721 0bf6 00F09CFE 		bl	.L15
+ 1722              	.L309:
+ 1723 0bfa 0298     		ldr	r0, [sp, #8]
+ 1724 0bfc 0E4B     		ldr	r3, .L350+16
+ 1725 0bfe 00F09CFE 		bl	.L15
+ 1726              	.L304:
+ 1727 0c02 0398     		ldr	r0, [sp, #12]
+ 1728 0c04 0C4B     		ldr	r3, .L350+16
+ 1729 0c06 00F09CFE 		bl	.L15
+ 1730              	.L302:
+ 1731 0c0a 0498     		ldr	r0, [sp, #16]
+ 1732 0c0c 0A4B     		ldr	r3, .L350+16
+ 1733 0c0e 00F09CFE 		bl	.L15
+ 1734              	.L300:
+ 1735 0c12 054B     		ldr	r3, .L350
+ 1736 0c14 1B68     		ldr	r3, [r3]
+ 1737 0c16 002B     		cmp	r3, #0
+ 1738 0c18 01D1     		bne	.L295
+ 1739 0c1a 0120     		mov	r0, #1
+ 1740 0c1c 00E0     		b	.L299
+ 1741              	.L295:
+ 1742 0c1e 0020     		mov	r0, #0
+ 1743              	.L299:
+ 1744 0c20 0DB0     		add	sp, sp, #52
+ 1745              		@ sp needed for prologue
+ 1746 0c22 F0BC     		pop	{r4, r5, r6, r7}
+ 1747 0c24 02BC     		pop	{r1}
+ 1748 0c26 0847     		bx	r1
+ 1749              	.L351:
+ 1750              		.align	2
+ 1751              	.L350:
+ 1752 0c28 04000000 		.word	lErrorCode
+ 1753 0c2c 00000000 		.word	malloc
+ 1754 0c30 00000000 		.word	__divsi3
+ 1755 0c34 00000000 		.word	memcmp
+ 1756 0c38 00000000 		.word	free
+ 1758              		.align	2
+ 1759              		.global	CreateIndexFile
+ 1760              		.code 16
+ 1761              		.thumb_func
+ 1763              	CreateIndexFile:
+ 1764 0c3c F0B5     		push	{r4, r5, r6, r7, lr}
+ 1765 0c3e 85B0     		sub	sp, sp, #20
+ 1766 0c40 0093     		str	r3, [sp]
+ 1767 0c42 0904     		lsl	r1, r1, #16
+ 1768 0c44 1204     		lsl	r2, r2, #16
+ 1769 0c46 384C     		ldr	r4, .L371
+ 1770 0c48 0369     		ldr	r3, [r0, #16]
+ 1771 0c4a 090C     		lsr	r1, r1, #16
+ 1772 0c4c 120C     		lsr	r2, r2, #16
+ 1773 0c4e 0027     		mov	r7, #0
+ 1774 0c50 061C     		mov	r6, r0
+ 1775 0c52 0291     		str	r1, [sp, #8]
+ 1776 0c54 0192     		str	r2, [sp, #4]
+ 1777 0c56 2760     		str	r7, [r4]
+ 1778 0c58 012B     		cmp	r3, #1
+ 1779 0c5a 60D1     		bne	.L354
+ 1780 0c5c FFF7FEFF 		bl	GetTotalRecords
+ 1781 0c60 0390     		str	r0, [sp, #12]
+ 1782 0c62 0028     		cmp	r0, #0
+ 1783 0c64 02D1     		bne	.L356
+ 1784 0c66 0623     		mov	r3, #6
+ 1785 0c68 2360     		str	r3, [r4]
+ 1786 0c6a 59E0     		b	.L358
+ 1787              	.L356:
+ 1788 0c6c 0199     		ldr	r1, [sp, #4]
+ 1789 0c6e 0431     		add	r1, r1, #4
+ 1790 0c70 0904     		lsl	r1, r1, #16
+ 1791 0c72 0914     		asr	r1, r1, #16
+ 1792 0c74 0098     		ldr	r0, [sp]
+ 1793 0c76 0A9A     		ldr	r2, [sp, #40]
+ 1794 0c78 FFF7FEFF 		bl	CreateDatabase
+ 1795 0c7c 0028     		cmp	r0, #0
+ 1796 0c7e 4ED0     		beq	.L354
+ 1797 0c80 5023     		mov	r3, #80
+ 1798 0c82 2360     		str	r3, [r4]
+ 1799 0c84 3088     		ldrh	r0, [r6]
+ 1800 0c86 0004     		lsl	r0, r0, #16
+ 1801 0c88 0014     		asr	r0, r0, #16
+ 1802 0c8a 0430     		add	r0, r0, #4
+ 1803 0c8c 274B     		ldr	r3, .L371+4
+ 1804 0c8e 00F09CFE 		bl	.L15
+ 1805 0c92 051C     		mov	r5, r0
+ 1806 0c94 0028     		cmp	r0, #0
+ 1807 0c96 3BD0     		beq	.L360
+ 1808 0c98 2760     		str	r7, [r4]
+ 1809 0c9a 0497     		str	r7, [sp, #16]
+ 1810 0c9c 21E0     		b	.L362
+ 1811              	.L363:
+ 1812 0c9e 301C     		mov	r0, r6
+ 1813 0ca0 FFF7FEFF 		bl	GotoRecord
+ 1814 0ca4 0028     		cmp	r0, #0
+ 1815 0ca6 20D0     		beq	.L364
+ 1816 0ca8 301C     		mov	r0, r6
+ 1817 0caa 291C     		mov	r1, r5
+ 1818 0cac FFF7FEFF 		bl	ReadCurrentRecord
+ 1819 0cb0 0028     		cmp	r0, #0
+ 1820 0cb2 1AD0     		beq	.L364
+ 1821 0cb4 029B     		ldr	r3, [sp, #8]
+ 1822 0cb6 1C04     		lsl	r4, r3, #16
+ 1823 0cb8 019B     		ldr	r3, [sp, #4]
+ 1824 0cba 1804     		lsl	r0, r3, #16
+ 1825 0cbc 2414     		asr	r4, r4, #16
+ 1826 0cbe 0014     		asr	r0, r0, #16
+ 1827 0cc0 2018     		add	r0, r4, r0
+ 1828 0cc2 04A9     		add	r1, sp, #16
+ 1829 0cc4 0422     		mov	r2, #4
+ 1830 0cc6 2818     		add	r0, r5, r0
+ 1831 0cc8 194B     		ldr	r3, .L371+8
+ 1832 0cca 00F09CFE 		bl	.L15
+ 1833 0cce 0A98     		ldr	r0, [sp, #40]
+ 1834 0cd0 2919     		add	r1, r5, r4
+ 1835 0cd2 0222     		mov	r2, #2
+ 1836 0cd4 FFF7FEFF 		bl	WriteRecord
+ 1837 0cd8 0028     		cmp	r0, #0
+ 1838 0cda 06D0     		beq	.L364
+ 1839 0cdc 049B     		ldr	r3, [sp, #16]
+ 1840 0cde 0133     		add	r3, r3, #1
+ 1841 0ce0 0493     		str	r3, [sp, #16]
+ 1842              	.L362:
+ 1843 0ce2 0499     		ldr	r1, [sp, #16]
+ 1844 0ce4 039B     		ldr	r3, [sp, #12]
+ 1845 0ce6 9942     		cmp	r1, r3
+ 1846 0ce8 D9DB     		blt	.L363
+ 1847              	.L364:
+ 1848 0cea 124B     		ldr	r3, .L371+12
+ 1849 0cec 281C     		mov	r0, r5
+ 1850 0cee 00F09CFE 		bl	.L15
+ 1851 0cf2 0D4B     		ldr	r3, .L371
+ 1852 0cf4 1B68     		ldr	r3, [r3]
+ 1853 0cf6 002B     		cmp	r3, #0
+ 1854 0cf8 0AD1     		bne	.L360
+ 1855 0cfa 019B     		ldr	r3, [sp, #4]
+ 1856 0cfc 1A04     		lsl	r2, r3, #16
+ 1857 0cfe 1214     		asr	r2, r2, #16
+ 1858 0d00 0A98     		ldr	r0, [sp, #40]
+ 1859 0d02 0021     		mov	r1, #0
+ 1860 0d04 FFF7FEFF 		bl	QuickSort
+ 1861 0d08 0028     		cmp	r0, #0
+ 1862 0d0a 01D0     		beq	.L360
+ 1863 0d0c 0120     		mov	r0, #1
+ 1864 0d0e 07E0     		b	.L358
+ 1865              	.L360:
+ 1866 0d10 0A98     		ldr	r0, [sp, #40]
+ 1867 0d12 FFF7FEFF 		bl	CloseDatabase
+ 1868 0d16 0098     		ldr	r0, [sp]
+ 1869 0d18 074B     		ldr	r3, .L371+16
+ 1870 0d1a 00F09CFE 		bl	.L15
+ 1871              	.L354:
+ 1872 0d1e 0020     		mov	r0, #0
+ 1873              	.L358:
+ 1874 0d20 05B0     		add	sp, sp, #20
+ 1875              		@ sp needed for prologue
+ 1876 0d22 F0BC     		pop	{r4, r5, r6, r7}
+ 1877 0d24 02BC     		pop	{r1}
+ 1878 0d26 0847     		bx	r1
+ 1879              	.L372:
+ 1880              		.align	2
+ 1881              	.L371:
+ 1882 0d28 04000000 		.word	lErrorCode
+ 1883 0d2c 00000000 		.word	malloc
+ 1884 0d30 00000000 		.word	memcpy
+ 1885 0d34 00000000 		.word	free
+ 1886 0d38 00000000 		.word	remove
+ 1888              		.bss
+ 1889              		.align	2
+ 1890              	lErrorCode:
+ 1891 0004 00000000 		.space	4
+ 1892              		.ident	"GCC: (GNU) 4.0.1 (WinARM)"
+ 1893              		.text
+ 1894              		.code 16
+ 1895              		.align	1
+ 1896              	.L15:
+ 1897 0d3c 1847     		bx	r3
+ 1898              	.L264:
+ 1899 0d3e 2047     		bx	r4
+ 1900              	.L352:
+ 1901 0d40 2847     		bx	r5
+ 1902              	.L251:
+ 1903 0d42 3047     		bx	r6
+DEFINED SYMBOLS
+                            *ABS*:00000000 database.c
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1      .text:00000000 $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:9      .text:00000000 GetDBErrorCode
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:18     .text:00000008 $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1890   .bss:00000004 lErrorCode
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:25     .text:0000000c CreateDatabase
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:22     .text:0000000c $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:64     .text:0000004c $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:73     .text:00000058 CloseDatabase
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:70     .text:00000058 $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:97     .text:00000080 $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:107    .text:00000088 OpenDatabase
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:104    .text:00000088 $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:191    .text:00000120 $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:203    .text:00000138 OpenIndexFile
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:200    .text:00000138 $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:220    .text:0000014c GetCurrentRecord
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:248    .text:00000170 $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:255    .text:00000174 ReadCurrentRecord
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:252    .text:00000174 $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:309    .text:000001d4 $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:318    .text:000001e0 GetTotalRecords
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:315    .text:000001e0 $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:339    .text:000001fc $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:346    .text:00000200 GotoRecord
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:343    .text:00000200 $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:375    .text:0000022c $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:382    .text:00000230 LineairSearch
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:379    .text:00000230 $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:437    .text:00000294 $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:445    .text:0000029c BinarySearch
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:442    .text:0000029c $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:511    .text:00000314 $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:519    .text:0000031c ReadNextRecord
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:516    .text:0000031c $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:551    .text:00000350 ReadPreviousRecord
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:583    .text:00000384 ReadLastRecord
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:615    .text:000003b8 ReadFirstRecord
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:643    .text:000003e0 WriteRecord
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:735    .text:00000488 $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:740    .text:00000494 $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:743    .text:00000494 downheap
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:871    .text:00000598 $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:876    .bss:00000000 recnr.3435
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:884    .text:000005a0 SearchIndexFile
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:881    .text:000005a0 $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:958    .text:00000628 $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:969    .text:0000063c DeleteRecord
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:966    .text:0000063c $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1058   .text:000006ec $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1068   .text:000006fc InsertionSort
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1065   .text:000006fc $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1221   .text:00000828 $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1231   .text:00000838 AddNewSearchkeyToIndex
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1228   .text:00000838 $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1303   .text:000008c4 $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1313   .text:000008d4 HeapSort
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1310   .text:000008d4 $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1475   .text:00000a14 $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1484   .text:00000a20 QuickSort
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1481   .text:00000a20 $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1752   .text:00000c28 $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1763   .text:00000c3c CreateIndexFile
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1760   .text:00000c3c $t
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1882   .text:00000d28 $d
+C:\Users\sgn\AppData\Local\Temp/ccq4aaaa.s:1894   .text:00000d3c $t
+
+UNDEFINED SYMBOLS
+open
+close
+__modsi3
+__divsi3
+fsize
+lseek
+read
+memcmp
+write
+memmove
+malloc
+memcpy
+free
+chsize
+remove

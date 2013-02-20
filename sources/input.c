@@ -288,7 +288,7 @@ int ScanOrKeyboardInput( char* string, int min_length, int max_length, int typ, 
 			return( SCANNED ); // Input by scanning
 		}
 
-		key = KeyboardInput( string, min_length, max_length, typ, x, y, display_length, 3, TRIGGER_KEY, CLR_KEY, ENT_KEY );
+		key = KeyboardInput( string, min_length, max_length, typ, x, y, display_length, 4, TRIGGER_KEY, ENT_KEY, F1_KEY, CLR_KEY );
 		switch( key )
 		{
 			case ENT_KEY:

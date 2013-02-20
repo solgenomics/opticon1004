@@ -22,17 +22,16 @@
 #include        <stdlib.h>
 #include        <string.h>
 #include        "lib.h"
-#include 		"database.h"
-#include 		"input.h"
-#include 		"menu.h"
-#include 		"images.h"   
+#include	"database.h"
+#include	"input.h"
+#include	"menu.h"
+#include	"images.h"   
 
 //************************************************************************
 // Defines
 //************************************************************************
 
-#define VERSIONSUFFIX	"30924"
-
+#define VERSIONSUFFIX	"30924-2"
 
 // Database name
 #define DBASE_NAME	   	"myfile.txt"  //"DATA.TXT"
@@ -97,6 +96,8 @@
 	#endif
 #endif
 
+#define DISP_LINES 8
+
 #define ID_STOPBITS_1		1
 #define ID_STOPBITS_2		2
 
@@ -137,7 +138,7 @@ typedef struct
 //************************************************************************
 // Globals
 //************************************************************************
-long lPort;		// Serial communication port
+long lPort;	// Serial communication port
 long lProtocol;	// The protocol for transmitting the data
 long lBarcodes;	// The currently supported barcode types
 long lBaudrate;	// The Baudrate
@@ -358,7 +359,7 @@ static int GetMaxCharsXPos( void )
 	return (DISP_WIDTH / nWidth);
 }
 
-void diplay_input_data( db_record *db_rec )
+void display_input_data( db_record *db_rec )
 {
 	int nMaxX;
 
@@ -368,11 +369,11 @@ void diplay_input_data( db_record *db_rec )
 	printf("%-*.*s", nMaxX, nMaxX, db_rec->barcode );
 	printf("\nQuant: %-*.*s\n", SZ_SIGN+SZ_QUANTITY, SZ_SIGN+SZ_QUANTITY, db_rec->quantity);
 
-	setfont( SMALL_FONT, NULL);
-	gotoxy(0,6);
-	printf("%-*.*s\n", nMaxX, nMaxX, db_rec->date);
-    printf("%-*.*s", nMaxX, nMaxX, db_rec->time);
-	setfont( LARGE_FONT, NULL);
+	//setfont( SMALL_FONT, NULL);
+	//gotoxy(0,6);
+	//printf("%-*.*s\n", nMaxX, nMaxX, db_rec->date);
+	//printf("%-*.*s", nMaxX, nMaxX, db_rec->time);
+	//setfont( LARGE_FONT, NULL);
 }
 
 // Save the data into the database
@@ -512,91 +513,168 @@ void ScanLabels( void )
 	struct date 		dates;
 	struct time 		times;
 	long   			lFoundRecord;
-	int 			nIllegal;
-	long 			lTotal;
-	long 			lAdd;
+	//int 			nIllegal;
+	//long 			lTotal;
+	//long 			lAdd;
 
 	memset( barcode, '\0', sizeof( barcode ));
 	memset( &db_rec, '\0', sizeof( db_record ));
 
 	cursor(NOWRAP);
 	setfont( LARGE_FONT, NULL );
-		printf("\fScan :-)...");
+	//printf("%s", "Scan :-)...");
+
+	printf("\fSCAN...");
+
 	for(;;)
 	{
 	
-
-		// Display some info first
-		//if( ScanOrKeyboardInput( barcode, 1, SZ_BARCODE, INPUT_ALL, 0, 1, GetMaxCharsXPos()) == CLR_KEY )
-		//	return;
 	  
+		// Display some info first
 
-		//
-		// A new for loop, so that quantity is cancelled
-		// the input continues with the barcode input
-		//
-		for(;;) {
-		    // fill the barcode into the record structure
-		    sprintf( db_rec.barcode, "%-*.*s", SZ_BARCODE, SZ_BARCODE, barcode );
-		    memset( quantity, '\0', sizeof( quantity ));	// clear the whole quantity item
-		    //Lukas
-		    gotoxy(0,2);
-		    printf("READ: %s", db_rec.barcode);
+	  //     list_db_contents();
 
-
-//	if( (lFoundRecord = FindBarcodeInDatabase( db_rec.barcode, quantity )) != -1L )
-		    //	lTotal = string_quantity_to_long( quantity, &nIllegal );
-		    //else
-		    //	lTotal = 0;
-		    
-		    //gotoxy( 0, 2);
-		    //printf("Total: %*ld\nAdd:         ", SZ_SIGN+SZ_QUANTITY, lTotal);
-		    
-		    // Set the quantity to default value
-		    //strcpy( quantity, "1");
-		    
-		    //if( KeyboardNumeric( quantity, 4, INPUT_NUM | INPUT_NEGATIVE | INPUT_SHOW_DEFAULT, 9, 3, 5, 3, CLR_KEY, ENT_KEY, TRIGGER_KEY ) == CLR_KEY )
-		    //		break;
-		    
-		    //lAdd = string_quantity_to_long( quantity, &nIllegal );
-		    //if( !nIllegal && lAdd == 0L )
-		    //break; // quantity is empty or zero do nothing
-		    //lTotal += lAdd;
-		    
-		    //if( nIllegal || lTotal < -999999L || lTotal > 9999999L )
-		    //{
-		    //#if OPH | OPH1004
-		    //	printf("\fError quantity\n\n\n\n\n\n\nPress any key");
-		    //#else
-		    //	printf("\fError quantity\n\n\nPress any key");
-		    //#endif
-		    //WaitForKey();
-		    //break; // continue with the barcode input
-		    //}
-		    // When ok fill the quantity of the db_record
-		    //sprintf( db_rec.quantity, "%*ld", SZ_SIGN+SZ_QUANTITY, lTotal);
-		    
-		    gettime( &times );
-		    getdate( &dates );
-		    sprintf( db_rec.time, "%02d:%02d:%02d", times.ti_hour, times.ti_min, times.ti_sec);
-		    sprintf( db_rec.date, "%02d/%02d/%04d", dates.da_day, dates.da_mon, dates.da_year);
-		    
-		    // Store the input data into our database
-		    store_input_data( &db_rec, lFoundRecord );
-		    break;
-		}
+	  int key =  ScanOrKeyboardInput( barcode, 1, SZ_BARCODE, INPUT_ALL, 0, DISP_LINES-2, GetMaxCharsXPos());
+	  if (key == CLR_KEY) { 
+	    return;
+	  }
+	  else if (key == F1_KEY) { 
+	    delete_last_entry();
+	    list_db_contents();
+	  }
+	  else { 
+	    for(;;) {
+	      gotoxy(0, DISP_LINES-1);
+	      // fill the barcode into the record structure
+	      sprintf( db_rec.barcode, "%-*.*s", SZ_BARCODE, SZ_BARCODE, barcode );
+	      memset( quantity, '\0', sizeof( quantity ));	// clear the whole quantity item
+	      gettime( &times );
+	      getdate( &dates );
+	      sprintf( db_rec.time, "%02d:%02d:%02d", times.ti_hour, times.ti_min, times.ti_sec);
+	      sprintf( db_rec.date, "%02d/%02d/%04d", dates.da_day, dates.da_mon, dates.da_year);
+	      
+	      // Store the input data into our database
+	      store_input_data( &db_rec, lFoundRecord );
+	      list_db_contents();
+	      break;
+	    }
+	  }
 	}
+	
 }
 
-void display_scroll_data( db_record *db_rec, long curr, long max )
+//Lukas
+void alert( char* message) 
 {
+  printf("%s", message);
+  WaitForKey();
+}
+
+/* void open_database(SDBFile *dbFile)  */
+/* {    */
+/*   if( !OpenDatabase( (char*)DBASE_NAME, SZ_RECORD, dbFile )) { */
+/* #if OPH | OPH1004 */
+/*     alert("Error open\ndatabase.\nCode=?\n\n\n\n\nPress any key"); */
+/* #else */
+/*     alert("Error open\ndatabase.\nCode=?\nPress any key"); */
+/* #endif */
+/*   }  */
+
+/*   } */
+    
+/* void close_database(SDBFile *dbFile)  */
+/* {   */
+/*     CloseDatabase( dbFile ); */
+/* } */
+
+    //Lukas
+long get_record_count (void) { 
+    static SDBFile dbFile; // static initializes all items to 0
+    long max_rec = 0L;
+    
+    if ( !OpenDatabase( (char*)DBASE_NAME, SZ_RECORD, &dbFile )) { 
+      gotoxy(0, DISP_LINES-1);
+      printf("%s", "ERROR! :-(");
+      WaitForKey();
+      return;
+    }
+    max_rec = GetTotalRecords( &dbFile );    
+    
+    CloseDatabase( &dbFile );
+ 
+    return max_rec;
+}
+
+//Lukas: list_db_contents. 
+void list_db_contents(void) 
+{
+  db_record db_rec;
+  long max_rec = get_record_count();
+
+  printf("\f");
+
+  long MAX_LINE = DISP_LINES;
+  if (max_rec < MAX_LINE) { 
+    MAX_LINE = max_rec;
+  }
+  for (long n=0; n< MAX_LINE; n++) // not sure if lines 1 or 0 based?
+    {
+      gotoxy(0, DISP_LINES-n-3);
+      long rec_nr = max_rec - n -1; // zero-based
+      //printf("%s,%d\n", "rec: ", rec_nr);
+      if( !get_record( &db_rec, &rec_nr, &max_rec )  )
+      	{
+      	  printf("%s%ld", "error rec\n", rec_nr);
+	  WaitForKey();
+	  break;
+      	}
+      printf("%ld %s", rec_nr, db_rec.barcode);
+    }
+  gotoxy(0, DISP_LINES-1);
+  printf("%s%ld", "TOTAL:", max_rec);  
+
+  
+}  
+
+void delete_last_entry(void) { 
+  static SDBFile dbFile; // static initializes all items to 0
+  static char record[ SZ_RECORD + 1];
+	
+  gotoxy(0,0);
+  printf("%s", "\fDELETE\nLAST ENTRY?");
+  gotoxy(0,7);
+  printf("%s", "YES           NO");
+  int key = WaitForKey();
+  if (key == UP_KEY) {
+    long last_rec = get_record_count();
+    
+    if( !OpenDatabase( (char*)DBASE_NAME, SZ_RECORD, &dbFile ))
+      {
+	gotoxy(0,0);
+	printf("%s", "An error occurred.");
+	return;
+      }
+    long delete_rec = last_rec -1;
+    if( !DeleteRecord(&dbFile, delete_rec)) { 
+      gotoxy(0,0);
+      printf("%s %ld", "Could not\ndelete\nlast rec", delete_rec);
+
+    }
+    CloseDatabase(&dbFile);
+  }
+  
+}
+ 
+void display_scroll_data( db_record *db_rec, long curr, long max )
+ {
 	int nMaxX;
 	nMaxX = GetMaxCharsXPos();
 
 	gotoxy(0,0);
 	printf("\tr%-*.*s %04ld/%04ld\tr", nMaxX-10, nMaxX-10, "CODE", curr+1, max);
+	
 
-	diplay_input_data( db_rec );
+	display_input_data( db_rec );
 }
 
 int get_record( db_record *db_rec, long *rec_nr, long *max_rec )
@@ -607,12 +685,12 @@ int get_record( db_record *db_rec, long *rec_nr, long *max_rec )
 	if( !OpenDatabase( (char*)DBASE_NAME, SZ_RECORD, &dbFile ))
 	{
 		#if OPH | OPH1004
-			printf("\fError open\ndatabase.\nCode=%ld\n\n\n\n\nPress any key", GetDBErrorCode());
+			printf("\fError open\ndatabase :-(.\nCode=%ld\n\n\n\n\nPress any key", GetDBErrorCode());
 		#else
 			printf("\fError open\ndatabase.\nCode=%ld\nPress any key", GetDBErrorCode());
 		#endif
 		WaitForKey();
-		return FALSE;
+		//return FALSE;
 	}
 
 	*max_rec = GetTotalRecords( &dbFile );
@@ -625,6 +703,7 @@ int get_record( db_record *db_rec, long *rec_nr, long *max_rec )
 			printf("\fError goto\nrecord.\nCode=%ld\nPress any key", GetDBErrorCode());
 		#endif
 		WaitForKey();
+		CloseDatabase( &dbFile );
 		return FALSE;
 	}
 
@@ -636,6 +715,7 @@ int get_record( db_record *db_rec, long *rec_nr, long *max_rec )
 			printf("\fError read\nrecord.\nCode=%ld\nPress any key", GetDBErrorCode());
 		#endif
 		WaitForKey();
+		CloseDatabase( &dbFile );
 		return FALSE;
 	}
 	CloseDatabase( &dbFile );
@@ -643,6 +723,9 @@ int get_record( db_record *db_rec, long *rec_nr, long *max_rec )
 	fill_record_struct( db_rec, record );
 	return TRUE;
 }
+
+
+
 
 
 void ScrollDatabase( void )
@@ -1128,7 +1211,7 @@ void ShowVersion( void )
 {
 	static char os[ 8 + 1 ];
 	#if OPH | OPH1004
-		printf("\f\tr   OPH Demo   \tr\nSoftware\nVersion #");
+		printf("\f\tr CassavaScan \tr\nSoftware\nVersion #");
 	#else
 		printf("\fSoftware Version");
 	#endif

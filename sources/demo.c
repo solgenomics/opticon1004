@@ -1211,19 +1211,21 @@ void ShowVersion( void )
 {
 	static char os[ 8 + 1 ];
 	#if OPH | OPH1004
-		printf("\f\tr CassavaScan \tr\nSoftware\nVersion #");
+		printf("\f\tr CassavaScan \tr\nSoftware\nVersion #\n");
 	#else
-		printf("\fSoftware Version");
+		printf("\fSoftware Version\n");
 	#endif
     version_os(os);
     os[3] = '\0';
     os[1] = 'F';
 	#if OPH | OPH1004
-		printf("\n\n%s%s\n\n\nPress any key", os,VERSIONSUFFIX);
+    printf("\n%s%s%s\n\nPress any key", os,VERSIONSUFFIX, "\n(c) 2013 Lukas");
 	#else
 		printf("\n%s%s\nPress any key", os,VERSIONSUFFIX);
 	#endif
-    WaitForKey();
+
+
+		WaitForKey();
 }
 
 

@@ -53,598 +53,602 @@ APP_START       0x60100100       0xa8
  AP_START       0x60100100       0xa8 startup.o
                 0x601001a8                _eappstart = .
 
-PROGRAM         0x601001a8     0x7526
+PROGRAM         0x601001a8     0x7852
  *(.text .text.*)
- .text          0x601001a8     0x10d4 obj/demo.o
-                0x601007d4                ScanLabels
-                0x60100db4                _SystemMenu
-                0x601004bc                diplay_input_data
-                0x60100c40                SelectProtocol
+ .text          0x601001a8     0x1328 obj/demo.o
+                0x60100b08                ScanLabels
+                0x60100ffc                _SystemMenu
+                0x60100e88                SelectProtocol
                 0x601001d4                set_databits
-                0x601006e0                fill_record_struct
-                0x60100c10                ComPortSettings
-                0x60100d4c                SetBarcodes
+                0x6010068c                fill_record_struct
+                0x60100e58                ComPortSettings
+                0x60100f94                SetBarcodes
                 0x60100200                set_parity
-                0x60100bd8                SelectStopbits
-                0x60100ba0                SelectDatabits
-                0x6010055c                store_input_data
+                0x60100e20                SelectStopbits
+                0x60100de8                SelectDatabits
+                0x60100508                store_input_data
+                0x601004bc                display_input_data
                 0x601002a0                set_barcodes
-                0x60100d88                AvailableMemory
-                0x60100680                string_quantity_to_long
-                0x60100744                FindBarcodeInDatabase
-                0x60100af0                SelectPort
-                0x601008d0                display_scroll_data
-                0x60100e20                TransmitData
-                0x601011e0                main
-                0x60100920                get_record
-                0x60100b64                SelectParity
-                0x601009e8                ScrollDatabase
+                0x60100fd0                AvailableMemory
+                0x60100780                alert
+                0x6010062c                string_quantity_to_long
+                0x601006f0                FindBarcodeInDatabase
+                0x60100d38                SelectPort
+                0x601008c4                display_scroll_data
+                0x60101068                TransmitData
+                0x60101434                main
+                0x601009f0                list_db_contents
+                0x60100914                get_record
+                0x60100dac                SelectParity
+                0x60100c30                ScrollDatabase
                 0x601001a8                set_stopbits
-                0x6010106c                ShowFonts
-                0x6010101c                ShowVersion
-                0x60100c74                ChangeContrast
-                0x6010110c                file_test
-                0x60100de4                DeleteDatabase
-                0x60100b28                SelectBaudrate
+                0x601012c0                ShowFonts
+                0x60101264                ShowVersion
+                0x60100ebc                ChangeContrast
+                0x601007a4                get_record_count
+                0x60101360                file_test
+                0x6010102c                DeleteDatabase
+                0x601007f8                delete_last_entry
+                0x60100d70                SelectBaudrate
                 0x60100238                set_baudrate
- .text          0x6010127c      0xd44 obj/database.o
-                0x601012d4                CloseDatabase
-                0x60101eb8                CreateIndexFile
-                0x60101600                ReadLastRecord
-                0x60101518                BinarySearch
-                0x6010165c                WriteRecord
-                0x60101304                OpenDatabase
-                0x60101598                ReadNextRecord
-                0x601013f0                ReadCurrentRecord
-                0x6010181c                SearchIndexFile
-                0x6010127c                GetDBErrorCode
-                0x601014ac                LineairSearch
-                0x6010147c                GotoRecord
-                0x60101634                ReadFirstRecord
-                0x60101ab4                AddNewSearchkeyToIndex
-                0x60101b50                HeapSort
-                0x60101978                InsertionSort
-                0x601013b4                OpenIndexFile
-                0x601015cc                ReadPreviousRecord
-                0x60101288                CreateDatabase
-                0x601013c8                GetCurrentRecord
-                0x60101c9c                QuickSort
-                0x601018b8                DeleteRecord
-                0x6010145c                GetTotalRecords
- .text          0x60101fc0      0x664 obj/input.o
-                0x601023f8                ScanOrKeyboardInputSymbol
-                0x60102370                ScanOrKeyboardInput
-                0x60101fc0                WaitForKey
-                0x6010225c                KeyboardInput
-                0x60102484                KeyboardNumeric
-                0x60102090                ScanBarcodeSymbol
-                0x60102050                WaitForKeys
-                0x601021a0                ScanBarcode
- .text          0x60102624      0xc30 obj/menu.o
-                0x60102be4                GraphIncLayer
-                0x60102e70                ShowGraphMenu
-                0x6010297c                ShowTextSelectionMenu
-                0x6010271c                ShowTextMenu
-                0x60102bc8                InitGraphMenu
-                0x601030c0                ShowGraphSelectionMenu
- .text          0x60103254      0xe10 startup.o
-                0x601037fc                fiscanf
-                0x60103bfc                longjmp
-                0x60103b1c                putchar
-                0x60103ebc                tsearch
-                0x601034cc                programbuffer
-                0x60103b3c                putw
-                0x60103a2c                mbrlen
-                0x60103cc4                strcpy
-                0x601036ec                asctime
-                0x601034f4                WaitKey
-                0x60103bec                unsetenv
-                0x6010351c                chsize
-                0x60103734                bcmp
-                0x60103bf4                setjmp
-                0x60103e74                tmpfile
-                0x601035c4                ShowJPG_File
-                0x60103f34                vscanf
-                0x60103c3c                ldexpf
-                0x60103b04                printf
-                0x60103f5c                vsprintf
-                0x60103b14                putc_unlocked
-                0x601032cc                endtimer
-                0x60103ed4                ungetc
-                0x6010326c                checktime
-                0x60103d04                strlwr
-                0x60103664                set_default_drive
-                0x601034ac                eraseblock
-                0x601032c4                drawline
-                0x60103cdc                strerror
-                0x60103d2c                strndup
-                0x6010346c                wherey
-                0x60103694                argz_add_sep
-                0x60103584                blt_discovery
-                0x60103a7c                memmove
-                0x601038bc                hsearch
-                0x60103fac                wcslcpy
-                0x60103c7c                snprintf
-                0x6010358c                blt_unpair
-                0x60103714                atoff
-                0x60103724                atol
-                0x60103774                __errno
-                0x6010362c                FillCircle
-                0x60103ac4                malloc_stats
-                0x60103e34                times
-                0x60103c44                modff
-                0x60103aec                nrand48
-                0x60103564                SetBltPin
-                0x6010387c                getenv
-                0x60103fb4                wcslen
-                0x60103954                iswcntrl
-                0x60103984                iswpunct
-                0x60103444                systemsetting
-                0x6010366c                __srget
-                0x601038ec                isblank
-                0x60103c04                setlinebuf
-                0x601039bc                labs
-                0x6010341c                SetTickCount
-                0x60103294                coreleft
-                0x60103944                iswalpha
-                0x6010388c                gets
-                0x6010394c                iswblank
-                0x60103744                bsearch
-                0x60103dcc                execve
-                0x60103f64                vsscanf
-                0x60103dec                getpid
-                0x601036cc                argz_insert
-                0x60103b44                qsort
-                0x60103fe4                wcsrchr
-                0x60103834                fscanf
-                0x601037e4                fgets
-                0x6010399c                iswxdigit
-                0x601032ec                format
-                0x601038ac                hcreate
-                0x6010386c                getc
-                0x6010340c                SetSystemTime
-                0x60103a74                memcpy
-                0x60103c0c                setvbuf
-                0x60103614                ScrollUp
-                0x601036a4                argz_count
-                0x60103afc                perror
-                0x60103db4                swab
-                0x60103ad4                mstats
-                0x60103c2c                isinff
-                0x601035b4                SetCursorColor
-                0x60103b34                puts
-                0x60103644                vibrate
-                0x6010390c                islower
-                0x60103a34                mbrtowc
-                0x60103e94                tolower
-                0x6010368c                argz_add
-                0x601038f4                iscanf
-                0x60103974                iswlower
-                0x60103e2c                system
-                0x601037b4                feof
-                0x60103fdc                wcspbrk
-                0x6010331c                getterminalid
-                0x601036e4                argz_stringify
-                0x60103a14                malloc
-                0x60103b64                remove
-                0x60103dbc                isatty
-                0x6010398c                iswspace
-                0x6010343c                starttimer
-                0x601032b4                downloadapplication
-                0x6010374c                btowc
-                0x60103bac                ldexp
-                0x60103f54                vsnprintf
-                0x60103d8c                strtoll
-                0x6010352c                putnstring
-                0x60103fc4                wcsncmp
-                0x6010338c                powereddown
-                0x60103d94                strtoul
-                0x6010364c                itoa
-                0x6010334c                isBuzzerOn
-                0x60103ffc                wcsstr
-                0x60103534                SoftReset
-                0x60103a9c                mktemp
-                0x60103924                ispunct
-                0x6010335c                kbhit
-                0x6010401c                wctomb
-                0x60103c1c                finitef
-                0x60104004                wcstombs
-                0x6010365c                StoreCoverDetection
-                0x60103ee4                pvalloc
-                0x6010392c                isspace
-                0x60103a84                mempcpy
-                0x601037c4                fflush
-                0x60103c34                isnanf
-                0x60103274                checkdate
-                0x60103a4c                mbstowcs
-                0x60103b2c                putenv
-                0x601036ac                argz_create
-                0x6010350c                lseek
-                0x6010404c                wmemcpy
-                0x601033c4                savedisplay
-                0x60103d0c                strncasecmp
-                0x60103754                bzero
-                0x60103574                SetBltLocalName
-                0x60103bdc                setbuffer
-                0x60103f3c                vsiprintf
-                0x601039dc                abort
-                0x60103f8c                wcscoll
-                0x60103bcc                seed48
-                0x601036f4                asiprintf
-                0x601039a4                isxdigit
-                0x60103e54                tdelete
-                0x60103454                triggerpressed
-                0x6010361c                FillRect
-                0x601032fc                getcom
-                0x601039e4                alarm
-                0x60103d84                strtol
-                0x601033e4                SetAlarm
-                0x6010384c                fsetpos
-                0x60103d34                strnlen
-                0x60103a24                mblen
-                0x601035ac                secretstring
-                0x6010397c                iswprint
-                0x601033cc                scanneroff
-                0x60103b6c                rename
-                0x60103f4c                vsniprintf
-                0x60103d4c                strrchr
-                0x60103f94                wcscpy
-                0x6010375c                calloc
-                0x60103434                sound
-                0x601033ac                resetkey
-                0x60103ab4                malloc_usable_size
-                0x60103e5c                tdestroy
-                0x60103d6c                strtod
-                0x60103b9c                isinf
-                0x60103b7c                rindex
-                0x60103e4c                write
-                0x6010403c                wmemchr
-                0x601034b4                erasesector
-                0x6010370c                atof
-                0x60103de4                fstat
-                0x6010380c                fprintf
-                0x60103dfc                kill
-                0x6010396c                iswgraph
-                0x6010377c                ctime
-                0x601034e4                InstallHeartbeatHandler
-                0x601037cc                ffs
-                0x60103ca4                strcat
-                0x601033bc                runapplfromfile
-                0x6010345c                uppressed
-                0x60103f2c                vprintf
-                0x60103c74                sniprintf
-                0x601034a4                GetFlashSize
-                0x60103844                fseeko
-                0x60103514                tell
-                0x60103bb4                modf
-                0x60103374                neto_receive2
-                0x601036c4                argz_extract
-                0x6010383c                fseek
-                0x60103ae4                nl_langinfo
-                0x60103634                DrawEllipse
-                0x601033dc                set_offset
-                0x60103a5c                memccpy
-                0x6010347c                xmodemtransmit
-                0x60103a64                memchr
-                0x6010328c                contrast
-                0x60103e64                tfind
-                0x60103e44                wait
-                0x60103324                GetTickCount
-                0x6010342c                showpicture
-                0x6010344c                timervalue
-                0x60103254                autopowerdown
-                0x60103aa4                mktime
-                0x601034dc                EnableInts
-                0x60103344                idle
-                0x60103484                version_os
-                0x601034fc                setdatetime
-                0x601032a4                cursor
-                0x601037bc                ferror
-                0x60103d64                strstr
-                0x60103544                GetBatteryVoltage
-                0x60103b54                rand
-                0x6010385c                ftello
-                0x60103c5c                signal
-                0x60103e14                read
-                0x60103474                xmodemreceive
-                0x60103264                batteryvoltage
-                0x60103cf4                strlcpy
-                0x6010395c                iswctype
-                0x60103cbc                strcoll
-                0x60103934                isupper
-                0x60103d1c                strncmp
-                0x601039b4                l64a
-                0x6010355c                SetBltAddress
-                0x60103fec                wcsrtombs
-                0x6010405c                wmemset
-                0x60103d24                strncpy
-                0x60103e3c                unlink
-                0x60103be4                setenv
-                0x60103c9c                strcasecmp
-                0x60104034                wcwidth
-                0x601038e4                isascii
-                0x60103384                neto_transmit2
-                0x60103b5c                realloc
-                0x60103af4                on_exit
-                0x601037a4                fcloseall
-                0x60103eb4                towupper
-                0x601033a4                readbarcode
-                0x60103414                setterminalid
-                0x6010327c                comopen
-                0x6010373c                bcopy
-                0x60103fd4                wcsnlen
-                0x60103ea4                towctrans
-                0x60103d7c                strtok
-                0x60103a6c                memcmp
-                0x60103adc                malloc_trim
-                0x6010325c                backlight
-                0x601037ac                fdopen
-                0x60103ddc                fork
-                0x60103c94                sscanf
-                0x601038dc                isalpha
-                0x60103f9c                wcscspn
-                0x60103d14                strncat
-                0x601039cc                lcong48
-                0x60103554                GetBltPin
-                0x60103f7c                wcschr
-                0x60103464                wherex
-                0x60103c8c                srand48
-                0x60103824                fread
-                0x6010363c                FillEllipse
-                0x60103e1c                sbrk
-                0x601032d4                findnext
-                0x60103cd4                strdup
-                0x60103c4c                scalbnf
-                0x6010357c                blt_is_connected
-                0x601035e4                BackLightLvl
-                0x60103304                getdate
-                0x60103d9c                strtoull
-                0x601038c4                index
-                0x60103df4                gettimeofday
-                0x60103804                fopen
-                0x60103fbc                wcsncat
-                0x60103884                getopt
-                0x60103394                printsymbol
-                0x601039c4                localtime
-                0x60103a8c                memset
-                0x601033ec                setdate
-                0x60103604                PrintChar
-                0x60103ff4                wcsspn
-                0x60103854                ftell
-                0x60103b4c                srand
-                0x60103674                __swbuf
-                0x60103dac                strxfrm
-                0x60103cec                strlcat
-                0x60103a44                mbsrtowcs
-                0x6010402c                wctype
-                0x6010376c                clearerr
-                0x6010330c                getfontsize
-                0x60103acc                mallopt
-                0x6010379c                fclose
-                0x601035ec                SetBackLightLvl
-                0x60103354                ischarging
-                0x60103874                getchar
-                0x601032e4                flipscreen
-                0x601034bc                programbyte
-                0x60103e6c                time
-                0x6010354c                GetBltAddress
-                0x60103914                isgraph
-                0x60103fcc                wcsncpy
-                0x6010359c                SetTextColor
-                0x601037dc                fgetpos
-                0x601038d4                isalnum
-                0x601038b4                hdestroy
-                0x60103e84                tmpnam
-                0x6010391c                isprint
-                0x60103aac                mrand48
-                0x60103b0c                putc
-                0x60103b8c                finite
-                0x60103284                comclose
-                0x60103cb4                strcmp
-                0x60103c6c                siscanf
-                0x60103424                settime
-                0x60103efc                vfiprintf
-                0x60103b84                copysign
-                0x601032ac                delay
-                0x60103f04                vfiscanf
-                0x601038cc                iprintf
-                0x60103654                OseComm
-                0x601035d4                BitBlt
-                0x60103c14                copysignf
-                0x601037d4                fgetc
-                0x60103a0c                memalign
-                0x60103c84                sprintf
-                0x601036fc                asprintf
-                0x60103784                difftime
-                0x60103314                GetSystemTime
-                0x60103f24                viscanf
-                0x60103d74                strtof
-                0x60103704                atexit
-                0x60103e8c                toascii
-                0x60103ccc                strcspn
-                0x601035f4                SetAutoBacklight
-                0x60103334                goodreadled
-                0x601033fc                setfont
-                0x601039fc                setlocale
-                0x60103894                getsubopt
-                0x60103964                iswdigit
-                0x60103bc4                scanf
-                0x60103a94                mkstemp
-                0x601034ec                RemoveHeartbeatHandler
-                0x60103bbc                scalbn
-                0x601036dc                argz_replace
-                0x60103d54                strsep
-                0x60103764                cfree
-                0x60103ba4                isnan
-                0x60103b24                putchar_unlocked
-                0x601039d4                ldiv
-                0x6010353c                GetTemperature
-                0x601032dc                findfirst
-                0x60103edc                valloc
-                0x60103814                fputc
-                0x6010356c                GetBltLocalName
-                0x60103abc                mallinfo
-                0x601034d4                DisableInts
-                0x60103eec                vasiprintf
-                0x60103994                iswupper
-                0x60103ec4                twalk
-                0x601033f4                setecho
-                0x60103ce4                strftime
-                0x60103a04                localeconv
-                0x601036b4                argz_create_sep
-                0x6010333c                gotoxy
-                0x60104044                wmemcmp
-                0x60103e24                stat
-                0x601039f4                lldiv
-                0x60104054                wmemmove
-                0x60103904                isdigit
-                0x6010348c                version_rom
-                0x60103864                fwrite
-                0x60103684                access
-                0x6010332c                gettime
-                0x6010329c                Heap_CoreLeft
-                0x60103fa4                wcslcat
-                0x60103f14                vfscanf
-                0x60103d44                strptime
-                0x60103b74                rewind
-                0x6010382c                freopen
-                0x6010360c                ClearDisplay
-                0x601035cc                ShowJPG
-                0x60103e04                link
-                0x60103794                exit
-                0x601037f4                fiprintf
-                0x60103624                DrawCircle
-                0x601035fc                SetPrintCharFunction
-                0x60103eac                towlower
-                0x60103f44                vsiscanf
-                0x601039ec                llabs
-                0x60103bd4                setbuf
-                0x60103c24                frexpf
-                0x6010393c                iswalnum
-                0x60103f84                wcscmp
-                0x601034c4                programword
-                0x60103364                loaddisplay
-                0x60103c64                siprintf
-                0x6010371c                atoi
-                0x601038fc                iscntrl
-                0x601037ec                fileno
-                0x60103da4                strupr
-                0x60103f74                wcscat
-                0x601038a4                gmtime
-                0x60103d5c                strspn
-                0x60104014                wctob
-                0x60103e7c                tempnam
-                0x60103594                SetBltPinCallback
-                0x60103cfc                strlen
-                0x6010369c                argz_append
-                0x6010349c                GetBootVersion
-                0x60103e0c                open
-                0x601032f4                fsize
-                0x60103e9c                toupper
-                0x6010372c                atoll
-                0x6010337c                neto_transmit
-                0x6010389c                getw
-                0x601036d4                argz_next
-                0x6010378c                div
-                0x6010367c                abs
-                0x60103cac                strchr
-                0x6010400c                wcswidth
-                0x6010381c                fputs
-                0x601036bc                argz_delete
-                0x601035bc                ShowBMP
-                0x60103ef4                vasprintf
-                0x60103dd4                fcntl
-                0x60103ecc                tzset
-                0x601039ac                jrand48
-                0x60103524                putstring
-                0x601032bc                downpressed
-                0x601035a4                SetBackColor
-                0x601033b4                resetreceive
-                0x60103f6c                wcrtomb
-                0x60103b94                frexp
-                0x601033d4                scannerpower
-                0x60103dc4                close
-                0x6010336c                neto_receive
-                0x6010339c                putcom
-                0x601035dc                ShowGIF
-                0x60103a54                mbtowc
-                0x60103f1c                viprintf
-                0x60103f0c                vfprintf
-                0x60103d3c                strpbrk
-                0x60103404                setpixel
-                0x60103c54                raise
-                0x60103a1c                free
-                0x60103a3c                mbsinit
-                0x60104024                wctrans
-                0x60103494                GetOsVersion
- .text          0x60104064       0x8c c:/winarm/bin/../lib/gcc/arm-elf/4.0.1/thumb/interwork\libgcc.a(_udivsi3.o)
-                0x60104064                __udivsi3
-                0x601040e0                __aeabi_uidivmod
- .text          0x601040f0       0xa4 c:/winarm/bin/../lib/gcc/arm-elf/4.0.1/thumb/interwork\libgcc.a(_divsi3.o)
-                0x601040f0                __divsi3
-                0x60104184                __aeabi_idivmod
- .text          0x60104194       0xd8 c:/winarm/bin/../lib/gcc/arm-elf/4.0.1/thumb/interwork\libgcc.a(_modsi3.o)
-                0x60104194                __modsi3
- .text          0x6010426c        0x4 c:/winarm/bin/../lib/gcc/arm-elf/4.0.1/thumb/interwork\libgcc.a(_dvmd_tls.o)
-                0x6010426c                __aeabi_ldiv0
-                0x6010426c                __div0
-                0x6010426c                __aeabi_idiv0
+ .text          0x601014d0      0xd44 obj/database.o
+                0x60101528                CloseDatabase
+                0x6010210c                CreateIndexFile
+                0x60101854                ReadLastRecord
+                0x6010176c                BinarySearch
+                0x601018b0                WriteRecord
+                0x60101558                OpenDatabase
+                0x601017ec                ReadNextRecord
+                0x60101644                ReadCurrentRecord
+                0x60101a70                SearchIndexFile
+                0x601014d0                GetDBErrorCode
+                0x60101700                LineairSearch
+                0x601016d0                GotoRecord
+                0x60101888                ReadFirstRecord
+                0x60101d08                AddNewSearchkeyToIndex
+                0x60101da4                HeapSort
+                0x60101bcc                InsertionSort
+                0x60101608                OpenIndexFile
+                0x60101820                ReadPreviousRecord
+                0x601014dc                CreateDatabase
+                0x6010161c                GetCurrentRecord
+                0x60101ef0                QuickSort
+                0x60101b0c                DeleteRecord
+                0x601016b0                GetTotalRecords
+ .text          0x60102214      0x67c obj/input.o
+                0x60102664                ScanOrKeyboardInputSymbol
+                0x601025cc                ScanOrKeyboardInput
+                0x60102214                WaitForKey
+                0x601024b0                KeyboardInput
+                0x601026f0                KeyboardNumeric
+                0x601022e4                ScanBarcodeSymbol
+                0x601022a4                WaitForKeys
+                0x601023f4                ScanBarcode
+ .text          0x60102890      0xc30 obj/menu.o
+                0x60102e50                GraphIncLayer
+                0x601030dc                ShowGraphMenu
+                0x60102be8                ShowTextSelectionMenu
+                0x60102988                ShowTextMenu
+                0x60102e34                InitGraphMenu
+                0x6010332c                ShowGraphSelectionMenu
+ .text          0x601034c0      0xe10 startup.o
+                0x60103a68                fiscanf
+                0x60103e68                longjmp
+                0x60103d88                putchar
+                0x60104128                tsearch
+                0x60103738                programbuffer
+                0x60103da8                putw
+                0x60103c98                mbrlen
+                0x60103f30                strcpy
+                0x60103958                asctime
+                0x60103760                WaitKey
+                0x60103e58                unsetenv
+                0x60103788                chsize
+                0x601039a0                bcmp
+                0x60103e60                setjmp
+                0x601040e0                tmpfile
+                0x60103830                ShowJPG_File
+                0x601041a0                vscanf
+                0x60103ea8                ldexpf
+                0x60103d70                printf
+                0x601041c8                vsprintf
+                0x60103d80                putc_unlocked
+                0x60103538                endtimer
+                0x60104140                ungetc
+                0x601034d8                checktime
+                0x60103f70                strlwr
+                0x601038d0                set_default_drive
+                0x60103718                eraseblock
+                0x60103530                drawline
+                0x60103f48                strerror
+                0x60103f98                strndup
+                0x601036d8                wherey
+                0x60103900                argz_add_sep
+                0x601037f0                blt_discovery
+                0x60103ce8                memmove
+                0x60103b28                hsearch
+                0x60104218                wcslcpy
+                0x60103ee8                snprintf
+                0x601037f8                blt_unpair
+                0x60103980                atoff
+                0x60103990                atol
+                0x601039e0                __errno
+                0x60103898                FillCircle
+                0x60103d30                malloc_stats
+                0x601040a0                times
+                0x60103eb0                modff
+                0x60103d58                nrand48
+                0x601037d0                SetBltPin
+                0x60103ae8                getenv
+                0x60104220                wcslen
+                0x60103bc0                iswcntrl
+                0x60103bf0                iswpunct
+                0x601036b0                systemsetting
+                0x601038d8                __srget
+                0x60103b58                isblank
+                0x60103e70                setlinebuf
+                0x60103c28                labs
+                0x60103688                SetTickCount
+                0x60103500                coreleft
+                0x60103bb0                iswalpha
+                0x60103af8                gets
+                0x60103bb8                iswblank
+                0x601039b0                bsearch
+                0x60104038                execve
+                0x601041d0                vsscanf
+                0x60104058                getpid
+                0x60103938                argz_insert
+                0x60103db0                qsort
+                0x60104250                wcsrchr
+                0x60103aa0                fscanf
+                0x60103a50                fgets
+                0x60103c08                iswxdigit
+                0x60103558                format
+                0x60103b18                hcreate
+                0x60103ad8                getc
+                0x60103678                SetSystemTime
+                0x60103ce0                memcpy
+                0x60103e78                setvbuf
+                0x60103880                ScrollUp
+                0x60103910                argz_count
+                0x60103d68                perror
+                0x60104020                swab
+                0x60103d40                mstats
+                0x60103e98                isinff
+                0x60103820                SetCursorColor
+                0x60103da0                puts
+                0x601038b0                vibrate
+                0x60103b78                islower
+                0x60103ca0                mbrtowc
+                0x60104100                tolower
+                0x601038f8                argz_add
+                0x60103b60                iscanf
+                0x60103be0                iswlower
+                0x60104098                system
+                0x60103a20                feof
+                0x60104248                wcspbrk
+                0x60103588                getterminalid
+                0x60103950                argz_stringify
+                0x60103c80                malloc
+                0x60103dd0                remove
+                0x60104028                isatty
+                0x60103bf8                iswspace
+                0x601036a8                starttimer
+                0x60103520                downloadapplication
+                0x601039b8                btowc
+                0x60103e18                ldexp
+                0x601041c0                vsnprintf
+                0x60103ff8                strtoll
+                0x60103798                putnstring
+                0x60104230                wcsncmp
+                0x601035f8                powereddown
+                0x60104000                strtoul
+                0x601038b8                itoa
+                0x601035b8                isBuzzerOn
+                0x60104268                wcsstr
+                0x601037a0                SoftReset
+                0x60103d08                mktemp
+                0x60103b90                ispunct
+                0x601035c8                kbhit
+                0x60104288                wctomb
+                0x60103e88                finitef
+                0x60104270                wcstombs
+                0x601038c8                StoreCoverDetection
+                0x60104150                pvalloc
+                0x60103b98                isspace
+                0x60103cf0                mempcpy
+                0x60103a30                fflush
+                0x60103ea0                isnanf
+                0x601034e0                checkdate
+                0x60103cb8                mbstowcs
+                0x60103d98                putenv
+                0x60103918                argz_create
+                0x60103778                lseek
+                0x601042b8                wmemcpy
+                0x60103630                savedisplay
+                0x60103f78                strncasecmp
+                0x601039c0                bzero
+                0x601037e0                SetBltLocalName
+                0x60103e48                setbuffer
+                0x601041a8                vsiprintf
+                0x60103c48                abort
+                0x601041f8                wcscoll
+                0x60103e38                seed48
+                0x60103960                asiprintf
+                0x60103c10                isxdigit
+                0x601040c0                tdelete
+                0x601036c0                triggerpressed
+                0x60103888                FillRect
+                0x60103568                getcom
+                0x60103c50                alarm
+                0x60103ff0                strtol
+                0x60103650                SetAlarm
+                0x60103ab8                fsetpos
+                0x60103fa0                strnlen
+                0x60103c90                mblen
+                0x60103818                secretstring
+                0x60103be8                iswprint
+                0x60103638                scanneroff
+                0x60103dd8                rename
+                0x601041b8                vsniprintf
+                0x60103fb8                strrchr
+                0x60104200                wcscpy
+                0x601039c8                calloc
+                0x601036a0                sound
+                0x60103618                resetkey
+                0x60103d20                malloc_usable_size
+                0x601040c8                tdestroy
+                0x60103fd8                strtod
+                0x60103e08                isinf
+                0x60103de8                rindex
+                0x601040b8                write
+                0x601042a8                wmemchr
+                0x60103720                erasesector
+                0x60103978                atof
+                0x60104050                fstat
+                0x60103a78                fprintf
+                0x60104068                kill
+                0x60103bd8                iswgraph
+                0x601039e8                ctime
+                0x60103750                InstallHeartbeatHandler
+                0x60103a38                ffs
+                0x60103f10                strcat
+                0x60103628                runapplfromfile
+                0x601036c8                uppressed
+                0x60104198                vprintf
+                0x60103ee0                sniprintf
+                0x60103710                GetFlashSize
+                0x60103ab0                fseeko
+                0x60103780                tell
+                0x60103e20                modf
+                0x601035e0                neto_receive2
+                0x60103930                argz_extract
+                0x60103aa8                fseek
+                0x60103d50                nl_langinfo
+                0x601038a0                DrawEllipse
+                0x60103648                set_offset
+                0x60103cc8                memccpy
+                0x601036e8                xmodemtransmit
+                0x60103cd0                memchr
+                0x601034f8                contrast
+                0x601040d0                tfind
+                0x601040b0                wait
+                0x60103590                GetTickCount
+                0x60103698                showpicture
+                0x601036b8                timervalue
+                0x601034c0                autopowerdown
+                0x60103d10                mktime
+                0x60103748                EnableInts
+                0x601035b0                idle
+                0x601036f0                version_os
+                0x60103768                setdatetime
+                0x60103510                cursor
+                0x60103a28                ferror
+                0x60103fd0                strstr
+                0x601037b0                GetBatteryVoltage
+                0x60103dc0                rand
+                0x60103ac8                ftello
+                0x60103ec8                signal
+                0x60104080                read
+                0x601036e0                xmodemreceive
+                0x601034d0                batteryvoltage
+                0x60103f60                strlcpy
+                0x60103bc8                iswctype
+                0x60103f28                strcoll
+                0x60103ba0                isupper
+                0x60103f88                strncmp
+                0x60103c20                l64a
+                0x601037c8                SetBltAddress
+                0x60104258                wcsrtombs
+                0x601042c8                wmemset
+                0x60103f90                strncpy
+                0x601040a8                unlink
+                0x60103e50                setenv
+                0x60103f08                strcasecmp
+                0x601042a0                wcwidth
+                0x60103b50                isascii
+                0x601035f0                neto_transmit2
+                0x60103dc8                realloc
+                0x60103d60                on_exit
+                0x60103a10                fcloseall
+                0x60104120                towupper
+                0x60103610                readbarcode
+                0x60103680                setterminalid
+                0x601034e8                comopen
+                0x601039a8                bcopy
+                0x60104240                wcsnlen
+                0x60104110                towctrans
+                0x60103fe8                strtok
+                0x60103cd8                memcmp
+                0x60103d48                malloc_trim
+                0x601034c8                backlight
+                0x60103a18                fdopen
+                0x60104048                fork
+                0x60103f00                sscanf
+                0x60103b48                isalpha
+                0x60104208                wcscspn
+                0x60103f80                strncat
+                0x60103c38                lcong48
+                0x601037c0                GetBltPin
+                0x601041e8                wcschr
+                0x601036d0                wherex
+                0x60103ef8                srand48
+                0x60103a90                fread
+                0x601038a8                FillEllipse
+                0x60104088                sbrk
+                0x60103540                findnext
+                0x60103f40                strdup
+                0x60103eb8                scalbnf
+                0x601037e8                blt_is_connected
+                0x60103850                BackLightLvl
+                0x60103570                getdate
+                0x60104008                strtoull
+                0x60103b30                index
+                0x60104060                gettimeofday
+                0x60103a70                fopen
+                0x60104228                wcsncat
+                0x60103af0                getopt
+                0x60103600                printsymbol
+                0x60103c30                localtime
+                0x60103cf8                memset
+                0x60103658                setdate
+                0x60103870                PrintChar
+                0x60104260                wcsspn
+                0x60103ac0                ftell
+                0x60103db8                srand
+                0x601038e0                __swbuf
+                0x60104018                strxfrm
+                0x60103f58                strlcat
+                0x60103cb0                mbsrtowcs
+                0x60104298                wctype
+                0x601039d8                clearerr
+                0x60103578                getfontsize
+                0x60103d38                mallopt
+                0x60103a08                fclose
+                0x60103858                SetBackLightLvl
+                0x601035c0                ischarging
+                0x60103ae0                getchar
+                0x60103550                flipscreen
+                0x60103728                programbyte
+                0x601040d8                time
+                0x601037b8                GetBltAddress
+                0x60103b80                isgraph
+                0x60104238                wcsncpy
+                0x60103808                SetTextColor
+                0x60103a48                fgetpos
+                0x60103b40                isalnum
+                0x60103b20                hdestroy
+                0x601040f0                tmpnam
+                0x60103b88                isprint
+                0x60103d18                mrand48
+                0x60103d78                putc
+                0x60103df8                finite
+                0x601034f0                comclose
+                0x60103f20                strcmp
+                0x60103ed8                siscanf
+                0x60103690                settime
+                0x60104168                vfiprintf
+                0x60103df0                copysign
+                0x60103518                delay
+                0x60104170                vfiscanf
+                0x60103b38                iprintf
+                0x601038c0                OseComm
+                0x60103840                BitBlt
+                0x60103e80                copysignf
+                0x60103a40                fgetc
+                0x60103c78                memalign
+                0x60103ef0                sprintf
+                0x60103968                asprintf
+                0x601039f0                difftime
+                0x60103580                GetSystemTime
+                0x60104190                viscanf
+                0x60103fe0                strtof
+                0x60103970                atexit
+                0x601040f8                toascii
+                0x60103f38                strcspn
+                0x60103860                SetAutoBacklight
+                0x601035a0                goodreadled
+                0x60103668                setfont
+                0x60103c68                setlocale
+                0x60103b00                getsubopt
+                0x60103bd0                iswdigit
+                0x60103e30                scanf
+                0x60103d00                mkstemp
+                0x60103758                RemoveHeartbeatHandler
+                0x60103e28                scalbn
+                0x60103948                argz_replace
+                0x60103fc0                strsep
+                0x601039d0                cfree
+                0x60103e10                isnan
+                0x60103d90                putchar_unlocked
+                0x60103c40                ldiv
+                0x601037a8                GetTemperature
+                0x60103548                findfirst
+                0x60104148                valloc
+                0x60103a80                fputc
+                0x601037d8                GetBltLocalName
+                0x60103d28                mallinfo
+                0x60103740                DisableInts
+                0x60104158                vasiprintf
+                0x60103c00                iswupper
+                0x60104130                twalk
+                0x60103660                setecho
+                0x60103f50                strftime
+                0x60103c70                localeconv
+                0x60103920                argz_create_sep
+                0x601035a8                gotoxy
+                0x601042b0                wmemcmp
+                0x60104090                stat
+                0x60103c60                lldiv
+                0x601042c0                wmemmove
+                0x60103b70                isdigit
+                0x601036f8                version_rom
+                0x60103ad0                fwrite
+                0x601038f0                access
+                0x60103598                gettime
+                0x60103508                Heap_CoreLeft
+                0x60104210                wcslcat
+                0x60104180                vfscanf
+                0x60103fb0                strptime
+                0x60103de0                rewind
+                0x60103a98                freopen
+                0x60103878                ClearDisplay
+                0x60103838                ShowJPG
+                0x60104070                link
+                0x60103a00                exit
+                0x60103a60                fiprintf
+                0x60103890                DrawCircle
+                0x60103868                SetPrintCharFunction
+                0x60104118                towlower
+                0x601041b0                vsiscanf
+                0x60103c58                llabs
+                0x60103e40                setbuf
+                0x60103e90                frexpf
+                0x60103ba8                iswalnum
+                0x601041f0                wcscmp
+                0x60103730                programword
+                0x601035d0                loaddisplay
+                0x60103ed0                siprintf
+                0x60103988                atoi
+                0x60103b68                iscntrl
+                0x60103a58                fileno
+                0x60104010                strupr
+                0x601041e0                wcscat
+                0x60103b10                gmtime
+                0x60103fc8                strspn
+                0x60104280                wctob
+                0x601040e8                tempnam
+                0x60103800                SetBltPinCallback
+                0x60103f68                strlen
+                0x60103908                argz_append
+                0x60103708                GetBootVersion
+                0x60104078                open
+                0x60103560                fsize
+                0x60104108                toupper
+                0x60103998                atoll
+                0x601035e8                neto_transmit
+                0x60103b08                getw
+                0x60103940                argz_next
+                0x601039f8                div
+                0x601038e8                abs
+                0x60103f18                strchr
+                0x60104278                wcswidth
+                0x60103a88                fputs
+                0x60103928                argz_delete
+                0x60103828                ShowBMP
+                0x60104160                vasprintf
+                0x60104040                fcntl
+                0x60104138                tzset
+                0x60103c18                jrand48
+                0x60103790                putstring
+                0x60103528                downpressed
+                0x60103810                SetBackColor
+                0x60103620                resetreceive
+                0x601041d8                wcrtomb
+                0x60103e00                frexp
+                0x60103640                scannerpower
+                0x60104030                close
+                0x601035d8                neto_receive
+                0x60103608                putcom
+                0x60103848                ShowGIF
+                0x60103cc0                mbtowc
+                0x60104188                viprintf
+                0x60104178                vfprintf
+                0x60103fa8                strpbrk
+                0x60103670                setpixel
+                0x60103ec0                raise
+                0x60103c88                free
+                0x60103ca8                mbsinit
+                0x60104290                wctrans
+                0x60103700                GetOsVersion
+ .text          0x601042d0       0x8c c:/winarm/bin/../lib/gcc/arm-elf/4.0.1/thumb/interwork\libgcc.a(_udivsi3.o)
+                0x601042d0                __udivsi3
+                0x6010434c                __aeabi_uidivmod
+ .text          0x6010435c       0xa4 c:/winarm/bin/../lib/gcc/arm-elf/4.0.1/thumb/interwork\libgcc.a(_divsi3.o)
+                0x6010435c                __divsi3
+                0x601043f0                __aeabi_idivmod
+ .text          0x60104400       0xd8 c:/winarm/bin/../lib/gcc/arm-elf/4.0.1/thumb/interwork\libgcc.a(_modsi3.o)
+                0x60104400                __modsi3
+ .text          0x601044d8        0x4 c:/winarm/bin/../lib/gcc/arm-elf/4.0.1/thumb/interwork\libgcc.a(_dvmd_tls.o)
+                0x601044d8                __aeabi_ldiv0
+                0x601044d8                __div0
+                0x601044d8                __aeabi_idiv0
  *(.gnu.linkonce.t.*)
  *(.glue_7)
  *(.glue_7t)
  *(.gcc_except_table)
  *(.rodata)
- .rodata        0x60104270     0x2778 obj/demo.o
-                0x60104270                _fonts
-                0x60104674                _drive
-                0x60106492                _scan
-                0x60105a88                _version
-                0x60105280                _barcode
-                0x60106290                _scroll
-                0x6010507e                _memory
-                0x60104e7c                _flash
-                0x6010608e                _tools
-                0x60104472                _comport
-                0x60105684                _protocol
-                0x60105482                _display
-                0x60104876                _databits
-                0x60104c7a                _stop
-                0x60105886                _comp
-                0x60105e8c                _trash
-                0x60105c8a                _transmit
-                0x60104a78                _parity
- .rodata        0x601069e8       0x14 obj/input.o
- .rodata        0x601069fc      0x33c obj/menu.o
-                0x60106b36                _exitsign
-                0x601069fc                _uncheck
-                0x60106b00                _select
-                0x60106b22                _down_arrow
-                0x60106b2c                _up_arrow
-                0x60106a7e                _checked
- .rodata        0x60106d38      0x101 c:/winarm/bin/../lib/gcc/arm-elf/4.0.1/../../../../arm-elf/lib/thumb/interwork\libc.a(ctype_.o)
-                0x60106d38                _ctype_
- *fill*         0x60106e39        0x3 00
- .rodata        0x60106e3c        0x4 c:/winarm/bin/../lib/gcc/arm-elf/4.0.1/../../../../arm-elf/lib/thumb/interwork\libc.a(impure.o)
-                0x60106e3c                _global_impure_ptr
+ .rodata        0x601044dc     0x2778 obj/demo.o
+                0x601044dc                _fonts
+                0x601048e0                _drive
+                0x601066fe                _scan
+                0x60105cf4                _version
+                0x601054ec                _barcode
+                0x601064fc                _scroll
+                0x601052ea                _memory
+                0x601050e8                _flash
+                0x601062fa                _tools
+                0x601046de                _comport
+                0x601058f0                _protocol
+                0x601056ee                _display
+                0x60104ae2                _databits
+                0x60104ee6                _stop
+                0x60105af2                _comp
+                0x601060f8                _trash
+                0x60105ef6                _transmit
+                0x60104ce4                _parity
+ .rodata        0x60106c54       0x14 obj/input.o
+ .rodata        0x60106c68      0x33c obj/menu.o
+                0x60106da2                _exitsign
+                0x60106c68                _uncheck
+                0x60106d6c                _select
+                0x60106d8e                _down_arrow
+                0x60106d98                _up_arrow
+                0x60106cea                _checked
+ .rodata        0x60106fa4      0x101 c:/winarm/bin/../lib/gcc/arm-elf/4.0.1/../../../../arm-elf/lib/thumb/interwork\libc.a(ctype_.o)
+                0x60106fa4                _ctype_
+ *fill*         0x601070a5        0x3 00
+ .rodata        0x601070a8        0x4 c:/winarm/bin/../lib/gcc/arm-elf/4.0.1/../../../../arm-elf/lib/thumb/interwork\libc.a(impure.o)
+                0x601070a8                _global_impure_ptr
  *(.rodata*)
  .rodata.str1.4
-                0x60106e40      0x80c obj/demo.o
-                                0x81c (size before relaxing)
+                0x601070ac      0x8cc obj/demo.o
+                                0x8d8 (size before relaxing)
  .rodata.str1.4
-                0x6010764c        0xa obj/input.o
+                0x60107978        0xa obj/input.o
                                  0x1c (size before relaxing)
- *fill*         0x60107656        0x2 00
+ *fill*         0x60107982        0x2 00
  .rodata.str1.4
-                0x60107658       0x74 obj/menu.o
+                0x60107984       0x74 obj/menu.o
                                  0x8c (size before relaxing)
  .rodata.str1.4
-                0x601076cc        0x2 c:/winarm/bin/../lib/gcc/arm-elf/4.0.1/../../../../arm-elf/lib/thumb/interwork\libc.a(impure.o)
+                0x601079f8        0x2 c:/winarm/bin/../lib/gcc/arm-elf/4.0.1/../../../../arm-elf/lib/thumb/interwork\libc.a(impure.o)
                                   0x4 (size before relaxing)
  *(.gnu.linkonce.r.*)
-                0x601076d0                . = ALIGN (0x4)
-                0x601076d0                _program_end = .
+                0x601079fc                . = ALIGN (0x4)
+                0x601079fc                _program_end = .
 
-.data           0x62000000      0x418 load address 0x601076d0
+.data           0x62000000      0x418 load address 0x601079fc
                 0x62000000                _data = .
  *(.data)
  .data          0x62000000       0x10 startup.o
@@ -658,29 +662,29 @@ PROGRAM         0x601001a8     0x7526
                 0x62000418                . = ALIGN (0x4)
                 0x62000418                _edata = .
                 0x62000418                _ram_end = .
-                0x60107ae8                _code_end = ((_ram_end - _data) + _program_end)
+                0x60107e14                _code_end = ((_ram_end - _data) + _program_end)
 
-.bss            0x62000418     0x2210
+.bss            0x62000418     0x2670
                 0x62000418                _bss = .
  *(.bss)
- .bss           0x62000418     0x214c obj/demo.o
- .bss           0x62002564        0x8 obj/database.o
- .bss           0x6200256c       0x33 obj/input.o
- *fill*         0x6200259f        0x1 00
- .bss           0x620025a0       0x68 obj/menu.o
+ .bss           0x62000418     0x25ac obj/demo.o
+ .bss           0x620029c4        0x8 obj/database.o
+ .bss           0x620029cc       0x33 obj/input.o
+ *fill*         0x620029ff        0x1 00
+ .bss           0x62002a00       0x68 obj/menu.o
  *(.gnu.linkonce.b*)
  *(COMMON)
- COMMON         0x62002608       0x20 obj/demo.o
-                0x62002608                lDatabits
-                0x6200260c                lProtocol
-                0x62002610                lParity
-                0x62002614                lPort
-                0x62002618                lBarcodes
-                0x6200261c                lStopbits
-                0x62002620                lDrive
-                0x62002624                lBaudrate
-                0x62002628                . = ALIGN (0x4)
-                0x62002628                _ebss = .
+ COMMON         0x62002a68       0x20 obj/demo.o
+                0x62002a68                lDatabits
+                0x62002a6c                lProtocol
+                0x62002a70                lParity
+                0x62002a74                lPort
+                0x62002a78                lBarcodes
+                0x62002a7c                lStopbits
+                0x62002a80                lDrive
+                0x62002a84                lBaudrate
+                0x62002a88                . = ALIGN (0x4)
+                0x62002a88                _ebss = .
 OUTPUT(XPA30925.elf elf32-littlearm)
 
 .comment        0x00000000       0xa2
@@ -743,6 +747,7 @@ CreateDatabase                                    obj/database.o
 CreateIndexFile                                   obj/database.o
 DeleteDatabase                                    obj/demo.o
 DeleteRecord                                      obj/database.o
+                                                  obj/demo.o
 DisableInts                                       startup.o
 DrawCircle                                        startup.o
 DrawEllipse                                       startup.o
@@ -797,6 +802,7 @@ ScanBarcode                                       obj/input.o
 ScanBarcodeSymbol                                 obj/input.o
 ScanLabels                                        obj/demo.o
 ScanOrKeyboardInput                               obj/input.o
+                                                  obj/demo.o
 ScanOrKeyboardInputSymbol                         obj/input.o
 ScrollDatabase                                    obj/demo.o
 ScrollUp                                          startup.o
@@ -910,6 +916,7 @@ abort                                             startup.o
 abs                                               startup.o
 access                                            startup.o
 alarm                                             startup.o
+alert                                             obj/demo.o
 argz_add                                          startup.o
 argz_add_sep                                      startup.o
 argz_append                                       startup.o
@@ -969,9 +976,10 @@ cursor                                            startup.o
                                                   obj/demo.o
 delay                                             startup.o
                                                   obj/demo.o
+delete_last_entry                                 obj/demo.o
 detdatetime                                       startup.o
 difftime                                          startup.o
-diplay_input_data                                 obj/demo.o
+display_input_data                                obj/demo.o
 display_scroll_data                               obj/demo.o
 div                                               startup.o
 downloadapplication                               startup.o
@@ -1032,6 +1040,7 @@ ftello                                            startup.o
 fwrite                                            startup.o
                                                   obj/demo.o
 get_record                                        obj/demo.o
+get_record_count                                  obj/demo.o
 getc                                              startup.o
 getchar                                           startup.o
 getcom                                            startup.o
@@ -1119,6 +1128,7 @@ ldexp                                             startup.o
 ldexpf                                            startup.o
 ldiv                                              startup.o
 link                                              startup.o
+list_db_contents                                  obj/demo.o
 llabs                                             startup.o
 lldiv                                             startup.o
 loaddisplay                                       startup.o
@@ -1187,6 +1197,7 @@ programword                                       startup.o
 putc                                              startup.o
 putc_unlocked                                     startup.o
 putchar                                           startup.o
+                                                  obj/demo.o
 putchar_unlocked                                  startup.o
 putcom                                            startup.o
                                                   obj/demo.o

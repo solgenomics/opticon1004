@@ -207,6 +207,7 @@ static void store_key_in_string( int key, char* string, int max_len, int typ )
 		return;
 
 	ok = 0;
+
 	if( typ & INPUT_FLOAT )
 		ok = ( isdigit( key ) || ((strchr( string, '.') == NULL) && ( key == '.' )));
 	if( !ok && ( typ & INPUT_NUM ))
@@ -249,6 +250,12 @@ int KeyboardInput( char* string, int min_length, int max_length, int typ, int x,
 		if( ((key = WaitForKey()) == ENT_KEY ) && (strlen( string ) < min_length ))
 			continue;
 
+		
+		// map the slash to the F4 key
+		if (key == F4_KEY) { 
+		  key = '/';
+		}
+
 		if( check_key_input( key, num, key_list ) == OK )
 		{
 			va_end( key_list );	
@@ -256,6 +263,8 @@ int KeyboardInput( char* string, int min_length, int max_length, int typ, int x,
 			if( typ & INPUT_ALPHA || typ & INPUT_PRINT)
 				setecho( OFF );
 #endif
+		
+
 			cursor( OFF );
 			return( key );
 		}
@@ -267,7 +276,7 @@ int KeyboardInput( char* string, int min_length, int max_length, int typ, int x,
 			display_input( string, x, y, display_length, max_length );
 			continue;
 		}
-
+		
 		store_key_in_string( key,  string, max_length, typ );
 		display_input(string, x, y, display_length, max_length );
 	}
@@ -278,17 +287,22 @@ int KeyboardInput( char* string, int min_length, int max_length, int typ, int x,
 int ScanOrKeyboardInput( char* string, int min_length, int max_length, int typ, int x, int y, int display_length )
 {
 	int	key;
+
 	for(;;)
 	{
 		string[0] = '\0';
 		display_input( string, x, y, display_length, max_length );
+
 		if( ScanBarcode( string, min_length, max_length ) == OK )
 		{
 			display_input( string, x, y, display_length, max_length );
 			return( SCANNED ); // Input by scanning
 		}
 
-		key = KeyboardInput( string, min_length, max_length, typ, x, y, display_length, 4, TRIGGER_KEY, ENT_KEY, F1_KEY, CLR_KEY );
+		key = KeyboardInput( string, min_length, max_length, typ, x, y, display_length, 5, TRIGGER_KEY, ENT_KEY, F1_KEY, F4_KEY, CLR_KEY );
+		if (key == F4_KEY) { 
+		  key = '/';
+	        }
 		switch( key )
 		{
 			case ENT_KEY:

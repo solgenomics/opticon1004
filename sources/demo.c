@@ -524,16 +524,11 @@ void ScanLabels( void )
 	setfont( LARGE_FONT, NULL );
 	//printf("%s", "Scan :-)...");
 
-	printf("\fSCAN...");
-
+	// printf("\fSCAN...");
+	list_db_contents();
+	WaitForKey(); // don't turn laser on right away
 	for(;;)
 	{
-	
-	  
-		// Display some info first
-
-	  //     list_db_contents();
-
 	  int key =  ScanOrKeyboardInput( barcode, 1, SZ_BARCODE, INPUT_ALL, 0, DISP_LINES-2, GetMaxCharsXPos());
 	  if (key == CLR_KEY) { 
 	    return;
@@ -594,8 +589,8 @@ long get_record_count (void) {
     
     if ( !OpenDatabase( (char*)DBASE_NAME, SZ_RECORD, &dbFile )) { 
       gotoxy(0, DISP_LINES-1);
-      printf("%s", "ERROR! :-(");
-      WaitForKey();
+      //printf("%s", "ERROR! :-(");
+      //WaitForKey();
       return;
     }
     max_rec = GetTotalRecords( &dbFile );    
@@ -609,10 +604,18 @@ long get_record_count (void) {
 void list_db_contents(void) 
 {
   db_record db_rec;
+  static SDBFile dbFile; // static initializes all items to 0
   long max_rec = get_record_count();
 
   printf("\f");
 
+  if (!OpenDatabase( (char*)DBASE_NAME, SZ_RECORD, &dbFile )) { 
+    gotoxy(0, DISP_LINES-1);
+    printf("%s", "SCAN (empty db)");
+
+    return;
+  }
+  CloseDatabase(&dbFile);
   long MAX_LINE = DISP_LINES;
   if (max_rec < MAX_LINE) { 
     MAX_LINE = max_rec;
